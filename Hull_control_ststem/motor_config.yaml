@@ -1,0 +1,137 @@
+# 电机驱动配置参数
+# 基于STM32 PWM驱动模式，适配香橙派5
+
+# PWM配置
+pwm:
+  # PWM频率 (Hz) - STM32典型配置
+  frequency: 20000  # 20kHz，适用于电机控制
+
+  # PWM分辨率 (位数)
+  resolution: 16    # STM32定时器通常为16位
+
+  # PWM极性
+  polarity: "active_high"  # 高电平有效
+
+# 编码器配置
+encoder:
+  # 编码器类型
+  type: "incremental"
+
+  # 编码器分辨率 (线数/转)
+  resolution: 1000  # 每转1000个脉冲
+
+  # 编码器接口模式
+  mode: "quadrature"  # 正交解码模式
+
+  # 编码器计数方向
+  direction: "forward_high"  # 正向时A相领先B相
+
+# 电机控制参数
+motor:
+  # 电机极对数
+  pole_pairs: 7
+
+  # 最大转速 (RPM)
+  max_rpm: 6000
+
+  # 额定电流 (A)
+  rated_current: 5.0
+
+  # 电流采样电阻 (Ω)
+  shunt_resistor: 0.001  # 1mΩ
+
+  # 电流采样增益
+  current_gain: 50  # 运放增益
+
+# GPIO引脚定义 (香橙派5)
+# 注意：需要根据实际硬件连接调整
+gpio:
+  # PWM输出引脚
+  pwm_pin:
+    - "PA0"   # 通道1
+    - "PA1"   # 通道2
+    - "PA2"   # 通道3 (如有三路PWM)
+
+  # 编码器输入引脚 (A相/B相)
+  encoder_pin:
+    a: "PB0"
+    b: "PB1"
+
+  # 使能控制引脚
+  enable_pin: "PC13"
+
+  # 方向控制引脚 (如需要)
+  direction_pin: "PC14"
+
+  # 刹车引脚
+  brake_pin: "PC15"
+
+  # 故障检测引脚
+  fault_pin: "PA15"
+
+# 控制模式
+control_mode:
+  # 可用模式: "voltage", "torque", "speed", "position"
+  mode: "speed"  # 默认速度模式
+
+  # 速度环PID参数
+  speed_pid:
+    kp: 0.5
+    ki: 0.1
+    kd: 0.0
+    limit: 1000  # 输出限幅
+
+  # 电流环PID参数 (FOC模式)
+  current_pid:
+    d_pid:
+      kp: 0.3
+      ki: 0.05
+      kd: 0.0
+      limit: 50
+    q_pid:
+      kp: 0.3
+      ki: 0.05
+      kd: 0.0
+      limit: 50
+
+# 保护参数
+protection:
+  # 过流保护阈值 (A)
+  overcurrent_threshold: 10.0
+
+  # 过温保护阈值 (°C)
+  overtemperature_threshold: 85
+
+  # 欠压保护阈值 (V)
+  undervoltage_threshold: 18.0
+
+  # 过压保护阈值 (V)
+  overvoltage_threshold: 30.0
+
+  # 堵转保护时间 (ms)
+  stall_timeout: 1000
+
+# 通信接口 (如需要)
+communication:
+  # CAN配置
+  can:
+    enabled: true
+    bitrate: 500000  # 500kbps
+    mode: "normal"   # normal, loopback, silent
+
+  # UART配置 (调试用)
+  uart:
+    enabled: true
+    port: "/dev/ttyS0"
+    baudrate: 115200
+
+# 调试参数
+debug:
+  # 启用调试输出
+  enable_logging: true
+
+  # 日志级别: "DEBUG", "INFO", "WARNING", "ERROR"
+  log_level: "INFO"
+
+  # 数据记录频率 (Hz)
+  data_log_rate: 100
