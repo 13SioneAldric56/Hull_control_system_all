@@ -11,7 +11,8 @@
 """
 
 import RPi.GPIO as GPIO
-import PWM  # 香橙派PWM库 (需要安装)
+import subprocess
+import os
 import time
 import threading
 from enum import Enum
@@ -114,20 +115,87 @@ class MotorController:
             GPIO.setup(fault_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def _init_pwm(self):
-        """初始化PWM输出"""
+        """初始化PWM输出 - 香橙派5 sysfs实现"""
         self.pwm_channels = []
+        pwm_chip = self.pwm_cfg.get('pwm_chip', 0)  # PWM芯片编号
         pwm_pins = self.gpio_cfg['pwm_pin']
 
         for i, pin in enumerate(pwm_pins):
-            # 创建PWM通道 (需要根据香橙派5的实际PWM库调整)
-            # 假设有PWM库，频率和分辨率可配置
-            pwm = PWM.PWM(channel=i, frequency=self.pwm_cfg['frequency'])
-            pwm.start(0)  # 初始占空比0%
+            pwm_channel = i  # PWM通道号
+
+            # 通过sysfs导出PWM通道
+            pwm_path = f'/sys/class/pwm/pwmchip{pwm_chip}'
+            try:
+                with open(f'{pwm_path}/export', 'w') as f:
+                    f.write(str(pwm_channel))
+                time.sleep(0.1)  # 等待导出完成
+            except (IOError, PermissionError) as e:
+                print(f"导出PWM通道{pwm_channel}失败: {e}")
+
+            # 设置PWM通道目录
+            ch_path = f'{pwm_path}/pwm{pwm_channel}'
+
+            # 设置频率 (周期，单位：纳秒)
+            period_ns = int(1e9 / self.pwm_cfg['frequency'])
+            try:
+                with open(f'{ch_path}/period', 'w') as f:
+                    f.write(str(period_ns))
+            except (IOError, PermissionError) as e:
+                print(f"设置PWM周期失败: {e}")
+
+            # 设置初始占空比0%
+            try:
+                with open(f'{ch_path}/duty_cycle', 'w') as f:
+                    f.write('0')
+            except (IOError, PermissionError) as e:
+                print(f"设置PWM占空比失败: {e}")
+
+            # 设置极性 (normal)
+            try:
+                with open(f'{ch_path}/polarity', 'w') as f:
+                    f.write('normal')
+            except (IOError, PermissionError) as e:
+                pass  # 某些PWM通道可能不支持
+
+            # 使能PWM
+            try:
+                with open(f'{ch_path}/enable', 'w') as f:
+                    f.write('1')
+            except (IOError, PermissionError) as e:
+                print(f"使能PWM失败: {e}")
+
             self.pwm_channels.append({
-                'pwm': pwm,
-                'pin': pin,
-                'duty': 0.0
+                'chip': pwm_chip,
+                'channel': pwm_channel,
+                'path': ch_path,
+                'duty_ns': 0
             })
+
+    def _set_pwm_duty(self, duty_cycle: float):
+        """设置PWM占空比"""
+        # 假设单路PWM，双向控制需要H桥电路
+        # 正转：PWM通道输出占空比
+        # 反转：可能需要另一路PWM或方向引脚
+
+        if len(self.pwm_channels) >= 1:
+            ch = self.pwm_channels[0]
+
+            # 计算占空比对应的纳秒数
+            period_ns = int(1e9 / self.pwm_cfg['frequency'])
+            duty_ns = int(abs(duty_cycle) / 100.0 * period_ns)
+
+            # 写入占空比到sysfs
+            try:
+                with open(f"{ch['path']}/duty_cycle", 'w') as f:
+                    f.write(str(duty_ns))
+                ch['duty_ns'] = duty_ns
+            except (IOError, PermissionError) as e:
+                print(f"设置PWM占空比失败: {e}")
+
+            # 方向控制 - 通过GPIO控制H桥方向
+            if 'direction_pin' in self.gpio_cfg:
+                dir_pin = self._parse_gpio_pin(self.gpio_cfg['direction_pin'])
+                GPIO.output(dir_pin, GPIO.HIGH if duty_cycle >= 0 else GPIO.LOW)
 
     def _init_encoder(self):
         """初始化编码器接口"""
@@ -324,22 +392,6 @@ class MotorController:
         duty_cycle = max(-100, min(100, duty_cycle))
         self._set_pwm_duty(duty_cycle)
 
-    def _set_pwm_duty(self, duty_cycle: float):
-        """设置PWM占空比"""
-        # 假设单路PWM，双向控制需要H桥电路
-        # 正转：PWM通道输出占空比
-        # 反转：可能需要另一路PWM或方向引脚
-
-        if len(self.pwm_channels) >= 1:
-            pwm_ch = self.pwm_channels[0]
-            # 设置占空比 (0-100%)
-            pwm_ch['pwm'].setDutyCycle(abs(duty_cycle))
-
-            # 如有方向控制引脚
-            if 'direction_pin' in self.gpio_cfg:
-                dir_pin = self._parse_gpio_pin(self.gpio_cfg['direction_pin'])
-                GPIO.output(dir_pin, GPIO.HIGH if duty_cycle >= 0 else GPIO.LOW)
-
     def _check_protection(self):
         """检查保护条件"""
         # 读取故障引脚
@@ -416,9 +468,13 @@ class MotorController:
         self.control_thread.join(timeout=1.0)
         self.encoder_thread.join(timeout=1.0)
 
-        # 停止PWM
+        # 停止PWM - 通过sysfs禁用
         for ch in self.pwm_channels:
-            ch['pwm'].stop()
+            try:
+                with open(f"{ch['path']}/enable", 'w') as f:
+                    f.write('0')
+            except (IOError, PermissionError):
+                pass
 
         # 清理GPIO
         GPIO.cleanup()
