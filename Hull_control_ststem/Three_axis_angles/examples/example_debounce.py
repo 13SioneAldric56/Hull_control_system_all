@@ -5,7 +5,7 @@ DDM350B/DDM360B 消抖滤波示例
 对比卡尔曼滤波与简单消抖滤波（指数移动平均）的效果
 
 使用方法:
-    python example_debounce.py -p COM3
+    python example_debounce.py -p /dev/ttyS0
 
 按 Ctrl+C 退出程序
 """
@@ -132,7 +132,7 @@ def format_bar(value: float, max_val: float = 10.0, width: int = 15) -> str:
         return '|' + ' ' * (width - filled) + bar + '>'
 
 
-def run_debounce_demo(port: str = 'COM3', alpha: float = 0.2):
+def run_debounce_demo(port: str = '/dev/ttyS0', alpha: float = 0.2):
     """
     运行消抖滤波演示
 
@@ -203,7 +203,7 @@ def run_debounce_demo(port: str = 'COM3', alpha: float = 0.2):
         print(f"总共处理 {sample_count} 个样本")
 
 
-def run_compare_demo(port: str = 'COM3', count: int = 100, alpha: float = 0.2):
+def run_compare_demo(port: str = '/dev/ttyS0', count: int = 100, alpha: float = 0.2):
     """
     对比卡尔曼滤波与消抖滤波的效果
 
@@ -319,7 +319,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='DDM350B 消抖滤波示例')
-    parser.add_argument('-p', '--port', default='COM3', help='串口名 (默认: COM3)')
+    parser.add_argument('-p', '--port', default='/dev/ttyS0', help='串口名 (默认: /dev/ttyS0)')
     parser.add_argument('-a', '--alpha', type=float, default=0.2,
                         help='平滑系数 0.05-0.5, 越小越平滑 (默认: 0.2)')
     parser.add_argument('-m', '--mode', choices=['debounce', 'compare'],

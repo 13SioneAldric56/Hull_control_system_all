@@ -177,7 +177,7 @@ def usage_demo():
     # 方式4: 与 DDM350B 集成
     from angle_filter import process_ddm350b_data
 
-    compass = DDM350B('COM3')
+    compass = DDM350B('/dev/ttyS0')
     compass.connect()
     data = compass.read()
     filtered = process_ddm350b_data(data)

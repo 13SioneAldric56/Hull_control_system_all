@@ -11,7 +11,7 @@ def example_basic():
     print("示例1: 问答模式读取")
     print("=" * 50)
     
-    with DDM350B('COM3') as compass:
+    with DDM350B('/dev/ttyS0') as compass:
         if not compass.is_connected():
             print("无法连接到罗盘")
             return
@@ -65,7 +65,7 @@ def example_quick():
     print("=" * 50)
     
     # 单次读取
-    data = read_compass('COM3', mode=OutputMode.POLLING)
+    data = read_compass('/dev/ttyS0', mode=OutputMode.POLLING)
     if data:
         print(f"横滚角 (Roll): {data.roll:+.2f}°")
         print(f"俯仰角 (Pitch): {data.pitch:+.2f}°")
@@ -83,7 +83,7 @@ def example_calibration():
     print("=" * 50)
     print("提示: 校准时需要将罗盘水平放置并旋转360°")
     
-    compass = DDM350B('COM3')
+    compass = DDM350B('/dev/ttyS0')
     if not compass.connect():
         print("无法连接到罗盘")
         return
@@ -109,11 +109,11 @@ def example_calibration():
 if __name__ == "__main__":
     print("DDM350B/DDM360B 三维电子罗盘示例程序")
     print("-" * 50)
-    print("请根据实际串口号修改 COM3")
+    print("请根据实际串口号修改 /dev/ttyS0")
     print()
     
     # 运行所有示例
-    example_basic()
-    # example_continuous()  # 取消注释以运行连续读取示例
+    # example_basic()
+    example_continuous()  # 取消注释以运行连续读取示例
     # example_quick()       # 取消注释以运行快捷函数示例
     # example_calibration() # 取消注释以运行校准示例

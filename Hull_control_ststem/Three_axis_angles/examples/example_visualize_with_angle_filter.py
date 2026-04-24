@@ -5,7 +5,7 @@ DDM350B/DDM360B 三维姿态实时可视化 - 使用 angle_filter 模块
 三种数据并列对比：原始数据、卡尔曼滤波、角度滤波（angle_filter）
 
 使用方法:
-    python example_visualize_with_angle_filter.py -p COM3
+    python example_visualize_with_angle_filter.py -p /dev/ttyS0
 
 按 Ctrl+C 退出程序
 """
@@ -328,7 +328,7 @@ class AttitudeVisualizerWithAngleFilter:
             reset_filters()  # 重置滤波器状态
 
 
-def run_visualization(port: str = 'COM3', yaw_coeff: float = 0.15,
+def run_visualization(port: str = '/dev/ttyS0', yaw_coeff: float = 0.15,
                      pitch_coeff: float = 0.15, roll_coeff: float = 0.15,
                      max_points: int = 200):
     """
@@ -388,16 +388,16 @@ if __name__ == "__main__":
         epilog="""
 示例:
     # 使用默认参数
-    python example_visualize_with_angle_filter.py -p COM3
+    python example_visualize_with_angle_filter.py -p /dev/ttyS0
 
     # 调整滤波系数（更平滑）
-    python example_visualize_with_angle_filter.py -p COM3 --yaw-coeff 0.1 --pitch-coeff 0.1 --roll-coeff 0.1
+    python example_visualize_with_angle_filter.py -p /dev/ttyS0 --yaw-coeff 0.1 --pitch-coeff 0.1 --roll-coeff 0.1
 
     # 更灵敏的响应
-    python example_visualize_with_angle_filter.py -p COM3 --yaw-coeff 0.3
+    python example_visualize_with_angle_filter.py -p /dev/ttyS0 --yaw-coeff 0.3
         """
     )
-    parser.add_argument('-p', '--port', default='COM3', help='串口名 (默认: COM3)')
+    parser.add_argument('-p', '--port', default='/dev/ttyS0', help='串口名 (默认: /dev/ttyS0)')
     parser.add_argument('--yaw-coeff', type=float, default=0.15,
                        help='航向角滤波系数 (默认: 0.15)')
     parser.add_argument('--pitch-coeff', type=float, default=0.15,

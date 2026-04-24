@@ -191,7 +191,7 @@ def navigation_callback(position):
             print(f"方位: {nearest['bearing']:.1f}°({nearest['direction']})")
 
 # 启动GPS
-gps = GPSReader(port='COM3', baudrate=38400)
+gps = GPSReader(port='/dev/ttyS0', baudrate=38400)
 gps.start_reading(callback=navigation_callback)
 ```
 
@@ -330,7 +330,7 @@ from gps import GPSReader, GPSPosition
 from gps_navigation import GPSNavigation
 
 # 获取GPS数据
-gps = GPSReader(port='COM3', baudrate=38400)
+gps = GPSReader(port='/dev/ttyS0', baudrate=38400)
 
 def on_position(position: GPSPosition):
     # 使用position.latitude和position.longitude

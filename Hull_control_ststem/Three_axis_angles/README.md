@@ -14,7 +14,7 @@ pip install pyserial
 from ddm350b import DDM350B, OutputMode
 
 # 连接罗盘
-compass = DDM350B('COM3', baudrate=9600)
+compass = DDM350B('/dev/ttyS0', baudrate=9600)
 compass.connect()
 
 # 设置模式并读取
@@ -35,7 +35,7 @@ compass.disconnect()
 ```python
 from ddm350b import DDM350B, OutputMode
 
-with DDM350B('COM3') as compass:
+with DDM350B('/dev/ttyS0') as compass:
     compass.set_mode(OutputMode.POLLING)
     
     data = compass.read()
@@ -48,7 +48,7 @@ with DDM350B('COM3') as compass:
 ```python
 from ddm350b import read_compass, close
 
-data = read_compass('COM3')
+data = read_compass('/dev/ttyS0')
 if data:
     print(f"横滚={data.roll:.1f}° 俯仰={data.pitch:.1f}° 航向={data.heading:.1f}°")
 
@@ -60,7 +60,7 @@ close()
 ```python
 from ddm350b import DDM350B, OutputMode
 
-compass = DDM350B('COM3')
+compass = DDM350B('/dev/ttyS0')
 compass.connect()
 compass.set_mode(OutputMode.AUTO_10HZ)  # 10Hz自动输出
 
@@ -87,7 +87,7 @@ for data in compass.read_continuous(interval=0.1):
 #### `__init__(port, baudrate=9600, timeout=1.0)`
 初始化罗盘对象
 
-- `port`: 串口号，如 `'COM3'` 或 `'/dev/ttyUSB0'`
+- `port`: 串口号，如 `'/dev/ttyS0'` 或 `'/dev/ttyUSB0'`
 - `baudrate`: 波特率，默认 9600
 - `timeout`: 超时时间（秒）
 

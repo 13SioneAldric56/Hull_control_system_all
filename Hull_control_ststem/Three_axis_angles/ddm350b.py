@@ -6,12 +6,12 @@ DDM350B/DDM360B 三维电子罗盘 Python 接口
 使用示例:
     # 方式1: 快速读取
     from ddm350b import DDM350B
-    compass = DDM350B('COM3')
+    compass = DDM350B('/dev/ttyS0')
     compass.connect()
     roll, pitch, heading = compass.read()
     
     # 方式2: 自动输出模式
-    compass = DDM350B('COM3', mode='continuous_10hz')
+    compass = DDM350B('/dev/ttyS0', mode='continuous_10hz')
     compass.connect()
     for roll, pitch, heading in compass:
         print(f"R:{roll:.1f} P:{pitch:.1f} H:{heading:.1f}")
@@ -49,7 +49,7 @@ class DDM350B:
     DDM350B/DDM360B 三维电子罗盘接口类
     
     Attributes:
-        port: 串口名，如 'COM3' 或 '/dev/ttyUSB0'
+        port: 串口名，如 '/dev/ttyS0' 或 '/dev/ttyUSB0'
         baudrate: 波特率，默认 9600（与PDF文档一致）
         timeout: 串口超时时间（秒）
     """
@@ -378,7 +378,7 @@ class DDM350B:
 _global_compass: Optional[DDM350B] = None
 
 
-def read_compass(port: str = 'COM3', mode: OutputMode = OutputMode.POLLING) -> Optional[CompassData]:
+def read_compass(port: str = '/dev/ttyS0', mode: OutputMode = OutputMode.POLLING) -> Optional[CompassData]:
     """
     快捷读取函数
     
@@ -390,7 +390,7 @@ def read_compass(port: str = 'COM3', mode: OutputMode = OutputMode.POLLING) -> O
         CompassData(roll, pitch, heading) 或 None
         
     Example:
-        data = read_compass('COM3')
+        data = read_compass('/dev/ttyS0')
         if data:
             print(f"航向: {data.heading:.1f}°")
     """

@@ -5,23 +5,22 @@
 import time
 
 
-# ===================== 电机1 引脚定义（保留原有配置） =====================
+# ===================== 左轮 引脚定义 =====================
 LEFT_MOTOR = {
-    "pwm_gpio_num": 35,     # GPIO1_A3  PWM1_M2
+    "pwm_gpio_num": 59,     # GPIO2_C3  PWM0_M2
     "pwm_chip": "pwmchip0",
     "pwm_dev": "pwm0",
-    "in1": 52,             # GPIO1_C4  方向引脚1
-    "in2": 92,             # GPIO2_D4  方向引脚2
+    "in1": 92,             # GPIO2_D4  前进
+    "in2": 52,             # GPIO1_C4  后退
 }
 
-# ===================== 电机2 引脚定义（预留配置） =====================
-# 请根据实际硬件连接修改以下引脚
+# ===================== 右轮 引脚定义 =====================
 RIGHT_MOTOR = {
-    "pwm_gpio_num": 33,     # GPIO1_A1  PWM0_M2（预留）
-    "pwm_chip": "pwmchip3",
-    "pwm_dev": "pwm1",      # 使用第二个 PWM 通道
-    "in1": 48,              # GPIO2_B0  方向引脚1（预留）
-    "in2": 50,              # GPIO2_B1  方向引脚2（预留）
+    "pwm_gpio_num": 50,     # GPIO1_D2  PWM2_M2
+    "pwm_chip": "pwmchip2",
+    "pwm_dev": "pwm0",
+    "in1": 49,              # GPIO1_D1  前进
+    "in2": 48,              # GPIO1_D0  后退
 }
 
 PERIOD_NS = 50000  # 20kHz 周期

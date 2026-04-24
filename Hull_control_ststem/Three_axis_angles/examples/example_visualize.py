@@ -5,7 +5,7 @@ DDM350B/DDM360B 三维姿态实时可视化
 三种数据并列对比：原始数据、卡尔曼滤波、消抖滤波
 
 使用方法:
-    python example_visualize.py -p COM3
+    python example_visualize.py -p /dev/ttyS0
 
 按 Ctrl+C 退出程序
 """
@@ -335,7 +335,7 @@ class AttitudeVisualizer:
             compass.disconnect()
 
 
-def run_visualization(port: str = 'COM3', alpha: float = 0.2, max_points: int = 200):
+def run_visualization(port: str = '/dev/ttyS0', alpha: float = 0.2, max_points: int = 200):
     """
     运行三维可视化
 
@@ -380,7 +380,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='DDM350B 三维姿态可视化')
-    parser.add_argument('-p', '--port', default='COM3', help='串口名 (默认: COM3)')
+    parser.add_argument('-p', '--port', default='/dev/ttyS0', help='串口名 (默认: /dev/ttyS0)')
     parser.add_argument('-a', '--alpha', type=float, default=0.2,
                         help='消抖系数 (默认: 0.2)')
     parser.add_argument('-n', '--points', type=int, default=200,

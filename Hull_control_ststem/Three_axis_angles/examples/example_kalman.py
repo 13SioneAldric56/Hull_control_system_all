@@ -30,7 +30,7 @@ def format_bar(value: float, max_val: float = 10.0, width: int = 20) -> str:
         return '|' + ' ' * (width - filled) + bar + '>'
 
 
-def run_kalman_demo(port: str = 'COM3', interval: float = 0.1):
+def run_kalman_demo(port: str = '/dev/ttyS0', interval: float = 0.1):
     """
     运行卡尔曼滤波演示
 
@@ -126,7 +126,7 @@ def run_kalman_demo(port: str = 'COM3', interval: float = 0.1):
         print(f"总共处理 {sample_count} 个样本")
 
 
-def run_adaptive_demo(port: str = 'COM3', interval: float = 0.1):
+def run_adaptive_demo(port: str = '/dev/ttyS0', interval: float = 0.1):
     """
     运行自适应卡尔曼滤波演示
 
@@ -194,7 +194,7 @@ def run_adaptive_demo(port: str = 'COM3', interval: float = 0.1):
         compass.disconnect()
 
 
-def run_compare_demo(port: str = 'COM3', count: int = 50, interval: float = 0.1):
+def run_compare_demo(port: str = '/dev/ttyS0', count: int = 50, interval: float = 0.1):
     """
     对比原始数据和滤波后数据
 
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='DDM350B 卡尔曼滤波示例')
-    parser.add_argument('-p', '--port', default='COM3', help='串口名 (默认: COM3)')
+    parser.add_argument('-p', '--port', default='/dev/ttyS0', help='串口名 (默认: /dev/ttyS0)')
     parser.add_argument('-i', '--interval', type=float, default=0.1, help='读取间隔秒数 (默认: 0.1)')
     parser.add_argument('-m', '--mode', choices=['kalman', 'adaptive', 'compare'],
                         default='kalman', help='运行模式')

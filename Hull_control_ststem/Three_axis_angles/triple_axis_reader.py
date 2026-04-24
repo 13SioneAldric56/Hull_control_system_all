@@ -115,15 +115,15 @@ class TripleAxisReader:
     
     使用示例:
         # 方式1: 函数式调用
-        axis_angles = axis(port='COM3', model=1)
+        axis_angles = axis(port='/dev/ttyS0', model=1)
         
         # 方式2: 面向对象
-        with TripleAxisReader('COM3') as reader:
+        with TripleAxisReader('/dev/ttyS0') as reader:
             reader.set_mode(1)
             angles = reader.read()
     """
     
-    def __init__(self, port: str = 'COM3', baudrate: int = 115200, timeout: float = 1.0):
+    def __init__(self, port: str = '/dev/ttyS0', baudrate: int = 115200, timeout: float = 1.0):
         self.port = port
         self.baudrate = baudrate
         self.timeout = timeout
@@ -233,7 +233,7 @@ class TripleAxisReader:
 _global_sensor: Optional[TripleAxisReader] = None
 
 
-def axis(port: str = 'COM3', baudrate: int = 115200, model: int = 4,
+def axis(port: str = '/dev/ttyS0', baudrate: int = 115200, model: int = 4,
          timeout: float = 0.1) -> Optional[Tuple[float, float, float]]:
     """
     读取三轴角度的便捷函数
@@ -276,7 +276,7 @@ def axis(port: str = 'COM3', baudrate: int = 115200, model: int = 4,
     return _global_sensor.read(timeout=timeout)
 
 
-def axis_continuous(port: str = 'COM3', baudrate: int = 115200, model: int = 4,
+def axis_continuous(port: str = '/dev/ttyS0', baudrate: int = 115200, model: int = 4,
                     count: int = 10, interval: float = 0.01) -> List[Tuple[float, float, float]]:
     """
     连续读取多组三轴角度
@@ -316,7 +316,7 @@ def flush_and_clear(ser: serial.Serial):
     print("  └ 包缓冲区已清除")
 
 
-def read_serial_data(port: str = 'COM3', baudrate: int = 115200,
+def read_serial_data(port: str = '/dev/ttyS0', baudrate: int = 115200,
                      request_cmd: bytes = b'\x68\x04\x00\x04\x08',
                      request_interval: float = 0.05):
     """持续发送请求并解析数据"""
@@ -432,7 +432,7 @@ if __name__ == "__main__":
     print("=" * 60 + "\n")
     
     read_serial_data(
-        port='COM3',
+        port='/dev/ttyS0',
         baudrate=115200,
         request_cmd=b'\x68\x04\x00\x04\x08',
         request_interval=0.05

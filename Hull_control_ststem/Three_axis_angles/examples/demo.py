@@ -20,7 +20,7 @@ import time
 
 def get_com_port():
     """获取串口号（可在运行前修改）"""
-    return 'COM3'
+    return '/dev/ttyS0'
 
 
 def example_1_polling_mode():

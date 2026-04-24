@@ -27,27 +27,27 @@ def test_basic_movement(driver: DifferentialDrive):
     print("【测试1】基础运动测试")
     print("=" * 60)
 
-    # 测试直行
+    #测试直行
     print("\n▶ 测试直行...")
-    driver.forward(40)
+    driver.forward(80)
     wait(2, "直行 40% 速度，持续 2 秒")
 
-    # 加速
-    print("\n▶ 测试加速...")
-    driver.forward(70)
-    wait(2, "加速到 70% 速度，持续 2 秒")
+    # # 加速
+    # print("\n▶ 测试加速...")
+    # driver.forward(70)
+    # wait(2, "加速到 70% 速度，持续 2 秒")
 
-    # 刹车停止
-    print("\n▶ 测试刹车停止...")
-    driver.stop(brake=True)
-    wait(1, "刹车急停，持续 1 秒")
+    # # 刹车停止
+    # print("\n▶ 测试刹车停止...")
+    # driver.stop(brake=True)
+    # wait(1, "刹车急停，持续 1 秒")
 
-    # 滑行停止
-    print("\n▶ 测试滑行停止...")
-    driver.forward(60)
-    wait(1.5, "直行 60% 速度")
-    driver.stop(brake=False)
-    wait(1, "滑行缓停，持续 1 秒")
+    # # 滑行停止
+    # print("\n▶ 测试滑行停止...")
+    # driver.forward(60)
+    # wait(1.5, "直行 60% 速度")
+    # driver.stop(brake=False)
+    # wait(1, "滑行缓停，持续 1 秒")
 
     print("\n✅ 基础运动测试完成")
 
@@ -74,19 +74,19 @@ def test_spin_turns(driver: DifferentialDrive):
     print("【测试3】原地旋转测试")
     print("=" * 60)
 
-    # 原地左转
+    # # 原地左转
     print("\n▶ 原地左旋转...")
-    driver.spin_left(50)
-    wait(2, "原地左转 50% 速度，持续 2 秒")
+    driver.spin_left(20)
+    wait(30, "原地左转 50% 速度，持续 2 秒")
     driver.stop()
     wait(0.5)
 
     # 原地右转
-    print("\n▶ 原地右旋转...")
-    driver.spin_right(50)
-    wait(2, "原地右转 50% 速度，持续 2 秒")
-    driver.stop()
-    wait(0.5)
+    # print("\n▶ 原地右旋转...")
+    # driver.spin_right(50)
+    # wait(2, "原地右转 50% 速度，持续 2 秒")
+    # driver.stop()
+    # wait(0.5)
 
     print("\n✅ 原地旋转测试完成")
 
@@ -189,9 +189,9 @@ def test_comprehensive_movement(driver: DifferentialDrive):
 
     route = [
         ("forward", 60, 2, "直行 2 秒"),
-        ("turn_left", 50, 1.5, "左转 1.5 秒"),
+        ("turn_left", 60, 3, "左转 1.5 秒"),
         ("forward", 60, 3, "直行 3 秒"),
-        ("turn_right", 50, 1.5, "右转 1.5 秒"),
+        ("turn_right", 60, 1.5, "右转 1.5 秒"),
         ("forward", 60, 2, "直行 2 秒"),
         ("spin_left", 50, 1, "原地左转 1 秒"),
         ("forward", 60, 2, "直行 2 秒"),
@@ -263,7 +263,7 @@ def main():
 
     print("正在初始化双电机驱动...")
     try:
-        driver = create_dual_motor_driver(base_speed=50)
+        driver = create_dual_motor_driver(base_speed=10)
     except Exception as e:
         print(f"\n❌ 初始化失败: {e}")
         print("请检查引脚配置是否正确")
@@ -274,12 +274,12 @@ def main():
 
     try:
         # 逐一运行测试
-        test_basic_movement(driver)
-        test_backward(driver)
-        test_spin_turns(driver)
-        test_differential_turns(driver)
-        test_spin_variants(driver)
-        test_custom_turn(driver)
+        #test_basic_movement(driver)
+        #test_backward(driver)
+        #test_spin_turns(driver)
+        #test_differential_turns(driver)
+        #test_spin_variants(driver)
+        #test_custom_turn(driver)
         test_comprehensive_movement(driver)
 
         # 最终停止

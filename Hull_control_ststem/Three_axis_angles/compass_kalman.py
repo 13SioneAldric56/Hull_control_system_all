@@ -9,7 +9,7 @@ DDM350B/DDM360B 三维电子罗盘卡尔曼滤波模块
     from ddm350b import DDM350B, CompassData
 
     kf = CompassKalmanFilter(process_noise=0.001, measurement_noise=0.1)
-    compass = DDM350B('COM3')
+    compass = DDM350B('/dev/ttyS0')
     compass.connect()
 
     for _ in range(100):
@@ -24,7 +24,7 @@ DDM350B/DDM360B 三维电子罗盘卡尔曼滤波模块
 
     # 方式3: 快捷函数
     from compass_kalman import filtered_read
-    data = filtered_read('COM3', process_noise=0.001, measurement_noise=0.1)
+    data = filtered_read('/dev/ttyS0', process_noise=0.001, measurement_noise=0.1)
 """
 
 import numpy as np
@@ -311,7 +311,7 @@ _global_compass = None
 
 
 def filtered_read(
-    port: str = 'COM3',
+    port: str = '/dev/ttyS0',
     process_noise: float = 0.001,
     measurement_noise: float = 0.1,
     use_adaptive: bool = False
@@ -386,7 +386,7 @@ class ContinuousFilteredReader:
     连续读取并滤波的生成器类
 
     使用示例:
-        reader = ContinuousFilteredReader('COM3', process_noise=0.001)
+        reader = ContinuousFilteredReader('/dev/ttyS0', process_noise=0.001)
         for filtered_data in reader:
             print(filtered_data.heading)
         reader.close()
@@ -394,7 +394,7 @@ class ContinuousFilteredReader:
 
     def __init__(
         self,
-        port: str = 'COM3',
+        port: str = '/dev/ttyS0',
         process_noise: float = 0.001,
         measurement_noise: float = 0.1,
         use_adaptive: bool = False,
@@ -448,7 +448,7 @@ class ContinuousFilteredReader:
 
 
 def continuous_filtered_read(
-    port: str = 'COM3',
+    port: str = '/dev/ttyS0',
     count: Optional[int] = None,
     process_noise: float = 0.001,
     measurement_noise: float = 0.1,
@@ -468,7 +468,7 @@ def continuous_filtered_read(
         List[FilteredCompassData]
 
     Example:
-        results = continuous_filtered_read('COM3', count=100)
+        results = continuous_filtered_read('/dev/ttyS0', count=100)
     """
     import time
     try:

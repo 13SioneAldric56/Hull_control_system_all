@@ -27,7 +27,7 @@ def example_basic():
     print("=" * 50)
 
     # 直接调用 axis 函数读取数据
-    angles = axis(port='COM3', baudrate=115200, model=4)
+    angles = axis(port='/dev/ttyS0', baudrate=115200, model=4)
 
     if angles:
         x, y, z = angles
@@ -49,7 +49,7 @@ def example_continuous():
 
     # 读取10组数据，间隔10ms
     data = axis_continuous(
-        port='COM3',
+        port='/dev/ttyS0',
         baudrate=115200,
         model=4,           # 100Hz模式
         count=10,          # 读取10组
@@ -70,7 +70,7 @@ def example_oop_style():
     print("=" * 50)
 
     # 使用 with 语句自动管理资源
-    with TripleAxisReader('COM3', baudrate=115200) as reader:
+    with TripleAxisReader('/dev/ttyS0', baudrate=115200) as reader:
         # 设置为100Hz模式
         reader.set_mode(4)
 
@@ -90,7 +90,7 @@ def example_polling_mode():
     print("示例4: 问答模式(模式0)")
     print("=" * 50)
 
-    with TripleAxisReader('COM3', baudrate=115200) as reader:
+    with TripleAxisReader('/dev/ttyS0', baudrate=115200) as reader:
         reader.set_mode(SensorMode.POLLING)  # 或 mode=0
 
         for i in range(5):
@@ -107,7 +107,7 @@ def example_history():
     print("示例5: 历史数据管理")
     print("=" * 50)
 
-    with TripleAxisReader('COM3', baudrate=115200) as reader:
+    with TripleAxisReader('/dev/ttyS0', baudrate=115200) as reader:
         reader.set_mode(4)
 
         # 连续读取
@@ -148,7 +148,7 @@ def example_loop_read():
     print("-" * 40)
 
     try:
-        with TripleAxisReader('COM3', baudrate=115200) as reader:
+        with TripleAxisReader('/dev/ttyS0', baudrate=115200) as reader:
             reader.set_mode(4)
 
             while True:

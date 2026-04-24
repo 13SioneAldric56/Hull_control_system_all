@@ -280,13 +280,13 @@ class NMEAParser:
 class GPSReader:
     """GPS串口读取器"""
 
-    def __init__(self, port: str = 'COM3', baudrate: int = 9600,
+    def __init__(self, port: str = '/dev/ttyS0', baudrate: int = 9600,
                  timeout: int = 1, nmea_version: str = '4.11'):
         """
         初始化GPS读取器
 
         Args:
-            port: 串口号 (如 COM3)
+            port: 串口号 (如 /dev/ttyS0)
             baudrate: 波特率 (NMEA通常使用9600)
             timeout: 读取超时(秒)
             nmea_version: NMEA协议版本
@@ -435,7 +435,7 @@ def main():
     print("=" * 60)
 
     # 创建GPS读取器
-    gps = GPSReader(port='COM3', baudrate=38400)
+    gps = GPSReader(port='/dev/ttyS0', baudrate=38400)
 
     # 方式1: 使用回调函数(非阻塞)
     print("\n方式1: 启动后台读取(按Ctrl+C停止)...")

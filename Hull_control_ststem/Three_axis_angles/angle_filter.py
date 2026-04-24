@@ -389,7 +389,7 @@ def process_ddm350b_data(compass_data) -> FilteredAngleData:
         from ddm350b import DDM350B
         from angle_filter import process_ddm350b_data
 
-        compass = DDM350B('COM3')
+        compass = DDM350B('/dev/ttyS0')
         compass.connect()
 
         data = compass.read()

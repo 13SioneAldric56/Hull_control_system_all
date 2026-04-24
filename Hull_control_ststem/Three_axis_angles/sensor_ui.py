@@ -128,7 +128,7 @@ class SensorApp:
         self.root.resizable(False, False)
         
         # 串口配置
-        self.serial_port = tk.StringVar(value='COM3')
+        self.serial_port = tk.StringVar(value='/dev/ttyS0')
         self.baudrate = tk.IntVar(value=115200)
         self.ser = None
         self.running = False
@@ -203,7 +203,7 @@ class SensorApp:
         port_frame.pack(side="left", padx=5)
         tk.Label(port_frame, text="端口:", bg="#fff3e0").pack(side="left")
         self.port_combo = ttk.Combobox(port_frame, textvariable=self.serial_port,
-                                        values=["COM1", "COM2", "COM3", "COM4", "COM5",
+                                        values=["COM1", "COM2", "/dev/ttyS0", "COM4", "COM5",
                                                 "COM6", "COM7", "COM8", "COM9", "COM10"],
                                         width=8, state="readonly")
         self.port_combo.pack(side="left", padx=3)
