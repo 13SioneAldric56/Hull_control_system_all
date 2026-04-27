@@ -38,13 +38,13 @@ class NMEAParser:
 
     # NMEA语句类型
     SENTENCE_TYPES = {
-        'GGA': '_parse_gga',
-        'GSA': '_parse_gsa',
-        'GSV': '_parse_gsv',
-        'RMC': '_parse_rmc',
-        'VTG': '_parse_vtg',
-        'GLL': '_parse_gll',
-        'TXT': '_parse_txt',
+        'GPGGA': '_parse_gga', 'GAGGA': '_parse_gga', 'GBGGA': '_parse_gga', 'GNGGA': '_parse_gga',
+        'GPGSA': '_parse_gsa', 'GAGSA': '_parse_gsa', 'GBGSA': '_parse_gsa', 'GNGSA': '_parse_gsa',
+        'GPGSV': '_parse_gsv', 'GAGSV': '_parse_gsv', 'GBGSV': '_parse_gsv', 'GQGSV': '_parse_gsv', 'GLGSV': '_parse_gsv',
+        'GPRMC': '_parse_rmc', 'GARMC': '_parse_rmc', 'GBRMC': '_parse_rmc', 'GNRMC': '_parse_rmc',
+        'GPVTG': '_parse_vtg', 'GAVTG': '_parse_vtg', 'GBVTG': '_parse_vtg', 'GNVTG': '_parse_vtg',
+        'GPGLL': '_parse_gll', 'GAGLL': '_parse_gll', 'GBGLL': '_parse_gll', 'GNGLL': '_parse_gll',
+        'GPTXT': '_parse_txt', 'GATXT': '_parse_txt', 'GBTXT': '_parse_txt', 'GNTXT': '_parse_txt',
     }
 
     def __init__(self):
@@ -249,8 +249,9 @@ class NMEAParser:
         if not sentence.startswith('$'):
             return False
 
-        if not self._verify_checksum(sentence):
-            return False
+        # 跳过校验和验证（部分GPS模块输出校验和可能有误）
+        # if not self._verify_checksum(sentence):
+        #     return False
 
         try:
             # 移除$和校验和部分
@@ -280,13 +281,13 @@ class NMEAParser:
 class GPSReader:
     """GPS串口读取器"""
 
-    def __init__(self, port: str = '/dev/ttyS0', baudrate: int = 9600,
+    def __init__(self, port: str = 'COM3', baudrate: int = 9600,
                  timeout: int = 1, nmea_version: str = '4.11'):
         """
         初始化GPS读取器
 
         Args:
-            port: 串口号 (如 /dev/ttyS0)
+            port: 串口号 (如 COM3)
             baudrate: 波特率 (NMEA通常使用9600)
             timeout: 读取超时(秒)
             nmea_version: NMEA协议版本
@@ -435,7 +436,7 @@ def main():
     print("=" * 60)
 
     # 创建GPS读取器
-    gps = GPSReader(port='/dev/ttyS0', baudrate=38400)
+    gps = GPSReader(port='/dev/ttyS1', baudrate=38400)
 
     # 方式1: 使用回调函数(非阻塞)
     print("\n方式1: 启动后台读取(按Ctrl+C停止)...")

@@ -345,3 +345,11 @@ gps.start_reading(callback=on_position)
 ## License
 
 MIT License
+
+# 农庄 坐标 
+113.581055
+22.336825
+
+#公司楼下 坐标
+113.539615
+22.400980

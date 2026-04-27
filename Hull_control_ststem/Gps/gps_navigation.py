@@ -10,6 +10,14 @@ from typing import Tuple, List, Dict, Any, Optional
 from dataclasses import dataclass
 
 
+# ==================== 目标经纬度配置 ====================
+# 修改这里的 TARGET_LATITUDE 和 TARGET_LONGITUDE 来设置目标点
+TARGET_LATITUDE: float = 0.0   # 目标纬度(度)
+TARGET_LONGITUDE: float = 0.0  # 目标经度(度)
+TARGET_NAME: str = "目标点"      # 目标点名称
+# ==================== 配置结束 ====================
+
+
 @dataclass
 class NavigationResult:
     """导航结果"""
@@ -48,6 +56,7 @@ class GPSNavigation:
         """
         self.home_lat = home_lat
         self.home_lon = home_lon
+        self.target_name = TARGET_NAME  # 使用配置中的目标名称
         self.waypoints: List[Waypoint] = []  # 航点列表
 
     def set_home(self, latitude: float, longitude: float) -> None:
@@ -60,6 +69,40 @@ class GPSNavigation:
         """
         self.home_lat = latitude
         self.home_lon = longitude
+
+    def set_target(self, latitude: float, longitude: float, name: str = "目标点") -> None:
+        """
+        设置导航目标点
+
+        Args:
+            latitude: 目标纬度(度)
+            longitude: 目标经度(度)
+            name: 目标点名称
+        """
+        self.home_lat = latitude
+        self.home_lon = longitude
+        self.target_name = name
+
+    def get_target(self) -> Tuple[float, float, str]:
+        """
+        获取当前目标点信息
+
+        Returns:
+            (纬度, 经度, 名称)
+        """
+        return (self.home_lat, self.home_lon, getattr(self, 'target_name', '目标点'))
+
+    @staticmethod
+    def create_from_gps(position) -> 'GPSNavigation':
+        """
+        从GPSPosition对象创建导航器（使用目标经纬度配置）
+
+        Returns:
+            配置好的GPSNavigation实例
+        """
+        nav = GPSNavigation(home_lat=TARGET_LATITUDE, home_lon=TARGET_LONGITUDE)
+        nav.target_name = TARGET_NAME
+        return nav
 
     @staticmethod
     def calculate_distance(lat1: float, lon1: float,
@@ -469,6 +512,75 @@ def create_navigation_target(name: str, latitude: float, longitude: float
         'latitude': latitude,
         'longitude': longitude
     }
+
+
+def navigate_to_target(position, target_lat: float = None,
+                       target_lon: float = None,
+                       target_name: str = None) -> NavigationResult:
+    """
+    使用GPSPosition对象进行导航计算
+
+    Args:
+        position: GPSPosition对象（来自gps.py）
+        target_lat: 目标纬度，默认为配置文件中的TARGET_LATITUDE
+        target_lon: 目标经度，默认为配置文件中的TARGET_LONGITUDE
+        target_name: 目标名称，默认为配置文件中的TARGET_NAME
+
+    Returns:
+        NavigationResult: 导航结果
+    """
+    if target_lat is None:
+        target_lat = TARGET_LATITUDE
+    if target_lon is None:
+        target_lon = TARGET_LONGITUDE
+    if target_name is None:
+        target_name = TARGET_NAME
+
+    return GPSNavigation.navigation_between(
+        position.latitude,
+        position.longitude,
+        target_lat,
+        target_lon
+    )
+
+
+def print_navigation_info(position, target_lat: float = None,
+                          target_lon: float = None,
+                          target_name: str = None) -> NavigationResult:
+    """
+    打印导航信息（用于调试）
+
+    Args:
+        position: GPSPosition对象（来自gps.py）
+        target_lat: 目标纬度，默认为配置文件中的TARGET_LATITUDE
+        target_lon: 目标经度，默认为配置文件中的TARGET_LONGITUDE
+        target_name: 目标名称，默认为配置文件中的TARGET_NAME
+
+    Returns:
+        NavigationResult: 导航结果
+    """
+    if target_lat is None:
+        target_lat = TARGET_LATITUDE
+    if target_lon is None:
+        target_lon = TARGET_LONGITUDE
+    if target_name is None:
+        target_name = TARGET_NAME
+
+    result = navigate_to_target(position, target_lat, target_lon, target_name)
+    direction = GPSNavigation.get_cardinal_direction(result.bearing)
+
+    print(f"\n{'='*60}")
+    print(f"GPS导航信息")
+    print(f"{'='*60}")
+    print(f"当前位置: ({position.latitude:.6f}°, {position.longitude:.6f}°)")
+    print(f"目标位置: {target_name} ({target_lat:.6f}°, {target_lon:.6f}°)")
+    print(f"距离: {result.distance:.1f}米 ({result.distance_km:.3f}公里)")
+    print(f"方位角: {result.bearing:.1f}° ({direction})")
+    print(f"东向位移: {result.east_distance:.1f}米")
+    print(f"北向位移: {result.north_distance:.1f}米")
+    print(f"{'='*60}")
+
+    return result
 
 
 def main():
