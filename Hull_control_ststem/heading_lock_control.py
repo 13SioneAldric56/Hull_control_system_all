@@ -253,21 +253,16 @@ class HeadingLockController:
         }
 
         self._gps_enabled = False
-        self._gps_reader: Optional[GPSReader] = None
         self._gps_navigation: Optional[GPSNavigationController] = None
         self._target_lat: Optional[float] = None
         self._target_lon: Optional[float] = None
-        self._position_lock = threading.Lock()
-        self._current_gps_position: Optional[GPSPosition] = None
+        self._gps_bearing: float = 0.0
+        self._gps_distance: float = float('inf')
+        self._calibration_heading: float = 0.0
 
-    def _on_gps_update(self, position: GPSPosition):
-        """GPS数据回调"""
-        with self._position_lock:
-            self._current_gps_position = position
-
-    def _init_gps(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
+    def _init_gps_navigation(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
         """
-        初始化GPS模块
+        初始化GPS导航控制器（使用gps_navigation_controller.py）
 
         Args:
             gps_port: GPS串口路径
@@ -277,43 +272,59 @@ class HeadingLockController:
             是否成功
         """
         if not GPS_AVAILABLE:
-            print("[GPS] GPS模块不可用，请检查 Gps/gps.py 是否存在")
+            print("[GPS] GPSNavigationController不可用，请检查 Gps/gps_navigation_controller.py 是否存在")
             return False
 
         try:
-            self._gps_reader = GPSReader(port=gps_port, baudrate=gps_baudrate)
-            if not self._gps_reader.connect():
-                print(f"[GPS] 无法连接到GPS {gps_port}")
-                return False
-
-            self._gps_reader.start_reading(callback=self._on_gps_update, debug=False)
-            self._gps_enabled = True
-            print(f"[GPS] 已连接到 {gps_port}, 波特率: {gps_baudrate}")
+            self._gps_navigation = GPSNavigationController(
+                target_lat=self._target_lat or 0.0,
+                target_lon=self._target_lon or 0.0,
+                compass_port=self.compass_port,
+                gps_port=gps_port,
+                gps_baudrate=gps_baudrate,
+                calibration_speed=self.base_speed
+            )
+            print(f"[GPS] GPSNavigationController已初始化")
             return True
 
         except Exception as e:
-            print(f"[GPS] GPS初始化失败: {e}")
+            print(f"[GPS] GPSNavigationController初始化失败: {e}")
             return False
 
-    def _wait_for_gps_fix(self, timeout: float = 30.0) -> bool:
-        """等待GPS定位成功"""
-        if not self._gps_enabled:
+    def _calibrate_with_gps(self, duration: float = 2.0) -> bool:
+        """
+        使用GPS导航控制器校准车头方向
+
+        Args:
+            duration: 前进校准时间(秒)
+
+        Returns:
+            是否成功
+        """
+        if not self._gps_navigation:
             return False
 
-        print(f"[GPS] 等待GPS定位 (超时{timeout}秒)...")
-        start_time = time.time()
+        print(f"[GPS] 开始校准车头方向 (前进{duration}秒)...")
 
-        while time.time() - start_time < timeout:
-            with self._position_lock:
-                if self._current_gps_position and self._current_gps_position.fix_quality > 0:
-                    pos = self._current_gps_position
-                    print(f"[GPS] 定位成功: {pos.latitude:.6f}°, {pos.longitude:.6f}°")
-                    print(f"[GPS] 定位质量: {pos.fix_quality}, 卫星数: {pos.num_satellites}")
-                    return True
-            time.sleep(0.5)
+        if not self._gps_navigation._calibrate_heading():
+            print("[GPS] 车头校准失败")
+            return False
 
-        print("[GPS] GPS定位超时")
-        return False
+        self._calibration_heading = self._gps_navigation._calibration_heading
+        print(f"[GPS] 车头方向已校准: {self._calibration_heading:.1f}°")
+        return True
+
+    def update_gps_navigation(self):
+        """更新GPS导航状态（从GPSNavigationController获取航向角）"""
+        if not self._gps_navigation or not self._gps_navigation._is_initialized:
+            return
+
+        self._gps_navigation._update_navigation()
+        state = self._gps_navigation._state
+
+        self._gps_bearing = state.bearing_angle
+        self._gps_distance = state.distance_to_target
+        self._target_heading = state.target_heading
 
     def set_gps_target(self, lat: float, lon: float):
         """
@@ -325,43 +336,18 @@ class HeadingLockController:
         """
         self._target_lat = lat
         self._target_lon = lon
+        if self._gps_navigation:
+            self._gps_navigation.set_target(lat, lon)
         print(f"[GPS] 目标点已设置: ({lat:.6f}, {lon:.6f})")
 
-    def calculate_target_heading_from_gps(self) -> Optional[float]:
+    def get_gps_info(self) -> Tuple[float, float, float]:
         """
-        根据GPS计算到目标点的航向角
-
-        需要先设置目标点 (set_gps_target) 并初始化GPS
+        获取GPS导航信息
 
         Returns:
-            目标航向角(度)，失败返回None
+            (方位角, 距离, 目标航向角)
         """
-        if not self._gps_enabled or self._target_lat is None or self._target_lon is None:
-            return None
-
-        with self._position_lock:
-            if not self._current_gps_position or self._current_gps_position.fix_quality == 0:
-                return None
-
-            current_lat = self._current_gps_position.latitude
-            current_lon = self._current_gps_position.longitude
-
-        bearing = GPSNavigationController.calculate_bearing(
-            current_lat, current_lon, self._target_lat, self._target_lon
-        )
-
-        distance = GPSNavigationController.calculate_distance(
-            current_lat, current_lon, self._target_lat, self._target_lon
-        )
-
-        return bearing, distance
-
-    def get_gps_position(self) -> Optional[Tuple[float, float]]:
-        """获取当前GPS位置 (纬度, 经度)"""
-        with self._position_lock:
-            if self._current_gps_position and self._current_gps_position.fix_quality > 0:
-                return (self._current_gps_position.latitude, self._current_gps_position.longitude)
-        return None
+        return (self._gps_bearing, self._gps_distance, self._target_heading)
 
     def confirm_target_heading(self, bearing: float, distance: float):
         """
@@ -371,16 +357,17 @@ class HeadingLockController:
             bearing: 方位角(度)
             distance: 距离(米)
         """
+        direction_names = ["北", "东北", "东", "东南", "南", "西南", "西", "西北"]
+        index = int((bearing + 22.5) / 45) % 8
+
+        distance_str = f"{distance:.1f}" if distance != float('inf') else "计算中..."
+
         print("\n" + "=" * 60)
         print("  目标航线角确认")
         print("=" * 60)
-        print(f"  方位角: {bearing:.1f}°")
-        print(f"  距离:   {distance:.1f} 米")
+        print(f"  方位角: {bearing:.1f}° ({direction_names[index]})")
+        print(f"  距离:   {distance_str} 米")
         print(f"  目标:   ({self._target_lat:.6f}, {self._target_lon:.6f})")
-
-        direction_names = ["北", "东北", "东", "东南", "南", "西南", "西", "西北"]
-        index = int((bearing + 22.5) / 45) % 8
-        print(f"  方向:   {direction_names[index]}")
         print("=" * 60)
 
     def _init_compass(self) -> bool:
@@ -656,7 +643,21 @@ class HeadingLockController:
             while self._is_running:
                 loop_start = time.time()
 
-                if self.use_heading_wrap and self._heading_wrap_reader:
+                # 更新GPS导航状态（如果有）
+                if self._gps_enabled and self._gps_navigation:
+                    self.update_gps_navigation()
+                    # GPS模式下，从GPSNavigationController获取罗盘数据
+                    if self._gps_navigation._heading_lock:
+                        inner_heading_lock = self._gps_navigation._heading_lock
+                        current_heading = inner_heading_lock.get_current_heading()
+                        if current_heading is None:
+                            time.sleep(0.05)
+                            continue
+                        continuous_heading = inner_heading_lock.get_continuous_heading()
+                    else:
+                        current_heading = None
+                        continuous_heading = None
+                elif self.use_heading_wrap and self._heading_wrap_reader:
                     data = self._heading_wrap_reader.update()
                     if data is None:
                         time.sleep(0.05)
@@ -680,14 +681,20 @@ class HeadingLockController:
                 if abs(error) >= self.deviation_threshold:
                     self._stats['correction_count'] += 1
 
-                self._apply_pid_correction(error)
+                # 在GPS模式下使用内部HeadingLockController的驱动
+                if self._gps_enabled and self._gps_navigation and self._gps_navigation._heading_lock:
+                    self._gps_navigation._heading_lock._apply_pid_correction(error)
+                    self._last_left_speed = self._gps_navigation._heading_lock._last_left_speed
+                    self._last_right_speed = self._gps_navigation._heading_lock._last_right_speed
+                else:
+                    self._apply_pid_correction(error)
 
-                current_time = time.time()
-                elapsed = current_time - start_time
+                loop_end_time = time.time()
+                elapsed = loop_end_time - start_time
 
-                if current_time - last_display_time >= display_interval:
+                if loop_end_time - last_display_time >= display_interval:
                     self._update_display(current_heading, error, elapsed, continuous_heading)
-                    last_display_time = current_time
+                    last_display_time = loop_end_time
 
                 if duration and elapsed >= duration:
                     break
@@ -715,9 +722,9 @@ class HeadingLockController:
         if self._compass:
             self._compass.disconnect()
             print("[停止] 罗盘已断开")
-        if self._gps_reader:
-            self._gps_reader.disconnect()
-            self._gps_reader = None
+        if self._gps_navigation:
+            self._gps_navigation.stop()
+            self._gps_navigation = None
             self._gps_enabled = False
             print("[停止] GPS已断开")
         print("[停止] 航向角锁定控制已关闭")
@@ -854,7 +861,7 @@ if __name__ == "__main__":
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=70,
+    parser.add_argument('-s', '--speed', type=int, default=75,
                         help='基础速度 (0-100)，默认50')
     parser.add_argument('-t', '--threshold', type=float, default=20.0,
                         help='偏差死区阈值(度)，默认3度')
@@ -926,43 +933,64 @@ if __name__ == "__main__":
                 sys.exit(1)
 
             if not GPS_AVAILABLE:
-                print("[错误] GPS模块不可用，请检查 Gps/gps.py 是否存在")
+                print("[错误] GPS模块不可用，请检查 Gps/gps.py 和 Gps/gps_navigation_controller.py 是否存在")
                 sys.exit(1)
 
             print("\n" + "=" * 60)
             print("  GPS导航模式初始化")
             print("=" * 60)
 
-            if not controller._init_gps(gps_port=args.gps_port, gps_baudrate=args.gps_baudrate):
-                print("[错误] GPS初始化失败")
-                sys.exit(1)
-
-            if not controller._wait_for_gps_fix(timeout=30.0):
-                print("[错误] GPS定位失败")
-                sys.exit(1)
-
+            # 设置目标点
             controller.set_gps_target(args.target_lat, args.target_lon)
 
-            result = controller.calculate_target_heading_from_gps()
-            if result:
-                bearing, distance = result
-                controller.confirm_target_heading(bearing, distance)
+            # 初始化GPSNavigationController
+            if not controller._init_gps_navigation(gps_port=args.gps_port, gps_baudrate=args.gps_baudrate):
+                print("[错误] GPSNavigationController初始化失败")
+                sys.exit(1)
 
-                if args.confirm:
-                    try:
-                        response = input("\n是否使用此目标航向角启动控制? (Y/n): ").strip().lower()
-                        if response == 'n':
-                            print("[取消] 已取消启动")
-                            sys.exit(0)
-                    except EOFError:
-                        pass
+            # 使用GPSNavigationController初始化并校准
+            if not controller._gps_navigation.initialize():
+                print("[错误] GPS导航初始化失败")
+                sys.exit(1)
 
-            if controller.start(calibrate=True):
-                controller.run_loop(duration=args.duration)
-            else:
-                print("\n初始化失败，请检查:")
-                print("  1. 罗盘是否正确连接到串口")
-                print("  2. 电机驱动GPIO引脚是否配置正确")
+            # 初始化电机驱动（GPS模式也需要）
+            if not controller._init_motor_driver():
+                print("[错误] 电机驱动初始化失败")
+                controller._gps_navigation.stop()
+                sys.exit(1)
+
+            # 获取航向角信息
+            state = controller._gps_navigation.get_state()
+
+            # 先更新一次导航状态，确保数据最新
+            controller._gps_navigation._update_navigation()
+            state = controller._gps_navigation.get_state()
+
+            controller._gps_bearing = state.bearing_angle
+            controller._gps_distance = state.distance_to_target
+            controller._gps_enabled = True
+
+            # 显示确认界面
+            controller.confirm_target_heading(state.bearing_angle, state.distance_to_target)
+
+            if args.confirm:
+                try:
+                    response = input("\n是否使用此目标航向角启动控制? (Y/n): ").strip().lower()
+                    if response == 'n':
+                        print("[取消] 已取消启动")
+                        controller._gps_navigation.stop()
+                        sys.exit(0)
+                except EOFError:
+                    pass
+
+            # 启动航向锁定控制（使用GPS计算的目标航向）
+            controller._target_heading = state.target_heading
+            controller._pid.reset()
+            controller._is_running = True
+            print(f"[启动] 航向角锁定控制已启动，目标航向: {controller._target_heading:.1f}°")
+            print(f"[PID] Kp={controller._pid.kp}, Ki={controller._pid.ki}, Kd={controller._pid.kd}")
+
+            controller.run_loop(duration=args.duration)
         else:
             # 普通模式（无GPS）
             if controller.start(calibrate=True):
