@@ -276,11 +276,11 @@ def main():
         # 逐一运行测试
         #test_basic_movement(driver)
         #test_backward(driver)
-        #test_spin_turns(driver)
+        test_spin_turns(driver)
         #test_differential_turns(driver)
         #test_spin_variants(driver)
         #test_custom_turn(driver)
-        test_comprehensive_movement(driver)
+        #test_comprehensive_movement(driver)
 
         # 最终停止
         driver.stop()

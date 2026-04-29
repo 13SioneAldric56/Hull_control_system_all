@@ -260,7 +260,7 @@ class DDM350B:
         pitch = self._parse_angle_bytes(response[7], response[8], response[9])
         heading = self._parse_angle_bytes(response[10], response[11], response[12])
         
-        return CompassData(roll=roll, pitch=pitch, heading=heading)
+        return CompassData(roll=roll, pitch=pitch, heading=(heading+180)%360)
     
     def read_continuous(self, interval: float = 0.1):
         """

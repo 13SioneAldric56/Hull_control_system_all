@@ -52,7 +52,7 @@ def example_continuous():
               f"Pitch: {data.pitch:>+7.2f}°  "
               f"Heading: {data.heading:>6.2f}°")
         count += 1
-        if count >= 5:
+        if count >= 99999:
             break
     
     compass.disconnect()
