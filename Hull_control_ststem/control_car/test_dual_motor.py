@@ -29,8 +29,8 @@ def test_basic_movement(driver: DifferentialDrive):
 
     #测试直行
     print("\n▶ 测试直行...")
-    driver.forward(80)
-    wait(2, "直行 40% 速度，持续 2 秒")
+    driver.forward(50)
+    wait(3, "直行 50% 速度，持续 3 秒")
 
     # # 加速
     # print("\n▶ 测试加速...")
@@ -274,9 +274,9 @@ def main():
 
     try:
         # 逐一运行测试
-        #test_basic_movement(driver)
+        test_basic_movement(driver)
         #test_backward(driver)
-        test_spin_turns(driver)
+        #test_spin_turns(driver)
         #test_differential_turns(driver)
         #test_spin_variants(driver)
         #test_custom_turn(driver)
