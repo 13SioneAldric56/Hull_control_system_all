@@ -346,15 +346,10 @@ class GPSNavigationController:
 
     def _calculate_target_heading(self) -> Optional[float]:
         """
-        计算目标航向角
+        计算方位角（从当前位置到目标位置的方向）
 
-        公式:
-        target_heading = bearing_angle - calibration_heading
-
-        其中:
-        - bearing_angle: 从当前位置到目标位置的方位角
-        - calibration_heading: 校准后罗盘读数对应的"北"方向
-        - target_heading: 小车应该对准的罗盘读数
+        Returns:
+            bearing: 方位角(度)，0-360，0=北，90=东，180=南，270=西
         """
         if not self._state.compass_calibrated:
             return None
@@ -366,15 +361,18 @@ class GPSNavigationController:
             self.target_lon
         )
 
-        target_heading = (self._calibration_heading - bearing) % 360
-
         self._state.bearing_angle = bearing
-        self._state.target_heading = target_heading
+        self._state.target_heading = bearing  # 目标航向直接使用方位角
 
-        return target_heading
+        return bearing
 
     def _update_navigation(self):
-        """更新导航状态"""
+        """更新导航状态
+
+        航向误差计算: error = bearing - current_heading
+        - error > 0: 目标在右侧，需要右转
+        - error < 0: 目标在左侧，需要左转
+        """
         with self._position_lock:
             if not self._current_position or self._current_position.fix_quality == 0:
                 return
@@ -388,14 +386,23 @@ class GPSNavigationController:
 
         self._state.current_heading = self._heading_lock.get_current_heading() or 0
 
-        target_heading = self._calculate_target_heading()
-        if target_heading is not None:
-            error = self._state.current_heading - target_heading
-            while error > 180:
-                error -= 360
-            while error < -180:
-                error += 360
-            self._state.heading_error = error
+        # 计算方位角
+        bearing = self.calculate_bearing(
+            self._state.current_lat,
+            self._state.current_lon,
+            self.target_lat,
+            self.target_lon
+        )
+        self._state.bearing_angle = bearing
+
+        # 航向误差 = 方位角 - 当前航向
+        error = bearing - self._state.current_heading
+        while error > 180:
+            error -= 360
+        while error < -180:
+            error += 360
+        self._state.heading_error = error
+        self._state.target_heading = bearing
 
         if self._state.distance_to_target <= self.arrival_threshold:
             self._state.is_arrived = True
@@ -406,14 +413,22 @@ class GPSNavigationController:
                 self._callbacks['on_arrived']()
 
     def _navigation_loop(self):
-        """导航主循环"""
+        """导航主循环
+
+        航向修正逻辑:
+        1. 更新导航状态（计算方位角、误差）
+        2. 使用实时航向误差进行PID控制
+        """
         print("[GPS导航] 导航循环已启动")
 
         while self._is_running and not self._is_arrived:
             self._update_navigation()
 
-            if not self._is_arrived and self._state.target_heading > 0:
-                self._heading_lock.set_target_heading(self._state.target_heading)
+            # 使用实时计算的航向误差进行控制
+            if not self._is_arrived:
+                self._heading_lock.set_target_heading(
+                    self._state.current_heading + self._state.heading_error
+                )
 
             if 'on_state_update' in self._callbacks:
                 self._callbacks['on_state_update'](self._state)

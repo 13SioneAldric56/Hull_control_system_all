@@ -643,10 +643,9 @@ class HeadingLockController:
             while self._is_running:
                 loop_start = time.time()
 
-                # 更新GPS导航状态（如果有）
+                # GPS模式下使用GPSNavigationController计算的实时航向误差
                 if self._gps_enabled and self._gps_navigation:
                     self.update_gps_navigation()
-                    # GPS模式下，从GPSNavigationController获取罗盘数据
                     if self._gps_navigation._heading_lock:
                         inner_heading_lock = self._gps_navigation._heading_lock
                         current_heading = inner_heading_lock.get_current_heading()
@@ -654,9 +653,12 @@ class HeadingLockController:
                             time.sleep(0.05)
                             continue
                         continuous_heading = inner_heading_lock.get_continuous_heading()
+                        # 直接使用GPS计算的航向误差
+                        error = self._gps_navigation._state.heading_error
                     else:
                         current_heading = None
                         continuous_heading = None
+                        error = 0
                 elif self.use_heading_wrap and self._heading_wrap_reader:
                     data = self._heading_wrap_reader.update()
                     if data is None:
@@ -672,8 +674,10 @@ class HeadingLockController:
                     filtered = self._kalman_filter.update(raw_data)
                     current_heading = filtered.heading
                     continuous_heading = None
+                    # 非GPS模式下，计算航向误差
+                    error = self._calculate_heading_error(current_heading, continuous_heading)
 
-                error = self._calculate_heading_error(current_heading, continuous_heading)
+                # GPS模式下 error 已在上方设置
                 error_sum += abs(error)
                 self._iteration_count += 1
                 self._stats['avg_error'] = error_sum / self._iteration_count
