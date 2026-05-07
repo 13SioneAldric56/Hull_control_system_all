@@ -193,7 +193,9 @@ class HeadingLockController:
         min_turn_strength: float = 0.05,
         max_turn_strength: float = 0.2,
         compass_mode: OutputMode = OutputMode.AUTO_50HZ,
-        use_heading_wrap: bool = True
+        use_heading_wrap: bool = True,
+        bearing_update_interval: float = 5.0,
+        arrival_threshold_m: float = 10.0
     ):
         """
         初始化航向角锁定控制器
@@ -213,6 +215,8 @@ class HeadingLockController:
             max_turn_strength: 最大转弯强度 (0.0 ~ 1.0)
             compass_mode: 罗盘输出模式，默认AUTO_50HZ (50Hz)
             use_heading_wrap: 是否使用航向角回环处理（解决0°/360°边界跳变）
+            bearing_update_interval: GPS模式下重算目标方位角周期(秒)
+            arrival_threshold_m: 到达目标阈值(米)，达到后自动停止
         """
         self.compass_port = compass_port
         self.base_speed = base_speed
@@ -222,6 +226,8 @@ class HeadingLockController:
         self.max_turn_strength = max_turn_strength
         self.compass_mode = compass_mode
         self.use_heading_wrap = use_heading_wrap
+        self.bearing_update_interval = max(0.1, bearing_update_interval)
+        self.arrival_threshold_m = max(0.1, arrival_threshold_m)
 
         self._pid = PIDController(
             kp=pid_kp,
@@ -259,6 +265,7 @@ class HeadingLockController:
         self._gps_bearing: float = 0.0
         self._gps_distance: float = float('inf')
         self._calibration_heading: float = 0.0
+        self._last_gps_update_time: float = 0.0
 
     def _init_gps_navigation(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
         """
@@ -282,6 +289,7 @@ class HeadingLockController:
                 compass_port=self.compass_port,
                 gps_port=gps_port,
                 gps_baudrate=gps_baudrate,
+                arrival_threshold=self.arrival_threshold_m,
                 calibration_speed=self.base_speed
             )
             print(f"[GPS] GPSNavigationController已初始化")
@@ -314,17 +322,23 @@ class HeadingLockController:
         print(f"[GPS] 车头方向已校准: {self._calibration_heading:.1f}°")
         return True
 
-    def update_gps_navigation(self):
-        """更新GPS导航状态（从GPSNavigationController获取航向角）"""
+    def update_gps_navigation(self, force: bool = False) -> bool:
+        """更新GPS导航状态（按设定周期重算方位角）"""
         if not self._gps_navigation or not self._gps_navigation._is_initialized:
-            return
+            return False
+
+        now = time.time()
+        if not force and (now - self._last_gps_update_time) < self.bearing_update_interval:
+            return False
 
         self._gps_navigation._update_navigation()
+        self._last_gps_update_time = now
         state = self._gps_navigation._state
 
         self._gps_bearing = state.bearing_angle
         self._gps_distance = state.distance_to_target
         self._target_heading = state.target_heading
+        return True
 
     def set_gps_target(self, lat: float, lon: float):
         """
@@ -646,6 +660,10 @@ class HeadingLockController:
                 # GPS模式下使用GPSNavigationController计算的实时航向误差
                 if self._gps_enabled and self._gps_navigation:
                     self.update_gps_navigation()
+                    state = self._gps_navigation._state
+                    if state.is_arrived or self._gps_distance <= self.arrival_threshold_m:
+                        print(f"\n[到达] 距离目标点约 {self._gps_distance:.1f} 米，已达到阈值 {self.arrival_threshold_m:.1f} 米，停止运行")
+                        break
                     if self._gps_navigation._heading_lock:
                         inner_heading_lock = self._gps_navigation._heading_lock
                         current_heading = inner_heading_lock.get_current_heading()
@@ -869,7 +887,7 @@ if __name__ == "__main__":
                         help='基础速度 (0-100)，默认50')
     parser.add_argument('-t', '--threshold', type=float, default=20.0,
                         help='偏差死区阈值(度)，默认3度')
-    parser.add_argument('--kp', type=float, default=1.0,
+    parser.add_argument('--kp', type=float, default=2.0,
                         help='PID比例系数，默认2.0')
     parser.add_argument('--ki', type=float, default=0.05,
                         help='PID积分系数，默认0.1')
