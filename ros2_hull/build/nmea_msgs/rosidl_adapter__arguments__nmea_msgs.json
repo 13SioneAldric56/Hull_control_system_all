@@ -1,0 +1,12 @@
+{
+  "package_name": "nmea_msgs",
+  "non_idl_tuples": [
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Sentence.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Gpgga.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Gpgsa.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Gpgst.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Gpgsv.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/GpgsvSatellite.msg",
+    "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs:msg/Gprmc.msg"
+  ]
+}

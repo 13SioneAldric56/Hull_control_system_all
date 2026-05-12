@@ -436,7 +436,7 @@ def main():
     print("=" * 60)
 
     # 创建GPS读取器
-    gps = GPSReader(port='/dev/ttyS1', baudrate=38400)
+    gps = GPSReader(port='/dev/ttyS1', baudrate=115200)
 
     # 方式1: 使用回调函数(非阻塞)
     print("\n方式1: 启动后台读取(按Ctrl+C停止)...")

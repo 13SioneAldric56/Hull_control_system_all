@@ -1,0 +1,213 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				},
+				{
+					"build" : "nmea_msgs__py",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/nmea_msgs__py",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "nmea_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs-192041024626271222a3.json",
+					"name" : "nmea_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__cpp-d4d37c1860e15ab8bb54.json",
+					"name" : "nmea_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "nmea_msgs__py::@b56833807a631af8832b",
+					"jsonFile" : "target-nmea_msgs__py-d73e05adc473d5795a18.json",
+					"name" : "nmea_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__python::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__python-4b81366be65bc64796a9.json",
+					"name" : "nmea_msgs__python",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_generator_c-0d88c33c80c1bc666230.json",
+					"name" : "nmea_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_c-9b56ec7c7ff7252f9407.json",
+					"name" : "nmea_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_c__pyext-66bd7591d180c9e97e4e.json",
+					"name" : "nmea_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_cpp-1f94eb362bf66314730c.json",
+					"name" : "nmea_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_fastrtps_c-eb4b6e12373400596fb4.json",
+					"name" : "nmea_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_fastrtps_c__pyext-f1dd941054dd8d3212a1.json",
+					"name" : "nmea_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_fastrtps_cpp-7d6ad13dfb7904257766.json",
+					"name" : "nmea_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_introspection_c-0141eaa3dfa1ea7c442f.json",
+					"name" : "nmea_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_introspection_c__pyext-456d1e3284d27e990ab2.json",
+					"name" : "nmea_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs__rosidl_typesupport_introspection_cpp-dfbfc4e24bf8df4ff058.json",
+					"name" : "nmea_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nmea_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmea_msgs_uninstall-60913115c97bc1acd44e.json",
+					"name" : "nmea_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-910bfcc17936d5db711a.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs",
+		"source" : "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

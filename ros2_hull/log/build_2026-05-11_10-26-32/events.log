@@ -1,0 +1,275 @@
+[0.000000] (-) TimerEvent: {}
+[0.002698] (gps_wgs84_to_gcj02) JobQueued: {'identifier': 'gps_wgs84_to_gcj02', 'dependencies': OrderedDict()}
+[0.003097] (wheeltec_gps_path) JobQueued: {'identifier': 'wheeltec_gps_path', 'dependencies': OrderedDict([('gps_wgs84_to_gcj02', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02')])}
+[0.004638] (gps_wgs84_to_gcj02) JobStarted: {'identifier': 'gps_wgs84_to_gcj02'}
+[0.099764] (-) TimerEvent: {}
+[0.200412] (-) TimerEvent: {}
+[0.300897] (-) TimerEvent: {}
+[0.403833] (-) TimerEvent: {}
+[0.505681] (-) TimerEvent: {}
+[0.606254] (-) TimerEvent: {}
+[0.706733] (-) TimerEvent: {}
+[0.807488] (-) TimerEvent: {}
+[0.907964] (-) TimerEvent: {}
+[1.008248] (-) TimerEvent: {}
+[1.108513] (-) TimerEvent: {}
+[1.209012] (-) TimerEvent: {}
+[1.309522] (-) TimerEvent: {}
+[1.409846] (-) TimerEvent: {}
+[1.413651] (gps_wgs84_to_gcj02) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/gps_wgs84_to_gcj02', 'build', '--build-base', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build', 'install', '--record', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/gps_wgs84_to_gcj02', 'env': {'npm_config_devdir': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/node-gyp', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'VSCODE_CWD': '/home/orangepi', 'UMS_MOUNTPOINT': '/mnt/ums', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'PUPPETEER_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/puppeteer', 'HTTPS_PROXY': 'http://127.0.0.1:42999', 'GST_V4L2_PREFERRED_FOURCC': 'NV12:YU12:NV16:YUY2', 'no_proxy': '127.0.0.1,::1,localhost', 'LANGUAGE': 'en_US.UTF-8', 'USER': 'orangepi', 'SSH_CLIENT': '192.168.1.232 49342 22', 'VSCODE_NLS_CONFIG': '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/out/nls.messages.json","locale":"en","availableLanguages":{}}', 'CARGO_TARGET_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cargo-target', 'CCACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/ccache', 'all_proxy': 'http://127.0.0.1:42999', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'XDG_SESSION_TYPE': 'tty', 'CURSOR_RIPGREP_PATH': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node_modules/@vscode/ripgrep/bin/rg', 'PIP_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pip', 'NUGET_PACKAGES': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nuget', 'HOMEBREW_CACHE': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/homebrew', 'SHLVL': '1', 'USB_FUNCS': 'adb', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'SOCKS_PROXY': 'socks5://127.0.0.1:42199', 'BROWSER': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/orangepi', 'OLDPWD': '/home/orangepi/Desktop/Hull_control_ststem', 'NO_PROXY': '127.0.0.1,::1,localhost', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-5d4cbdf1-3126-40fa-8bbf-ecd96ce85af5.sock', 'GST_INSPECT_NO_COLORS': '1', 'GST_MPP_NO_RGA': '1', 'ROS_PYTHON_VERSION': '3', 'COGL_DRIVER': 'gles2', 'CURSOR_ORIG_UID': '1000', 'NO_COLOR': '1', 'CONDA_PKGS_DIRS': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/conda', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COMPOSER_HOME': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/composer', 'https_proxy': 'http://127.0.0.1:42999', 'VSCODE_L10N_BUNDLE_LOCATION': '', 'GST_V4L2SRC_MAX_RESOLUTION': '3840x2160', 'ROS_DISTRO': 'foxy', 'OVSX_REGISTRY_URL': 'https://open-vsx.org', 'LOGNAME': 'orangepi', 'FORCE_COLOR': '0', 'ALL_PROXY': 'http://127.0.0.1:42999', 'VSCODE_HANDLES_SIGPIPE': 'true', 'http_proxy': 'http://127.0.0.1:42999', 'BUN_INSTALL_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bun', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'CURSOR_LAYOUT': 'unifiedAgent', 'GOMODCACHE': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-mod', 'XDG_SESSION_CLASS': 'user', 'CP_HOME_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cocoapods', 'socks_proxy': 'socks5://127.0.0.1:42199', 'TERM': 'dumb', 'GST_GL_API': 'gles2', 'XDG_SESSION_ID': '6', 'GST_VIDEO_CONVERT_PREFERRED_FORMAT': 'NV12:NV16:I420:YUY2', 'SOCKS5_PROXY': 'socks5://127.0.0.1:42199', 'GST_V4L2SRC_RK_DEVICES': '_mainpath:_selfpath:_bypass:_scale', 'ROS_LOCALHOST_ONLY': '0', 'POETRY_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/poetry', 'PATH': '/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'YARN_CACHE_FOLDER': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/yarn', 'VSCODE_AGENT_FOLDER': '/home/orangepi/.cursor-server', 'UV_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/uv', 'PLAYWRIGHT_BROWSERS_PATH': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/playwright', 'XDG_RUNTIME_DIR': '/run/user/1000', 'BUNDLE_PATH': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bundle', 'GST_GL_PLATFORM': 'egl', 'GST_DEBUG_NO_COLOR': '1', 'GST_V4L2SRC_DEFAULT_DEVICE': '/dev/video-camera0', 'CURSOR_AGENT': '1', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'NX_CACHE_DIRECTORY': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nx', 'LS_COLORS': '', 'CYPRESS_CACHE_FOLDER': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cypress', 'GST_V4L2_USE_LIBV4L2': '1', 'PNPM_STORE_PATH': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pnpm-store', 'UMS_SIZE': '256M', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'LC_MESSAGES': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'CURSOR_SANDBOX': 'native', 'VSCODE_SERVER_SHUTDOWN_TIMEOUT': '300', 'GOCACHE': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-build', 'UMS_RO': '0', 'ELECTRON_RUN_AS_NODE': '1', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GIT_HTTP_PROXY': 'http://127.0.0.1:42999', 'UMS_FSTYPE': 'vfat', 'socks5_proxy': 'socks5://127.0.0.1:42199', 'NPM_CONFIG_CACHE': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/npm', 'PWD': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02', 'GRADLE_USER_HOME': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gradle', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.232 49342 192.168.1.241 22', 'CURSOR_ORIG_GID': '1000', 'GIT_HTTPS_PROXY': 'http://127.0.0.1:42999', 'PYTHONPATH': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'HTTP_PROXY': 'http://127.0.0.1:42999', 'UMS_MOUNT': '0', 'TURBO_CACHE_DIR': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/turbo', 'COLCON': '1', '__CURSOR_SANDBOX_ENV_RESTORE': "builtin export HTTP_PROXY='http://127.0.0.1:42999'; builtin export HTTPS_PROXY='http://127.0.0.1:42999'; builtin export http_proxy='http://127.0.0.1:42999'; builtin export https_proxy='http://127.0.0.1:42999'; builtin export GIT_HTTP_PROXY='http://127.0.0.1:42999'; builtin export GIT_HTTPS_PROXY='http://127.0.0.1:42999'; builtin export SOCKS_PROXY='socks5://127.0.0.1:42199'; builtin export SOCKS5_PROXY='socks5://127.0.0.1:42199'; builtin export socks_proxy='socks5://127.0.0.1:42199'; builtin export socks5_proxy='socks5://127.0.0.1:42199'; builtin export ALL_PROXY='http://127.0.0.1:42999'; builtin export all_proxy='http://127.0.0.1:42999'; builtin export NO_PROXY='127.0.0.1,::1,localhost'; builtin export no_proxy='127.0.0.1,::1,localhost'", '_ZO_DOCTOR': '0', 'GEM_SPEC_CACHE': '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gem-specs', 'CURSOR_SANDBOX_LANDLOCK_STATUS': 'bubblewrap', 'UMS_FILE': '/userdata/ums_shared.img'}, 'shell': False}
+[1.510025] (-) TimerEvent: {}
+[1.610397] (-) TimerEvent: {}
+[1.710799] (-) TimerEvent: {}
+[1.735119] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running egg_info\n'}
+[1.736135] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info\n'}
+[1.736616] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'writing ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/PKG-INFO\n'}
+[1.737511] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'writing dependency_links to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/dependency_links.txt\n'}
+[1.737846] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'writing entry points to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/entry_points.txt\n'}
+[1.738118] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'writing requirements to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/requires.txt\n'}
+[1.738392] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'writing top-level names to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/top_level.txt\n'}
+[1.746356] (gps_wgs84_to_gcj02) StdoutLine: {'line': b"writing manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'\n"}
+[1.796930] (gps_wgs84_to_gcj02) StdoutLine: {'line': b"reading manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'\n"}
+[1.801025] (gps_wgs84_to_gcj02) StdoutLine: {'line': b"writing manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'\n"}
+[1.801558] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running build\n'}
+[1.802156] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running build_py\n'}
+[1.802246] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build\n'}
+[1.802328] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib\n'}
+[1.802404] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02\n'}
+[1.802485] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying gps_wgs84_to_gcj02/fix_converter.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02\n'}
+[1.802563] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying gps_wgs84_to_gcj02/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02\n'}
+[1.802637] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying gps_wgs84_to_gcj02/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02\n'}
+[1.802709] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running install\n'}
+[1.803023] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running install_lib\n'}
+[1.804404] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02\n'}
+[1.804633] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/fix_converter.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02\n'}
+[1.804961] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02\n'}
+[1.805057] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02\n'}
+[1.805353] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/fix_converter.py to fix_converter.cpython-38.pyc\n'}
+[1.807935] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/gcj02.py to gcj02.cpython-38.pyc\n'}
+[1.809830] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/__init__.py to __init__.cpython-38.pyc\n'}
+[1.811028] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running install_data\n'}
+[1.811519] (-) TimerEvent: {}
+[1.811559] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/ament_index\n'}
+[1.811681] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/ament_index/resource_index\n'}
+[1.811777] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/ament_index/resource_index/packages\n'}
+[1.811866] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying resource/gps_wgs84_to_gcj02 -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/ament_index/resource_index/packages\n'}
+[1.811956] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'copying package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/gps_wgs84_to_gcj02\n'}
+[1.812044] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.815826] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'Copying ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02-0.1.0-py3.8.egg-info\n'}
+[1.818897] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'running install_scripts\n'}
+[1.850371] (gps_wgs84_to_gcj02) StdoutLine: {'line': b'Installing wgs84_gcj02_converter script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/gps_wgs84_to_gcj02\n'}
+[1.850887] (gps_wgs84_to_gcj02) StdoutLine: {'line': b"writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log'\n"}
+[1.911814] (-) TimerEvent: {}
+[1.923730] (gps_wgs84_to_gcj02) CommandEnded: {'returncode': 0}
+[1.969758] (gps_wgs84_to_gcj02) JobEnded: {'identifier': 'gps_wgs84_to_gcj02', 'rc': 0}
+[1.972514] (wheeltec_gps_path) JobStarted: {'identifier': 'wheeltec_gps_path'}
+[1.986851] (wheeltec_gps_path) JobProgress: {'identifier': 'wheeltec_gps_path', 'progress': 'cmake'}
+[1.990565] (wheeltec_gps_path) JobProgress: {'identifier': 'wheeltec_gps_path', 'progress': 'build'}
+[1.992992] (wheeltec_gps_path) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path', '--', '-j8', '-l8'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path', 'env': OrderedDict([('npm_config_devdir', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/node-gyp'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/orangepi'), ('UMS_MOUNTPOINT', '/mnt/ums'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('PUPPETEER_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/puppeteer'), ('HTTPS_PROXY', 'http://127.0.0.1:42999'), ('GST_V4L2_PREFERRED_FOURCC', 'NV12:YU12:NV16:YUY2'), ('no_proxy', '127.0.0.1,::1,localhost'), ('LANGUAGE', 'en_US.UTF-8'), ('USER', 'orangepi'), ('SSH_CLIENT', '192.168.1.232 49342 22'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/out/nls.messages.json","locale":"en","availableLanguages":{}}'), ('CARGO_TARGET_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cargo-target'), ('CCACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/ccache'), ('all_proxy', 'http://127.0.0.1:42999'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'tty'), ('CURSOR_RIPGREP_PATH', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node_modules/@vscode/ripgrep/bin/rg'), ('PIP_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pip'), ('NUGET_PACKAGES', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nuget'), ('HOMEBREW_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/homebrew'), ('SHLVL', '1'), ('USB_FUNCS', 'adb'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('SOCKS_PROXY', 'socks5://127.0.0.1:42199'), ('BROWSER', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orangepi'), ('OLDPWD', '/home/orangepi/Desktop/Hull_control_ststem'), ('NO_PROXY', '127.0.0.1,::1,localhost'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5d4cbdf1-3126-40fa-8bbf-ecd96ce85af5.sock'), ('GST_INSPECT_NO_COLORS', '1'), ('GST_MPP_NO_RGA', '1'), ('ROS_PYTHON_VERSION', '3'), ('COGL_DRIVER', 'gles2'), ('CURSOR_ORIG_UID', '1000'), ('NO_COLOR', '1'), ('CONDA_PKGS_DIRS', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/conda'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COMPOSER_HOME', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/composer'), ('https_proxy', 'http://127.0.0.1:42999'), ('VSCODE_L10N_BUNDLE_LOCATION', ''), ('GST_V4L2SRC_MAX_RESOLUTION', '3840x2160'), ('ROS_DISTRO', 'foxy'), ('OVSX_REGISTRY_URL', 'https://open-vsx.org'), ('LOGNAME', 'orangepi'), ('FORCE_COLOR', '0'), ('ALL_PROXY', 'http://127.0.0.1:42999'), ('VSCODE_HANDLES_SIGPIPE', 'true'), ('http_proxy', 'http://127.0.0.1:42999'), ('BUN_INSTALL_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bun'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('CURSOR_LAYOUT', 'unifiedAgent'), ('GOMODCACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-mod'), ('XDG_SESSION_CLASS', 'user'), ('CP_HOME_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cocoapods'), ('socks_proxy', 'socks5://127.0.0.1:42199'), ('TERM', 'dumb'), ('GST_GL_API', 'gles2'), ('XDG_SESSION_ID', '6'), ('GST_VIDEO_CONVERT_PREFERRED_FORMAT', 'NV12:NV16:I420:YUY2'), ('SOCKS5_PROXY', 'socks5://127.0.0.1:42199'), ('GST_V4L2SRC_RK_DEVICES', '_mainpath:_selfpath:_bypass:_scale'), ('ROS_LOCALHOST_ONLY', '0'), ('POETRY_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/poetry'), ('PATH', '/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('YARN_CACHE_FOLDER', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/yarn'), ('VSCODE_AGENT_FOLDER', '/home/orangepi/.cursor-server'), ('UV_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/uv'), ('PLAYWRIGHT_BROWSERS_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/playwright'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('BUNDLE_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bundle'), ('GST_GL_PLATFORM', 'egl'), ('GST_DEBUG_NO_COLOR', '1'), ('GST_V4L2SRC_DEFAULT_DEVICE', '/dev/video-camera0'), ('CURSOR_AGENT', '1'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('NX_CACHE_DIRECTORY', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nx'), ('LS_COLORS', ''), ('CYPRESS_CACHE_FOLDER', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cypress'), ('GST_V4L2_USE_LIBV4L2', '1'), ('PNPM_STORE_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pnpm-store'), ('UMS_SIZE', '256M'), ('AMENT_PREFIX_PATH', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy'), ('LC_MESSAGES', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('CURSOR_SANDBOX', 'native'), ('VSCODE_SERVER_SHUTDOWN_TIMEOUT', '300'), ('GOCACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-build'), ('UMS_RO', '0'), ('ELECTRON_RUN_AS_NODE', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GIT_HTTP_PROXY', 'http://127.0.0.1:42999'), ('UMS_FSTYPE', 'vfat'), ('socks5_proxy', 'socks5://127.0.0.1:42199'), ('NPM_CONFIG_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/npm'), ('PWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path'), ('GRADLE_USER_HOME', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gradle'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.232 49342 192.168.1.241 22'), ('CURSOR_ORIG_GID', '1000'), ('GIT_HTTPS_PROXY', 'http://127.0.0.1:42999'), ('PYTHONPATH', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('HTTP_PROXY', 'http://127.0.0.1:42999'), ('UMS_MOUNT', '0'), ('TURBO_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/turbo'), ('COLCON', '1'), ('__CURSOR_SANDBOX_ENV_RESTORE', "builtin export HTTP_PROXY='http://127.0.0.1:42999'; builtin export HTTPS_PROXY='http://127.0.0.1:42999'; builtin export http_proxy='http://127.0.0.1:42999'; builtin export https_proxy='http://127.0.0.1:42999'; builtin export GIT_HTTP_PROXY='http://127.0.0.1:42999'; builtin export GIT_HTTPS_PROXY='http://127.0.0.1:42999'; builtin export SOCKS_PROXY='socks5://127.0.0.1:42199'; builtin export SOCKS5_PROXY='socks5://127.0.0.1:42199'; builtin export socks_proxy='socks5://127.0.0.1:42199'; builtin export socks5_proxy='socks5://127.0.0.1:42199'; builtin export ALL_PROXY='http://127.0.0.1:42999'; builtin export all_proxy='http://127.0.0.1:42999'; builtin export NO_PROXY='127.0.0.1,::1,localhost'; builtin export no_proxy='127.0.0.1,::1,localhost'"), ('_ZO_DOCTOR', '0'), ('GEM_SPEC_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gem-specs'), ('CURSOR_SANDBOX_LANDLOCK_STATUS', 'bubblewrap'), ('UMS_FILE', '/userdata/ums_shared.img'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[2.011973] (-) TimerEvent: {}
+[2.112312] (-) TimerEvent: {}
+[2.212773] (-) TimerEvent: {}
+[2.313416] (-) TimerEvent: {}
+[2.344215] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.413671] (-) TimerEvent: {}
+[2.436156] (wheeltec_gps_path) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.513851] (-) TimerEvent: {}
+[2.614378] (-) TimerEvent: {}
+[2.714929] (-) TimerEvent: {}
+[2.812543] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[2.815031] (-) TimerEvent: {}
+[2.915595] (wheeltec_gps_path) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.916350] (-) TimerEvent: {}
+[2.933284] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.016658] (-) TimerEvent: {}
+[3.117575] (-) TimerEvent: {}
+[3.202500] (wheeltec_gps_path) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.217740] (-) TimerEvent: {}
+[3.318290] (-) TimerEvent: {}
+[3.380049] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found nav2_msgs: 0.4.7 (/opt/ros/foxy/share/nav2_msgs/cmake)\n'}
+[3.418508] (-) TimerEvent: {}
+[3.519128] (-) TimerEvent: {}
+[3.619690] (-) TimerEvent: {}
+[3.720365] (-) TimerEvent: {}
+[3.821022] (-) TimerEvent: {}
+[3.921584] (-) TimerEvent: {}
+[3.964983] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[4.021842] (-) TimerEvent: {}
+[4.096772] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[4.102846] (wheeltec_gps_path) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.122068] (-) TimerEvent: {}
+[4.222623] (-) TimerEvent: {}
+[4.323221] (-) TimerEvent: {}
+[4.388140] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)\n'}
+[4.389232] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[4.423489] (-) TimerEvent: {}
+[4.518680] (wheeltec_gps_path) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[4.523859] (-) TimerEvent: {}
+[4.624318] (-) TimerEvent: {}
+[4.717933] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[4.719442] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[4.720205] (wheeltec_gps_path) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path/include\n'}
+[4.720709] (wheeltec_gps_path) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[4.721436] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[4.721828] (wheeltec_gps_path) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[4.724686] (-) TimerEvent: {}
+[4.725876] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[4.728713] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[4.729774] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[4.731488] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[4.732346] (wheeltec_gps_path) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[4.732695] (wheeltec_gps_path) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[4.737720] (wheeltec_gps_path) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.785792] (wheeltec_gps_path) StdoutLine: {'line': b'-- Generating done\n'}
+[4.816328] (wheeltec_gps_path) StdoutLine: {'line': b'-- Build files have been written to: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path\n'}
+[4.824817] (-) TimerEvent: {}
+[4.925134] (-) TimerEvent: {}
+[5.013891] (wheeltec_gps_path) StdoutLine: {'line': b'Scanning dependencies of target gps_path\n'}
+[5.025581] (-) TimerEvent: {}
+[5.068754] (wheeltec_gps_path) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/gps_path.dir/src/gps_path.cpp.o\n'}
+[5.125716] (-) TimerEvent: {}
+[5.226047] (-) TimerEvent: {}
+[5.326413] (-) TimerEvent: {}
+[5.426747] (-) TimerEvent: {}
+[5.527255] (-) TimerEvent: {}
+[5.627738] (-) TimerEvent: {}
+[5.728165] (-) TimerEvent: {}
+[5.828828] (-) TimerEvent: {}
+[5.929409] (-) TimerEvent: {}
+[6.030037] (-) TimerEvent: {}
+[6.130522] (-) TimerEvent: {}
+[6.230834] (-) TimerEvent: {}
+[6.331168] (-) TimerEvent: {}
+[6.431499] (-) TimerEvent: {}
+[6.532049] (-) TimerEvent: {}
+[6.632428] (-) TimerEvent: {}
+[6.732741] (-) TimerEvent: {}
+[6.833032] (-) TimerEvent: {}
+[6.933318] (-) TimerEvent: {}
+[7.033608] (-) TimerEvent: {}
+[7.133897] (-) TimerEvent: {}
+[7.234198] (-) TimerEvent: {}
+[7.334492] (-) TimerEvent: {}
+[7.434795] (-) TimerEvent: {}
+[7.535178] (-) TimerEvent: {}
+[7.635680] (-) TimerEvent: {}
+[7.736298] (-) TimerEvent: {}
+[7.836979] (-) TimerEvent: {}
+[7.937450] (-) TimerEvent: {}
+[8.037845] (-) TimerEvent: {}
+[8.138282] (-) TimerEvent: {}
+[8.238598] (-) TimerEvent: {}
+[8.338988] (-) TimerEvent: {}
+[8.439592] (-) TimerEvent: {}
+[8.540449] (-) TimerEvent: {}
+[8.640860] (-) TimerEvent: {}
+[8.741522] (-) TimerEvent: {}
+[8.842263] (-) TimerEvent: {}
+[8.942884] (-) TimerEvent: {}
+[9.043643] (-) TimerEvent: {}
+[9.144452] (-) TimerEvent: {}
+[9.245238] (-) TimerEvent: {}
+[9.345859] (-) TimerEvent: {}
+[9.446447] (-) TimerEvent: {}
+[9.547174] (-) TimerEvent: {}
+[9.648617] (-) TimerEvent: {}
+[9.750630] (-) TimerEvent: {}
+[9.851251] (-) TimerEvent: {}
+[9.951810] (-) TimerEvent: {}
+[10.052411] (-) TimerEvent: {}
+[10.153316] (-) TimerEvent: {}
+[10.254008] (-) TimerEvent: {}
+[10.354577] (-) TimerEvent: {}
+[10.455387] (-) TimerEvent: {}
+[10.556297] (-) TimerEvent: {}
+[10.656860] (-) TimerEvent: {}
+[10.762579] (-) TimerEvent: {}
+[10.863070] (-) TimerEvent: {}
+[10.963395] (-) TimerEvent: {}
+[11.063781] (-) TimerEvent: {}
+[11.164500] (-) TimerEvent: {}
+[11.265591] (-) TimerEvent: {}
+[11.366227] (-) TimerEvent: {}
+[11.466869] (-) TimerEvent: {}
+[11.567457] (-) TimerEvent: {}
+[11.668030] (-) TimerEvent: {}
+[11.768633] (-) TimerEvent: {}
+[11.869219] (-) TimerEvent: {}
+[11.970276] (-) TimerEvent: {}
+[12.070766] (-) TimerEvent: {}
+[12.171292] (-) TimerEvent: {}
+[12.271805] (-) TimerEvent: {}
+[12.375501] (-) TimerEvent: {}
+[12.476040] (-) TimerEvent: {}
+[12.576733] (-) TimerEvent: {}
+[12.677555] (-) TimerEvent: {}
+[12.778566] (-) TimerEvent: {}
+[12.879595] (-) TimerEvent: {}
+[12.980256] (-) TimerEvent: {}
+[13.080976] (-) TimerEvent: {}
+[13.181535] (-) TimerEvent: {}
+[13.282136] (-) TimerEvent: {}
+[13.382694] (-) TimerEvent: {}
+[13.483267] (-) TimerEvent: {}
+[13.584011] (-) TimerEvent: {}
+[13.684596] (-) TimerEvent: {}
+[13.785229] (-) TimerEvent: {}
+[13.885819] (-) TimerEvent: {}
+[13.986427] (-) TimerEvent: {}
+[14.086993] (-) TimerEvent: {}
+[14.187545] (-) TimerEvent: {}
+[14.288108] (-) TimerEvent: {}
+[14.388653] (-) TimerEvent: {}
+[14.489228] (-) TimerEvent: {}
+[14.589830] (-) TimerEvent: {}
+[14.690429] (-) TimerEvent: {}
+[14.791009] (-) TimerEvent: {}
+[14.891540] (-) TimerEvent: {}
+[14.992069] (-) TimerEvent: {}
+[15.092383] (-) TimerEvent: {}
+[15.192691] (-) TimerEvent: {}
+[15.293020] (-) TimerEvent: {}
+[15.393400] (-) TimerEvent: {}
+[15.493835] (-) TimerEvent: {}
+[15.594157] (-) TimerEvent: {}
+[15.694535] (-) TimerEvent: {}
+[15.794879] (-) TimerEvent: {}
+[15.895226] (-) TimerEvent: {}
+[15.995565] (-) TimerEvent: {}
+[16.056501] (wheeltec_gps_path) StdoutLine: {'line': b'[100%] Linking CXX executable gps_path\n'}
+[16.095683] (-) TimerEvent: {}
+[16.195989] (-) TimerEvent: {}
+[16.301635] (-) TimerEvent: {}
+[16.402003] (-) TimerEvent: {}
+[16.502360] (-) TimerEvent: {}
+[16.602619] (-) TimerEvent: {}
+[16.702897] (-) TimerEvent: {}
+[16.803190] (-) TimerEvent: {}
+[16.805069] (wheeltec_gps_path) StdoutLine: {'line': b'[100%] Built target gps_path\n'}
+[16.824445] (wheeltec_gps_path) CommandEnded: {'returncode': 0}
+[16.826110] (wheeltec_gps_path) JobProgress: {'identifier': 'wheeltec_gps_path', 'progress': 'install'}
+[16.860064] (wheeltec_gps_path) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path', 'env': OrderedDict([('npm_config_devdir', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/node-gyp'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('VSCODE_CWD', '/home/orangepi'), ('UMS_MOUNTPOINT', '/mnt/ums'), ('VSCODE_ESM_ENTRYPOINT', 'vs/workbench/api/node/extensionHostProcess'), ('PUPPETEER_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/puppeteer'), ('HTTPS_PROXY', 'http://127.0.0.1:42999'), ('GST_V4L2_PREFERRED_FOURCC', 'NV12:YU12:NV16:YUY2'), ('no_proxy', '127.0.0.1,::1,localhost'), ('LANGUAGE', 'en_US.UTF-8'), ('USER', 'orangepi'), ('SSH_CLIENT', '192.168.1.232 49342 22'), ('VSCODE_NLS_CONFIG', '{"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/out/nls.messages.json","locale":"en","availableLanguages":{}}'), ('CARGO_TARGET_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cargo-target'), ('CCACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/ccache'), ('all_proxy', 'http://127.0.0.1:42999'), ('VSCODE_HANDLES_UNCAUGHT_ERRORS', 'true'), ('XDG_SESSION_TYPE', 'tty'), ('CURSOR_RIPGREP_PATH', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node_modules/@vscode/ripgrep/bin/rg'), ('PIP_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pip'), ('NUGET_PACKAGES', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nuget'), ('HOMEBREW_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/homebrew'), ('SHLVL', '1'), ('USB_FUNCS', 'adb'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('SOCKS_PROXY', 'socks5://127.0.0.1:42199'), ('BROWSER', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orangepi'), ('OLDPWD', '/home/orangepi/Desktop/Hull_control_ststem'), ('NO_PROXY', '127.0.0.1,::1,localhost'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5d4cbdf1-3126-40fa-8bbf-ecd96ce85af5.sock'), ('GST_INSPECT_NO_COLORS', '1'), ('GST_MPP_NO_RGA', '1'), ('ROS_PYTHON_VERSION', '3'), ('COGL_DRIVER', 'gles2'), ('CURSOR_ORIG_UID', '1000'), ('NO_COLOR', '1'), ('CONDA_PKGS_DIRS', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/conda'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COMPOSER_HOME', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/composer'), ('https_proxy', 'http://127.0.0.1:42999'), ('VSCODE_L10N_BUNDLE_LOCATION', ''), ('GST_V4L2SRC_MAX_RESOLUTION', '3840x2160'), ('ROS_DISTRO', 'foxy'), ('OVSX_REGISTRY_URL', 'https://open-vsx.org'), ('LOGNAME', 'orangepi'), ('FORCE_COLOR', '0'), ('ALL_PROXY', 'http://127.0.0.1:42999'), ('VSCODE_HANDLES_SIGPIPE', 'true'), ('http_proxy', 'http://127.0.0.1:42999'), ('BUN_INSTALL_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bun'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('CURSOR_LAYOUT', 'unifiedAgent'), ('GOMODCACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-mod'), ('XDG_SESSION_CLASS', 'user'), ('CP_HOME_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cocoapods'), ('socks_proxy', 'socks5://127.0.0.1:42199'), ('TERM', 'dumb'), ('GST_GL_API', 'gles2'), ('XDG_SESSION_ID', '6'), ('GST_VIDEO_CONVERT_PREFERRED_FORMAT', 'NV12:NV16:I420:YUY2'), ('SOCKS5_PROXY', 'socks5://127.0.0.1:42199'), ('GST_V4L2SRC_RK_DEVICES', '_mainpath:_selfpath:_bypass:_scale'), ('ROS_LOCALHOST_ONLY', '0'), ('POETRY_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/poetry'), ('PATH', '/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('YARN_CACHE_FOLDER', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/yarn'), ('VSCODE_AGENT_FOLDER', '/home/orangepi/.cursor-server'), ('UV_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/uv'), ('PLAYWRIGHT_BROWSERS_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/playwright'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('BUNDLE_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/bundle'), ('GST_GL_PLATFORM', 'egl'), ('GST_DEBUG_NO_COLOR', '1'), ('GST_V4L2SRC_DEFAULT_DEVICE', '/dev/video-camera0'), ('CURSOR_AGENT', '1'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('NX_CACHE_DIRECTORY', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/nx'), ('LS_COLORS', ''), ('CYPRESS_CACHE_FOLDER', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/cypress'), ('GST_V4L2_USE_LIBV4L2', '1'), ('PNPM_STORE_PATH', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/pnpm-store'), ('UMS_SIZE', '256M'), ('AMENT_PREFIX_PATH', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy'), ('LC_MESSAGES', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('CURSOR_SANDBOX', 'native'), ('VSCODE_SERVER_SHUTDOWN_TIMEOUT', '300'), ('GOCACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/go-build'), ('UMS_RO', '0'), ('ELECTRON_RUN_AS_NODE', '1'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GIT_HTTP_PROXY', 'http://127.0.0.1:42999'), ('UMS_FSTYPE', 'vfat'), ('socks5_proxy', 'socks5://127.0.0.1:42199'), ('NPM_CONFIG_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/npm'), ('PWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path'), ('GRADLE_USER_HOME', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gradle'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.232 49342 192.168.1.241 22'), ('CURSOR_ORIG_GID', '1000'), ('GIT_HTTPS_PROXY', 'http://127.0.0.1:42999'), ('PYTHONPATH', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('HTTP_PROXY', 'http://127.0.0.1:42999'), ('UMS_MOUNT', '0'), ('TURBO_CACHE_DIR', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/turbo'), ('COLCON', '1'), ('__CURSOR_SANDBOX_ENV_RESTORE', "builtin export HTTP_PROXY='http://127.0.0.1:42999'; builtin export HTTPS_PROXY='http://127.0.0.1:42999'; builtin export http_proxy='http://127.0.0.1:42999'; builtin export https_proxy='http://127.0.0.1:42999'; builtin export GIT_HTTP_PROXY='http://127.0.0.1:42999'; builtin export GIT_HTTPS_PROXY='http://127.0.0.1:42999'; builtin export SOCKS_PROXY='socks5://127.0.0.1:42199'; builtin export SOCKS5_PROXY='socks5://127.0.0.1:42199'; builtin export socks_proxy='socks5://127.0.0.1:42199'; builtin export socks5_proxy='socks5://127.0.0.1:42199'; builtin export ALL_PROXY='http://127.0.0.1:42999'; builtin export all_proxy='http://127.0.0.1:42999'; builtin export NO_PROXY='127.0.0.1,::1,localhost'; builtin export no_proxy='127.0.0.1,::1,localhost'"), ('_ZO_DOCTOR', '0'), ('GEM_SPEC_CACHE', '/tmp/cursor-sandbox-cache/50d1da5674fe1cdc4b0b60216475f41e/gem-specs'), ('CURSOR_SANDBOX_LANDLOCK_STATUS', 'bubblewrap'), ('UMS_FILE', '/userdata/ums_shared.img'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[16.901072] (wheeltec_gps_path) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[16.902153] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path\n'}
+[16.903335] (-) TimerEvent: {}
+[16.906814] (wheeltec_gps_path) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path" to ""\n'}
+[16.907784] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch\n'}
+[16.907967] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch/gps_path.launch.py\n'}
+[16.908051] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/package_run_dependencies/wheeltec_gps_path\n'}
+[16.908347] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/parent_prefix_path/wheeltec_gps_path\n'}
+[16.908998] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.sh\n'}
+[16.909115] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.dsv\n'}
+[16.909322] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.sh\n'}
+[16.909598] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.dsv\n'}
+[16.910523] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.bash\n'}
+[16.911666] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.sh\n'}
+[16.911971] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.zsh\n'}
+[16.912098] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.dsv\n'}
+[16.912297] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv\n'}
+[16.912397] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/packages/wheeltec_gps_path\n'}
+[16.912486] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig.cmake\n'}
+[16.912580] (wheeltec_gps_path) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig-version.cmake\n'}
+[16.912670] (wheeltec_gps_path) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.xml\n'}
+[16.915293] (wheeltec_gps_path) CommandEnded: {'returncode': 0}
+[16.992270] (wheeltec_gps_path) JobEnded: {'identifier': 'wheeltec_gps_path', 'rc': 0}
+[16.993852] (-) EventReactorShutdown: {}

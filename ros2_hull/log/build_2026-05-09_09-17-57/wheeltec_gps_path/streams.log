@@ -1,0 +1,67 @@
+[0.056s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path -DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path
+[0.075s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.140s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.438s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.467s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.471s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.648s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.762s] -- Found nav2_msgs: 0.4.7 (/opt/ros/foxy/share/nav2_msgs/cmake)
+[1.308s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.435s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.441s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.446s] -- Looking for pthread.h
+[1.736s] -- Looking for pthread.h - found
+[1.738s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.043s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[2.044s] -- Looking for pthread_create in pthreads
+[2.253s] -- Looking for pthread_create in pthreads - not found
+[2.254s] -- Looking for pthread_create in pthread
+[2.565s] -- Looking for pthread_create in pthread - found
+[2.571s] -- Found Threads: TRUE  
+[3.152s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[3.173s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[3.342s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.501s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.503s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.504s] -- Configured cppcheck include dirs: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path/include
+[3.505s] -- Configured cppcheck exclude dirs and/or files: 
+[3.508s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[3.508s] -- Configured cpplint exclude dirs and/or files: 
+[3.510s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.513s] -- Added test 'lint_cmake' to check CMake code style
+[3.515s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.517s] -- Added test 'uncrustify' to check C / C++ code style
+[3.518s] -- Configured uncrustify additional arguments: 
+[3.520s] -- Added test 'xmllint' to check XML markup files
+[3.525s] -- Configuring done
+[3.557s] -- Generating done
+[3.573s] -- Build files have been written to: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[3.596s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path -DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path
+[3.597s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[3.726s] [35m[1mScanning dependencies of target gps_path[0m
+[4.160s] [ 50%] [32mBuilding CXX object CMakeFiles/gps_path.dir/src/gps_path.cpp.o[0m
+[14.351s] [100%] [32m[1mLinking CXX executable gps_path[0m
+[15.178s] [100%] Built target gps_path
+[15.206s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[15.217s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[15.239s] -- Install configuration: ""
+[15.241s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path
+[15.242s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path" to ""
+[15.243s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch
+[15.244s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch/gps_path.launch.py
+[15.245s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/package_run_dependencies/wheeltec_gps_path
+[15.246s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/parent_prefix_path/wheeltec_gps_path
+[15.250s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.sh
+[15.252s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.dsv
+[15.253s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.sh
+[15.253s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.dsv
+[15.255s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.bash
+[15.256s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.sh
+[15.257s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.zsh
+[15.258s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.dsv
+[15.258s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv
+[15.259s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/packages/wheeltec_gps_path
+[15.260s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig.cmake
+[15.261s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig-version.cmake
+[15.262s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.xml
+[15.272s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path

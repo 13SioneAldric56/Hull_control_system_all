@@ -1,0 +1,25 @@
+running develop
+running egg_info
+creating wgs84_gcj_bridge.egg-info
+writing wgs84_gcj_bridge.egg-info/PKG-INFO
+writing dependency_links to wgs84_gcj_bridge.egg-info/dependency_links.txt
+writing entry points to wgs84_gcj_bridge.egg-info/entry_points.txt
+writing requirements to wgs84_gcj_bridge.egg-info/requires.txt
+writing top-level names to wgs84_gcj_bridge.egg-info/top_level.txt
+writing manifest file 'wgs84_gcj_bridge.egg-info/SOURCES.txt'
+reading manifest file 'wgs84_gcj_bridge.egg-info/SOURCES.txt'
+writing manifest file 'wgs84_gcj_bridge.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/site.py
+Creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84-gcj-bridge.egg-link (link to .)
+Installing wgs84_gcj_bridge_node script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/wgs84_gcj_bridge
+
+Installed /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge
+running symlink_data
+creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/ament_index
+creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/ament_index/resource_index
+creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/ament_index/resource_index/packages
+symbolically linking /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/resource/wgs84_gcj_bridge -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/ament_index/resource_index/packages
+symbolically linking /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/wgs84_gcj_bridge
+creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/wgs84_gcj_bridge/launch
+symbolically linking /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/launch/wgs_gcj_bridge.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/wgs84_gcj_bridge/launch

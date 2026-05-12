@@ -1,0 +1,58 @@
+capture_directory: "~"
+fixed_frame: map
+target_frame: <none>
+fix_orientation: true
+rotate_90: false
+enable_antialiasing: true
+show_displays: true
+show_status_bar: true
+show_capture_tools: true
+window_width: 1618
+window_height: 767
+view_scale: 0.1171291
+offset_x: -554.1212
+offset_y: 404.4479
+use_latest_transforms: true
+background: "#787878"
+image_transport: raw
+force_720p: true
+displays:
+  - type: mapviz_plugins/tile_map
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      custom_sources:
+        - base_url: file:///home/orangepi/Desktop/Hull_control_ststem/ros2_hull/map/{level}/{x}/{y}.jpg
+          max_zoom: 21
+          name: 122
+          type: wmts
+      bing_api_key: ""
+      source: 122
+  - type: mapviz_plugins/path
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      topic: /gps_path
+      color: "#aa00ff"
+  - type: mapviz_plugins/navsat
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      topic: /fix_gcj
+      color: "#00ff00"
+      draw_style: lines
+      position_tolerance: 0
+      buffer_size: 0
+  - type: mapviz_plugins/navsat
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      topic: /fix
+      color: "#ff007f"
+      draw_style: lines
+      position_tolerance: 0
+      buffer_size: 0

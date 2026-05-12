@@ -1,0 +1,31 @@
+capture_directory: "~"
+fixed_frame: map
+target_frame: <none>
+fix_orientation: true
+rotate_90: false
+enable_antialiasing: true
+show_displays: true
+show_status_bar: true
+show_capture_tools: true
+window_width: 1618
+window_height: 767
+view_scale: 0.3676011
+offset_x: 1211.914
+offset_y: 100.9409
+use_latest_transforms: true
+background: "#787878"
+image_transport: raw
+force_720p: true
+displays:
+  - type: mapviz_plugins/tile_map
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      custom_sources:
+        - base_url: "file:///home/orangepi/Desktop/Hull_control_ststem/ros2_hull/map/{level}/{x}/{y}.png\n"
+          max_zoom: 21
+          name: 122
+          type: wmts
+      bing_api_key: ""
+      source: 122

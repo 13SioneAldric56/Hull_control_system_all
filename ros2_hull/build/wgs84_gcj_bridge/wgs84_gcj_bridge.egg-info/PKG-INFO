@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: wgs84-gcj-bridge
+Version: 0.1.0
+Summary: WGS84 to GCJ-02 NavSatFix bridge for map display alignment.
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: MIT
+Description: UNKNOWN
+Keywords: ROS2
+Platform: UNKNOWN

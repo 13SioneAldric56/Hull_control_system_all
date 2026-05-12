@@ -1,0 +1,767 @@
+[0.000000] (-) TimerEvent: {}
+[0.000750] (nmea_msgs) JobQueued: {'identifier': 'nmea_msgs', 'dependencies': OrderedDict()}
+[0.001027] (nmea_navsat_driver) JobQueued: {'identifier': 'nmea_navsat_driver', 'dependencies': OrderedDict([('nmea_msgs', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs')])}
+[0.001141] (nmea_msgs) JobStarted: {'identifier': 'nmea_msgs'}
+[0.019794] (nmea_msgs) JobProgress: {'identifier': 'nmea_msgs', 'progress': 'cmake'}
+[0.020691] (nmea_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs-ros2', '-DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('UMS_MOUNTPOINT', '/mnt/ums'), ('GST_V4L2_PREFERRED_FOURCC', 'NV12:YU12:NV16:YUY2'), ('LANGUAGE', 'en_US.UTF-8'), ('USER', 'orangepi'), ('SSH_CLIENT', '192.168.1.232 64379 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('USB_FUNCS', 'adb'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orangepi'), ('OLDPWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/nmea_msgs-ros2'), ('TERM_PROGRAM_VERSION', '3.3.16'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-1052668b-46b9-4c12-92ca-ad380c9de416.sock'), ('GST_INSPECT_NO_COLORS', '1'), ('GST_MPP_NO_RGA', '1'), ('ROS_PYTHON_VERSION', '3'), ('COGL_DRIVER', 'gles2'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GST_V4L2SRC_MAX_RESOLUTION', '3840x2160'), ('ROS_DISTRO', 'foxy'), ('OVSX_REGISTRY_URL', 'https://open-vsx.org'), ('LOGNAME', 'orangepi'), ('ALL_PROXY', 'socks5h://192.168.1.232:10810'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GST_GL_API', 'gles2'), ('XDG_SESSION_ID', '17'), ('GST_VIDEO_CONVERT_PREFERRED_FORMAT', 'NV12:NV16:I420:YUY2'), ('GST_V4L2SRC_RK_DEVICES', '_mainpath:_selfpath:_bypass:_scale'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GST_GL_PLATFORM', 'egl'), ('GST_DEBUG_NO_COLOR', '1'), ('GST_V4L2SRC_DEFAULT_DEVICE', '/dev/video-camera0'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9e08247e0b.sock'), ('TERM_PROGRAM', 'vscode'), ('GST_V4L2_USE_LIBV4L2', '1'), ('UMS_SIZE', '256M'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('LC_MESSAGES', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('UMS_RO', '0'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('UMS_FSTYPE', 'vfat'), ('VSCODE_GIT_IPC_AUTH_TOKEN', '0be1b22bf1a906b02beca2cdbf813216e2b8d13e29bb71c4a0fcf69f00c11fa7'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.232 64379 192.168.1.241 22'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('UMS_MOUNT', '0'), ('COLCON', '1'), ('UMS_FILE', '/userdata/ums_shared.img'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.097978] (-) TimerEvent: {}
+[0.198703] (-) TimerEvent: {}
+[0.299689] (-) TimerEvent: {}
+[0.400778] (-) TimerEvent: {}
+[0.501827] (-) TimerEvent: {}
+[0.554449] (nmea_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.602056] (-) TimerEvent: {}
+[0.703110] (-) TimerEvent: {}
+[0.804315] (-) TimerEvent: {}
+[0.905330] (-) TimerEvent: {}
+[1.006339] (-) TimerEvent: {}
+[1.107163] (-) TimerEvent: {}
+[1.208145] (-) TimerEvent: {}
+[1.270598] (nmea_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[1.281915] (nmea_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.308339] (-) TimerEvent: {}
+[1.409161] (-) TimerEvent: {}
+[1.509856] (-) TimerEvent: {}
+[1.536427] (nmea_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.537412] (nmea_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.609999] (-) TimerEvent: {}
+[1.710626] (-) TimerEvent: {}
+[1.835895] (nmea_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.836549] (-) TimerEvent: {}
+[1.864109] (nmea_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.864700] (nmea_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.867716] (nmea_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.936731] (-) TimerEvent: {}
+[2.037391] (-) TimerEvent: {}
+[2.090373] (nmea_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.092243] (nmea_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.137793] (-) TimerEvent: {}
+[2.238735] (-) TimerEvent: {}
+[2.299723] (nmea_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.320271] (nmea_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.321147] (nmea_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.324215] (nmea_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.338807] (-) TimerEvent: {}
+[2.376413] (nmea_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.377089] (nmea_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.438974] (-) TimerEvent: {}
+[2.539488] (-) TimerEvent: {}
+[2.723121] (nmea_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[2.723985] (-) TimerEvent: {}
+[2.726218] (nmea_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.735135] (nmea_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[2.824345] (-) TimerEvent: {}
+[2.925483] (-) TimerEvent: {}
+[2.998972] (nmea_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.025812] (-) TimerEvent: {}
+[3.047548] (nmea_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.126081] (-) TimerEvent: {}
+[3.165803] (nmea_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.198881] (nmea_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[3.226127] (-) TimerEvent: {}
+[3.310104] (nmea_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.326332] (-) TimerEvent: {}
+[3.427378] (-) TimerEvent: {}
+[3.528272] (-) TimerEvent: {}
+[3.629196] (-) TimerEvent: {}
+[3.666928] (nmea_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[3.729460] (-) TimerEvent: {}
+[3.830146] (-) TimerEvent: {}
+[3.930753] (-) TimerEvent: {}
+[3.950445] (nmea_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.030908] (-) TimerEvent: {}
+[4.034936] (nmea_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.100590] (nmea_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.103045] (nmea_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[4.131082] (-) TimerEvent: {}
+[4.184086] (nmea_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.184833] (nmea_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.185124] (nmea_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[4.185372] (nmea_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so\n'}
+[4.219109] (nmea_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.231415] (-) TimerEvent: {}
+[4.322144] (nmea_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.331667] (-) TimerEvent: {}
+[4.412796] (nmea_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[4.432011] (-) TimerEvent: {}
+[4.437636] (nmea_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs\n'}
+[4.466068] (nmea_msgs) CommandEnded: {'returncode': 0}
+[4.467774] (nmea_msgs) JobProgress: {'identifier': 'nmea_msgs', 'progress': 'build'}
+[4.468971] (nmea_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs', '--', '-j8', '-l8'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('UMS_MOUNTPOINT', '/mnt/ums'), ('GST_V4L2_PREFERRED_FOURCC', 'NV12:YU12:NV16:YUY2'), ('LANGUAGE', 'en_US.UTF-8'), ('USER', 'orangepi'), ('SSH_CLIENT', '192.168.1.232 64379 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('USB_FUNCS', 'adb'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orangepi'), ('OLDPWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/nmea_msgs-ros2'), ('TERM_PROGRAM_VERSION', '3.3.16'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-1052668b-46b9-4c12-92ca-ad380c9de416.sock'), ('GST_INSPECT_NO_COLORS', '1'), ('GST_MPP_NO_RGA', '1'), ('ROS_PYTHON_VERSION', '3'), ('COGL_DRIVER', 'gles2'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GST_V4L2SRC_MAX_RESOLUTION', '3840x2160'), ('ROS_DISTRO', 'foxy'), ('OVSX_REGISTRY_URL', 'https://open-vsx.org'), ('LOGNAME', 'orangepi'), ('ALL_PROXY', 'socks5h://192.168.1.232:10810'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GST_GL_API', 'gles2'), ('XDG_SESSION_ID', '17'), ('GST_VIDEO_CONVERT_PREFERRED_FORMAT', 'NV12:NV16:I420:YUY2'), ('GST_V4L2SRC_RK_DEVICES', '_mainpath:_selfpath:_bypass:_scale'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GST_GL_PLATFORM', 'egl'), ('GST_DEBUG_NO_COLOR', '1'), ('GST_V4L2SRC_DEFAULT_DEVICE', '/dev/video-camera0'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9e08247e0b.sock'), ('TERM_PROGRAM', 'vscode'), ('GST_V4L2_USE_LIBV4L2', '1'), ('UMS_SIZE', '256M'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('LC_MESSAGES', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('UMS_RO', '0'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('UMS_FSTYPE', 'vfat'), ('VSCODE_GIT_IPC_AUTH_TOKEN', '0be1b22bf1a906b02beca2cdbf813216e2b8d13e29bb71c4a0fcf69f00c11fa7'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.232 64379 192.168.1.241 22'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('UMS_MOUNT', '0'), ('COLCON', '1'), ('UMS_FILE', '/userdata/ums_shared.img'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[4.532530] (-) TimerEvent: {}
+[4.645383] (-) TimerEvent: {}
+[4.650008] (nmea_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[4.650563] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__cpp\x1b[0m\n'}
+[4.681538] (nmea_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[4.745568] (-) TimerEvent: {}
+[4.846106] (-) TimerEvent: {}
+[4.946618] (-) TimerEvent: {}
+[5.047125] (-) TimerEvent: {}
+[5.147623] (-) TimerEvent: {}
+[5.248097] (-) TimerEvent: {}
+[5.348587] (-) TimerEvent: {}
+[5.449072] (-) TimerEvent: {}
+[5.549839] (-) TimerEvent: {}
+[5.651007] (-) TimerEvent: {}
+[5.751964] (-) TimerEvent: {}
+[5.852995] (-) TimerEvent: {}
+[5.954128] (-) TimerEvent: {}
+[6.055183] (-) TimerEvent: {}
+[6.156490] (-) TimerEvent: {}
+[6.257583] (-) TimerEvent: {}
+[6.358866] (-) TimerEvent: {}
+[6.451731] (nmea_msgs) StdoutLine: {'line': b'[  1%] Built target nmea_msgs__cpp\n'}
+[6.459046] (-) TimerEvent: {}
+[6.467149] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_generator_c\x1b[0m\n'}
+[6.482485] (nmea_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[6.489626] (nmea_msgs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[6.490004] (nmea_msgs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.500906] (nmea_msgs) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/sentence__functions.c.o\x1b[0m\n'}
+[6.513808] (nmea_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgst__functions.c.o\x1b[0m\n'}
+[6.518611] (nmea_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsa__functions.c.o\x1b[0m\n'}
+[6.518953] (nmea_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgga__functions.c.o\x1b[0m\n'}
+[6.527030] (nmea_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsv__functions.c.o\x1b[0m\n'}
+[6.559236] (-) TimerEvent: {}
+[6.660710] (-) TimerEvent: {}
+[6.661693] (nmea_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsv_satellite__functions.c.o\x1b[0m\n'}
+[6.728839] (nmea_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gprmc__functions.c.o\x1b[0m\n'}
+[6.737949] (nmea_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpvtg__functions.c.o\x1b[0m\n'}
+[6.745210] (nmea_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpzda__functions.c.o\x1b[0m\n'}
+[6.756532] (nmea_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gphdt__functions.c.o\x1b[0m\n'}
+[6.760916] (-) TimerEvent: {}
+[6.862426] (-) TimerEvent: {}
+[6.915771] (nmea_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32m\x1b[1mLinking C shared library libnmea_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[6.962527] (-) TimerEvent: {}
+[7.063130] (-) TimerEvent: {}
+[7.087789] (nmea_msgs) StdoutLine: {'line': b'[ 15%] Built target nmea_msgs__rosidl_generator_c\n'}
+[7.131939] (nmea_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[7.136722] (nmea_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[7.163572] (-) TimerEvent: {}
+[7.265129] (-) TimerEvent: {}
+[7.366373] (-) TimerEvent: {}
+[7.467602] (-) TimerEvent: {}
+[7.568582] (-) TimerEvent: {}
+[7.669557] (-) TimerEvent: {}
+[7.770533] (-) TimerEvent: {}
+[7.862834] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_cpp\x1b[0m\n'}
+[7.870597] (-) TimerEvent: {}
+[7.931519] (nmea_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/sentence__type_support.cpp.o\x1b[0m\n'}
+[7.966183] (nmea_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgga__type_support.cpp.o\x1b[0m\n'}
+[7.970729] (-) TimerEvent: {}
+[7.971672] (nmea_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsa__type_support.cpp.o\x1b[0m\n'}
+[7.972354] (nmea_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgst__type_support.cpp.o\x1b[0m\n'}
+[7.992674] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[8.049330] (nmea_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/sentence__type_support.cpp.o\x1b[0m\n'}
+[8.070964] (-) TimerEvent: {}
+[8.171892] (-) TimerEvent: {}
+[8.274329] (-) TimerEvent: {}
+[8.374733] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[8.375415] (-) TimerEvent: {}
+[8.457638] (nmea_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/sentence__type_support.cpp.o\x1b[0m\n'}
+[8.475662] (-) TimerEvent: {}
+[8.497899] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_c\x1b[0m\n'}
+[8.576040] (-) TimerEvent: {}
+[8.601879] (nmea_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/sentence__type_support.cpp.o\x1b[0m\n'}
+[8.633384] (nmea_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgga__type_support.cpp.o\x1b[0m\n'}
+[8.676173] (-) TimerEvent: {}
+[8.692032] (nmea_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgga__type_support.cpp.o\x1b[0m\n'}
+[8.733997] (nmea_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgga__type_support.cpp.o\x1b[0m\n'}
+[8.776320] (-) TimerEvent: {}
+[8.841949] (nmea_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsv__type_support.cpp.o\x1b[0m\n'}
+[8.854867] (nmea_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsa__type_support.cpp.o\x1b[0m\n'}
+[8.868390] (nmea_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgst__type_support.cpp.o\x1b[0m\n'}
+[8.876532] (-) TimerEvent: {}
+[8.895287] (nmea_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsv_satellite__type_support.cpp.o\x1b[0m\n'}
+[8.976688] (-) TimerEvent: {}
+[8.985187] (nmea_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsv_satellite__type_support.cpp.o\x1b[0m\n'}
+[8.992915] (nmea_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsv__type_support.cpp.o\x1b[0m\n'}
+[9.034664] (nmea_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gprmc__type_support.cpp.o\x1b[0m\n'}
+[9.076861] (-) TimerEvent: {}
+[9.085716] (nmea_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpvtg__type_support.cpp.o\x1b[0m\n'}
+[9.129137] (nmea_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpzda__type_support.cpp.o\x1b[0m\n'}
+[9.137017] (nmea_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gphdt__type_support.cpp.o\x1b[0m\n'}
+[9.177005] (-) TimerEvent: {}
+[9.241830] (nmea_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32m\x1b[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[9.250742] (nmea_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsa__type_support.cpp.o\x1b[0m\n'}
+[9.277161] (-) TimerEvent: {}
+[9.290348] (nmea_msgs) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgst__type_support.cpp.o\x1b[0m\n'}
+[9.332911] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[9.370202] (nmea_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gprmc__type_support.cpp.o\x1b[0m\n'}
+[9.377403] (-) TimerEvent: {}
+[9.388391] (nmea_msgs) StdoutLine: {'line': b'[ 40%] Built target nmea_msgs__rosidl_typesupport_c\n'}
+[9.425114] (nmea_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/sentence__type_support.c.o\x1b[0m\n'}
+[9.429060] (nmea_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpvtg__type_support.cpp.o\x1b[0m\n'}
+[9.477535] (-) TimerEvent: {}
+[9.508955] (nmea_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsa__type_support.cpp.o\x1b[0m\n'}
+[9.539994] (nmea_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgga__type_support.c.o\x1b[0m\n'}
+[9.577718] (-) TimerEvent: {}
+[9.607540] (nmea_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsa__type_support.c.o\x1b[0m\n'}
+[9.672541] (nmea_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgst__type_support.c.o\x1b[0m\n'}
+[9.677865] (-) TimerEvent: {}
+[9.742862] (nmea_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsv__type_support.c.o\x1b[0m\n'}
+[9.778041] (-) TimerEvent: {}
+[9.815974] (nmea_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsv_satellite__type_support.c.o\x1b[0m\n'}
+[9.817893] (nmea_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgst__type_support.cpp.o\x1b[0m\n'}
+[9.822066] (nmea_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsv__type_support.cpp.o\x1b[0m\n'}
+[9.878182] (-) TimerEvent: {}
+[9.903884] (nmea_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gprmc__type_support.c.o\x1b[0m\n'}
+[9.907164] (nmea_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsv_satellite__type_support.cpp.o\x1b[0m\n'}
+[9.911359] (nmea_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpzda__type_support.cpp.o\x1b[0m\n'}
+[9.963814] (nmea_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpvtg__type_support.c.o\x1b[0m\n'}
+[9.978332] (-) TimerEvent: {}
+[10.021105] (nmea_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpzda__type_support.c.o\x1b[0m\n'}
+[10.078505] (-) TimerEvent: {}
+[10.147718] (nmea_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gphdt__type_support.c.o\x1b[0m\n'}
+[10.178677] (-) TimerEvent: {}
+[10.203784] (nmea_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32m\x1b[1mLinking C shared library libnmea_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[10.278845] (-) TimerEvent: {}
+[10.279968] (nmea_msgs) StdoutLine: {'line': b'[ 56%] Built target nmea_msgs__rosidl_typesupport_introspection_c\n'}
+[10.327200] (nmea_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gprmc__type_support.cpp.o\x1b[0m\n'}
+[10.355292] (nmea_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpvtg__type_support.cpp.o\x1b[0m\n'}
+[10.378998] (-) TimerEvent: {}
+[10.425119] (nmea_msgs) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gphdt__type_support.cpp.o\x1b[0m\n'}
+[10.477085] (nmea_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpzda__type_support.cpp.o\x1b[0m\n'}
+[10.479142] (-) TimerEvent: {}
+[10.495218] (nmea_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsv__type_support.cpp.o\x1b[0m\n'}
+[10.579283] (-) TimerEvent: {}
+[10.679764] (-) TimerEvent: {}
+[10.759349] (nmea_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsv_satellite__type_support.cpp.o\x1b[0m\n'}
+[10.779923] (-) TimerEvent: {}
+[10.880786] (-) TimerEvent: {}
+[10.906324] (nmea_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gphdt__type_support.cpp.o\x1b[0m\n'}
+[10.940161] (nmea_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[10.980927] (-) TimerEvent: {}
+[10.983043] (nmea_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gprmc__type_support.cpp.o\x1b[0m\n'}
+[11.060375] (nmea_msgs) StdoutLine: {'line': b'[ 65%] Built target nmea_msgs__rosidl_typesupport_cpp\n'}
+[11.081082] (-) TimerEvent: {}
+[11.100414] (nmea_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpvtg__type_support.cpp.o\x1b[0m\n'}
+[11.181250] (-) TimerEvent: {}
+[11.231650] (nmea_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpzda__type_support.cpp.o\x1b[0m\n'}
+[11.281432] (-) TimerEvent: {}
+[11.354188] (nmea_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gphdt__type_support.cpp.o\x1b[0m\n'}
+[11.381629] (-) TimerEvent: {}
+[11.482670] (-) TimerEvent: {}
+[11.584477] (-) TimerEvent: {}
+[11.685528] (-) TimerEvent: {}
+[11.786768] (-) TimerEvent: {}
+[11.809660] (nmea_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[11.887035] (-) TimerEvent: {}
+[11.988141] (-) TimerEvent: {}
+[12.018430] (nmea_msgs) StdoutLine: {'line': b'[ 69%] Built target nmea_msgs__rosidl_typesupport_introspection_cpp\n'}
+[12.078613] (nmea_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[12.088273] (-) TimerEvent: {}
+[12.189252] (-) TimerEvent: {}
+[12.290539] (-) TimerEvent: {}
+[12.333624] (nmea_msgs) StdoutLine: {'line': b'[ 70%] Built target nmea_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[12.374860] (nmea_msgs) StdoutLine: {'line': b'[ 71%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[12.390739] (-) TimerEvent: {}
+[12.491708] (-) TimerEvent: {}
+[12.592641] (-) TimerEvent: {}
+[12.693599] (-) TimerEvent: {}
+[12.794529] (-) TimerEvent: {}
+[12.895536] (-) TimerEvent: {}
+[12.996680] (-) TimerEvent: {}
+[13.097635] (-) TimerEvent: {}
+[13.198729] (-) TimerEvent: {}
+[13.299922] (-) TimerEvent: {}
+[13.400967] (-) TimerEvent: {}
+[13.502008] (-) TimerEvent: {}
+[13.603093] (-) TimerEvent: {}
+[13.704391] (-) TimerEvent: {}
+[13.805632] (-) TimerEvent: {}
+[13.871522] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[13.905648] (nmea_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpvtg__type_support_c.cpp.o\x1b[0m\n'}
+[13.905984] (-) TimerEvent: {}
+[13.906517] (nmea_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgst__type_support_c.cpp.o\x1b[0m\n'}
+[13.906943] (nmea_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gprmc__type_support_c.cpp.o\x1b[0m\n'}
+[13.912132] (nmea_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsv__type_support_c.cpp.o\x1b[0m\n'}
+[13.923132] (nmea_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsv_satellite__type_support_c.cpp.o\x1b[0m\n'}
+[13.923602] (nmea_msgs) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgga__type_support_c.cpp.o\x1b[0m\n'}
+[13.923713] (nmea_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/sentence__type_support_c.cpp.o\x1b[0m\n'}
+[13.926692] (nmea_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsa__type_support_c.cpp.o\x1b[0m\n'}
+[14.006158] (-) TimerEvent: {}
+[14.106637] (-) TimerEvent: {}
+[14.207165] (-) TimerEvent: {}
+[14.307686] (-) TimerEvent: {}
+[14.408229] (-) TimerEvent: {}
+[14.488305] (nmea_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpzda__type_support_c.cpp.o\x1b[0m\n'}
+[14.508388] (-) TimerEvent: {}
+[14.526553] (nmea_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gphdt__type_support_c.cpp.o\x1b[0m\n'}
+[14.608643] (-) TimerEvent: {}
+[14.709720] (-) TimerEvent: {}
+[14.810688] (-) TimerEvent: {}
+[14.912515] (-) TimerEvent: {}
+[15.013378] (-) TimerEvent: {}
+[15.114228] (-) TimerEvent: {}
+[15.215175] (-) TimerEvent: {}
+[15.316351] (-) TimerEvent: {}
+[15.333560] (nmea_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[15.416633] (-) TimerEvent: {}
+[15.517858] (-) TimerEvent: {}
+[15.575356] (nmea_msgs) StdoutLine: {'line': b'[ 82%] Built target nmea_msgs__rosidl_typesupport_fastrtps_c\n'}
+[15.615605] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs\x1b[0m\n'}
+[15.618018] (-) TimerEvent: {}
+[15.655867] (nmea_msgs) StdoutLine: {'line': b'[ 82%] Built target nmea_msgs\n'}
+[15.702902] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__py\x1b[0m\n'}
+[15.718283] (-) TimerEvent: {}
+[15.741466] (nmea_msgs) StdoutLine: {'line': b'[ 83%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[15.818588] (-) TimerEvent: {}
+[15.919777] (-) TimerEvent: {}
+[16.020858] (-) TimerEvent: {}
+[16.121890] (-) TimerEvent: {}
+[16.222982] (-) TimerEvent: {}
+[16.323990] (-) TimerEvent: {}
+[16.425065] (-) TimerEvent: {}
+[16.526010] (-) TimerEvent: {}
+[16.627035] (-) TimerEvent: {}
+[16.728185] (-) TimerEvent: {}
+[16.829428] (-) TimerEvent: {}
+[16.930119] (-) TimerEvent: {}
+[17.031112] (-) TimerEvent: {}
+[17.132092] (-) TimerEvent: {}
+[17.233103] (-) TimerEvent: {}
+[17.334133] (-) TimerEvent: {}
+[17.435083] (-) TimerEvent: {}
+[17.536061] (-) TimerEvent: {}
+[17.637101] (-) TimerEvent: {}
+[17.738150] (-) TimerEvent: {}
+[17.839191] (-) TimerEvent: {}
+[17.940235] (-) TimerEvent: {}
+[18.041373] (-) TimerEvent: {}
+[18.142621] (-) TimerEvent: {}
+[18.243711] (-) TimerEvent: {}
+[18.344752] (-) TimerEvent: {}
+[18.445808] (-) TimerEvent: {}
+[18.546784] (-) TimerEvent: {}
+[18.648267] (-) TimerEvent: {}
+[18.749632] (-) TimerEvent: {}
+[18.805457] (nmea_msgs) StdoutLine: {'line': b'[ 83%] Built target nmea_msgs__py\n'}
+[18.838761] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__python\x1b[0m\n'}
+[18.849782] (-) TimerEvent: {}
+[18.950818] (-) TimerEvent: {}
+[18.982684] (nmea_msgs) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsv_satellite_s.c.o\x1b[0m\n'}
+[18.997201] (nmea_msgs) StdoutLine: {'line': b'[ 86%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_sentence_s.c.o\x1b[0m\n'}
+[18.998254] (nmea_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsv_s.c.o\x1b[0m\n'}
+[18.998713] (nmea_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsa_s.c.o\x1b[0m\n'}
+[19.002464] (nmea_msgs) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgst_s.c.o\x1b[0m\n'}
+[19.003815] (nmea_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgga_s.c.o\x1b[0m\n'}
+[19.016116] (nmea_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gprmc_s.c.o\x1b[0m\n'}
+[19.019272] (nmea_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpvtg_s.c.o\x1b[0m\n'}
+[19.050890] (-) TimerEvent: {}
+[19.151342] (-) TimerEvent: {}
+[19.232687] (nmea_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpzda_s.c.o\x1b[0m\n'}
+[19.235959] (nmea_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gphdt_s.c.o\x1b[0m\n'}
+[19.251719] (-) TimerEvent: {}
+[19.353092] (-) TimerEvent: {}
+[19.410623] (nmea_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/nmea_msgs/libnmea_msgs__python.so\x1b[0m\n'}
+[19.453405] (-) TimerEvent: {}
+[19.535721] (nmea_msgs) StdoutLine: {'line': b'[ 94%] Built target nmea_msgs__python\n'}
+[19.553728] (-) TimerEvent: {}
+[19.576653] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[19.577482] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[19.577835] (nmea_msgs) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[19.638097] (nmea_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[19.641807] (nmea_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[19.654009] (-) TimerEvent: {}
+[19.662385] (nmea_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[19.754450] (-) TimerEvent: {}
+[19.837103] (nmea_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[19.854774] (-) TimerEvent: {}
+[19.865666] (nmea_msgs) StdoutLine: {'line': b'[ 99%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[19.897143] (nmea_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[19.914687] (nmea_msgs) StdoutLine: {'line': b'[100%] Built target nmea_msgs__rosidl_typesupport_c__pyext\n'}
+[19.955170] (-) TimerEvent: {}
+[20.027636] (nmea_msgs) StdoutLine: {'line': b'[100%] Built target nmea_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[20.038886] (nmea_msgs) StdoutLine: {'line': b'[100%] Built target nmea_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[20.055477] (-) TimerEvent: {}
+[20.091552] (nmea_msgs) CommandEnded: {'returncode': 0}
+[20.094714] (nmea_msgs) JobProgress: {'identifier': 'nmea_msgs', 'progress': 'install'}
+[20.138077] (nmea_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('UMS_MOUNTPOINT', '/mnt/ums'), ('GST_V4L2_PREFERRED_FOURCC', 'NV12:YU12:NV16:YUY2'), ('LANGUAGE', 'en_US.UTF-8'), ('USER', 'orangepi'), ('SSH_CLIENT', '192.168.1.232 64379 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('USB_FUNCS', 'adb'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('BROWSER', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/orangepi'), ('OLDPWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/nmea_msgs-ros2'), ('TERM_PROGRAM_VERSION', '3.3.16'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-1052668b-46b9-4c12-92ca-ad380c9de416.sock'), ('GST_INSPECT_NO_COLORS', '1'), ('GST_MPP_NO_RGA', '1'), ('ROS_PYTHON_VERSION', '3'), ('COGL_DRIVER', 'gles2'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GST_V4L2SRC_MAX_RESOLUTION', '3840x2160'), ('ROS_DISTRO', 'foxy'), ('OVSX_REGISTRY_URL', 'https://open-vsx.org'), ('LOGNAME', 'orangepi'), ('ALL_PROXY', 'socks5h://192.168.1.232:10810'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('GST_GL_API', 'gles2'), ('XDG_SESSION_ID', '17'), ('GST_VIDEO_CONVERT_PREFERRED_FORMAT', 'NV12:NV16:I420:YUY2'), ('GST_V4L2SRC_RK_DEVICES', '_mainpath:_selfpath:_bypass:_scale'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GST_GL_PLATFORM', 'egl'), ('GST_DEBUG_NO_COLOR', '1'), ('GST_V4L2SRC_DEFAULT_DEVICE', '/dev/video-camera0'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9e08247e0b.sock'), ('TERM_PROGRAM', 'vscode'), ('GST_V4L2_USE_LIBV4L2', '1'), ('UMS_SIZE', '256M'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('LC_MESSAGES', 'en_US.UTF-8'), ('SHELL', '/bin/bash'), ('UMS_RO', '0'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('UMS_FSTYPE', 'vfat'), ('VSCODE_GIT_IPC_AUTH_TOKEN', '0be1b22bf1a906b02beca2cdbf813216e2b8d13e29bb71c4a0fcf69f00c11fa7'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.1.232 64379 192.168.1.241 22'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('UMS_MOUNT', '0'), ('COLCON', '1'), ('UMS_FILE', '/userdata/ums_shared.img'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[20.155768] (-) TimerEvent: {}
+[20.181304] (nmea_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[20.182272] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/rosidl_interfaces/nmea_msgs\n'}
+[20.182825] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.183249] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.183619] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.183992] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__functions.c\n'}
+[20.184347] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__functions.h\n'}
+[20.184720] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__functions.c\n'}
+[20.185293] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__functions.h\n'}
+[20.186078] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__functions.c\n'}
+[20.186614] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__functions.c\n'}
+[20.187056] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__struct.h\n'}
+[20.187451] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__functions.c\n'}
+[20.188050] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__struct.h\n'}
+[20.188686] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__functions.h\n'}
+[20.189148] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.h\n'}
+[20.189674] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__functions.h\n'}
+[20.190297] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__struct.h\n'}
+[20.190819] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__type_support.h\n'}
+[20.191199] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__functions.h\n'}
+[20.191783] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__functions.c\n'}
+[20.192468] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__struct.h\n'}
+[20.193170] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__functions.h\n'}
+[20.193712] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.h\n'}
+[20.194092] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__functions.h\n'}
+[20.194522] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.h\n'}
+[20.195096] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__struct.h\n'}
+[20.195797] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__functions.h\n'}
+[20.196436] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__type_support.h\n'}
+[20.197073] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__functions.c\n'}
+[20.197701] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__functions.h\n'}
+[20.198256] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.h\n'}
+[20.199246] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__functions.h\n'}
+[20.200016] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.h\n'}
+[20.200687] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__struct.h\n'}
+[20.201371] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__functions.c\n'}
+[20.201807] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.h\n'}
+[20.202211] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__struct.h\n'}
+[20.202554] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__functions.c\n'}
+[20.203041] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__functions.c\n'}
+[20.203531] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__struct.h\n'}
+[20.203952] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__struct.h\n'}
+[20.204279] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.h\n'}
+[20.204605] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__struct.h\n'}
+[20.204930] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__type_support.h\n'}
+[20.205257] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgst.h\n'}
+[20.205643] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgga.h\n'}
+[20.205976] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv_satellite.h\n'}
+[20.206303] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpvtg.h\n'}
+[20.206630] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpzda.h\n'}
+[20.206954] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv.h\n'}
+[20.207279] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsa.h\n'}
+[20.207605] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/sentence.h\n'}
+[20.207934] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gprmc.h\n'}
+[20.208263] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[20.208594] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gphdt.h\n'}
+[20.208987] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/library_path.sh\n'}
+[20.209327] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/library_path.dsv\n'}
+[20.209660] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_generator_c.so\n'}
+[20.210044] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_generator_c.so" to ""\n'}
+[20.210374] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.210702] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.211028] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.211354] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__rosidl_typesupport_fastrtps_c.h\n'}
+[20.211682] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_fastrtps_c.h\n'}
+[20.212009] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_fastrtps_c.h\n'}
+[20.212378] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__rosidl_typesupport_fastrtps_c.h\n'}
+[20.212708] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_fastrtps_c.h\n'}
+[20.213034] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_fastrtps_c.h\n'}
+[20.213363] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_fastrtps_c.h\n'}
+[20.213693] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__rosidl_typesupport_fastrtps_c.h\n'}
+[20.214019] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_fastrtps_c.h\n'}
+[20.214408] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_fastrtps_c.h\n'}
+[20.214737] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[20.215085] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[20.215413] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[20.215778] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.216106] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.216433] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.216760] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.217121] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.217448] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.217773] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.218103] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.218429] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.218760] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.219130] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.219459] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/dds_fastrtps\n'}
+[20.219788] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.220116] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[20.220443] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[20.220772] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[20.221099] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[20.221429] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.221757] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.222082] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.222487] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.c\n'}
+[20.222820] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_introspection_c.h\n'}
+[20.223150] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_introspection_c.h\n'}
+[20.223480] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__type_support.c\n'}
+[20.223887] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.c\n'}
+[20.224253] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_introspection_c.h\n'}
+[20.224588] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.c\n'}
+[20.224921] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_introspection_c.h\n'}
+[20.225253] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.c\n'}
+[20.225628] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__type_support.c\n'}
+[20.225962] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_introspection_c.h\n'}
+[20.226292] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.c\n'}
+[20.226620] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.c\n'}
+[20.226948] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.c\n'}
+[20.227278] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_introspection_c.h\n'}
+[20.227605] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__rosidl_typesupport_introspection_c.h\n'}
+[20.227932] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_introspection_c.h\n'}
+[20.228261] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__type_support.c\n'}
+[20.228588] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__rosidl_typesupport_introspection_c.h\n'}
+[20.228957] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__rosidl_typesupport_introspection_c.h\n'}
+[20.229290] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[20.229620] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_c.so\n'}
+[20.229951] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[20.230277] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_c.so\n'}
+[20.230602] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_c.so" to ""\n'}
+[20.230968] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.231296] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.231623] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgst.hpp\n'}
+[20.231949] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpzda.hpp\n'}
+[20.232313] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.232647] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__type_support.hpp\n'}
+[20.232976] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__traits.hpp\n'}
+[20.233338] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.hpp\n'}
+[20.233703] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__builder.hpp\n'}
+[20.234031] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__builder.hpp\n'}
+[20.234356] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__traits.hpp\n'}
+[20.234683] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.hpp\n'}
+[20.235010] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__builder.hpp\n'}
+[20.235338] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__builder.hpp\n'}
+[20.235702] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.hpp\n'}
+[20.236033] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__struct.hpp\n'}
+[20.236254] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__struct.hpp\n'}
+[20.236346] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__struct.hpp\n'}
+[20.236417] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__builder.hpp\n'}
+[20.236510] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__struct.hpp\n'}
+[20.236596] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__traits.hpp\n'}
+[20.236663] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__struct.hpp\n'}
+[20.236727] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__struct.hpp\n'}
+[20.236811] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__builder.hpp\n'}
+[20.236875] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.hpp\n'}
+[20.236951] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__type_support.hpp\n'}
+[20.237015] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__builder.hpp\n'}
+[20.237077] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__traits.hpp\n'}
+[20.237140] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__traits.hpp\n'}
+[20.237204] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__struct.hpp\n'}
+[20.237267] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__type_support.hpp\n'}
+[20.237330] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__struct.hpp\n'}
+[20.237404] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.hpp\n'}
+[20.237469] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__struct.hpp\n'}
+[20.237530] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__builder.hpp\n'}
+[20.237605] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__builder.hpp\n'}
+[20.237669] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__traits.hpp\n'}
+[20.237732] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__traits.hpp\n'}
+[20.237817] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__traits.hpp\n'}
+[20.237884] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__traits.hpp\n'}
+[20.237949] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.hpp\n'}
+[20.238011] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__traits.hpp\n'}
+[20.238073] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__struct.hpp\n'}
+[20.238135] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.hpp\n'}
+[20.238197] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__builder.hpp\n'}
+[20.238288] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gprmc.hpp\n'}
+[20.238354] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgga.hpp\n'}
+[20.238418] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv_satellite.hpp\n'}
+[20.238479] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gphdt.hpp\n'}
+[20.238542] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[20.238604] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv.hpp\n'}
+[20.238667] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/sentence.hpp\n'}
+[20.238740] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpvtg.hpp\n'}
+[20.238819] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsa.hpp\n'}
+[20.238883] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs\n'}
+[20.238946] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg\n'}
+[20.239008] (nmea_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail\n'}
+[20.239071] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.cpp\n'}
+[20.239143] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239210] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239275] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239337] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239399] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239460] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.cpp\n'}
+[20.239532] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239608] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239671] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.cpp\n'}
+[20.239740] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.cpp\n'}
+[20.239819] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.239883] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__type_support.cpp\n'}
+[20.239944] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpvtg__type_support.cpp\n'}
+[20.240016] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.cpp\n'}
+[20.240080] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.240144] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.cpp\n'}
+[20.240206] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpzda__type_support.cpp\n'}
+[20.240267] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.cpp\n'}
+[20.240329] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gphdt__rosidl_typesupport_introspection_cpp.hpp\n'}
+[20.240392] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[20.240465] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[20.240529] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_cpp.so\n'}
+[20.240592] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[20.240654] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/pythonpath.sh\n'}
+[20.240715] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/pythonpath.dsv\n'}
+[20.240777] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/__init__.py\n'}
+[20.248256] (nmea_msgs) StdoutLine: {'line': b"Compiling '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/__init__.py'...\n"}
+[20.255874] (-) TimerEvent: {}
+[20.260461] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg\n'}
+[20.260952] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpzda.py\n'}
+[20.261244] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_satellite_s.c\n'}
+[20.261784] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gprmc_s.c\n'}
+[20.273462] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_sentence.py\n'}
+[20.274060] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsa.py\n'}
+[20.274365] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgst_s.c\n'}
+[20.274874] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgst.py\n'}
+[20.275339] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_s.c\n'}
+[20.275712] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv.py\n'}
+[20.276090] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gphdt.py\n'}
+[20.276463] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsa_s.c\n'}
+[20.277003] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gphdt_s.c\n'}
+[20.277403] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgga.py\n'}
+[20.277886] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_sentence_s.c\n'}
+[20.278289] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgga_s.c\n'}
+[20.278662] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpvtg_s.c\n'}
+[20.279056] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_satellite.py\n'}
+[20.279382] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpzda_s.c\n'}
+[20.279708] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpvtg.py\n'}
+[20.280029] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gprmc.py\n'}
+[20.280468] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/__init__.py\n'}
+[20.280811] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\n'}
+[20.282281] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[20.283327] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\n'}
+[20.285356] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[20.286308] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\n'}
+[20.288166] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[20.288578] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__python.so\n'}
+[20.289645] (nmea_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__python.so" to ""\n'}
+[20.290030] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Sentence.idl\n'}
+[20.290376] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgga.idl\n'}
+[20.290744] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsa.idl\n'}
+[20.291088] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgst.idl\n'}
+[20.291449] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsv.idl\n'}
+[20.291795] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/GpgsvSatellite.idl\n'}
+[20.292150] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gprmc.idl\n'}
+[20.292499] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpvtg.idl\n'}
+[20.292843] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpzda.idl\n'}
+[20.293187] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gphdt.idl\n'}
+[20.293556] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Sentence.msg\n'}
+[20.293904] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgga.msg\n'}
+[20.294277] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsa.msg\n'}
+[20.294638] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgst.msg\n'}
+[20.294979] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsv.msg\n'}
+[20.295336] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/GpgsvSatellite.msg\n'}
+[20.295689] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gprmc.msg\n'}
+[20.296038] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpvtg.msg\n'}
+[20.296382] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpzda.msg\n'}
+[20.296752] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gphdt.msg\n'}
+[20.297084] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/package_run_dependencies/nmea_msgs\n'}
+[20.297449] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/parent_prefix_path/nmea_msgs\n'}
+[20.297786] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/ament_prefix_path.sh\n'}
+[20.298120] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/ament_prefix_path.dsv\n'}
+[20.298700] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/path.sh\n'}
+[20.299060] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/path.dsv\n'}
+[20.299481] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.bash\n'}
+[20.299923] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.sh\n'}
+[20.300249] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.zsh\n'}
+[20.300572] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.dsv\n'}
+[20.300895] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.dsv\n'}
+[20.301216] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/packages/nmea_msgs\n'}
+[20.301554] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cExport.cmake\n'}
+[20.301878] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[20.302222] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[20.302554] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[20.303323] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cExport.cmake\n'}
+[20.304209] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[20.306861] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cppExport.cmake\n'}
+[20.307734] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[20.308449] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[20.309295] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[20.309695] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[20.310319] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[20.310855] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[20.311373] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[20.311882] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[20.312650] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[20.313102] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[20.313571] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[20.314399] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgsConfig.cmake\n'}
+[20.315078] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgsConfig-version.cmake\n'}
+[20.315763] (nmea_msgs) StdoutLine: {'line': b'-- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.xml\n'}
+[20.316190] (nmea_msgs) CommandEnded: {'returncode': 0}
+[20.356047] (-) TimerEvent: {}
+[20.395257] (nmea_msgs) JobEnded: {'identifier': 'nmea_msgs', 'rc': 0}
+[20.398437] (nmea_navsat_driver) JobStarted: {'identifier': 'nmea_navsat_driver'}
+[20.456447] (-) TimerEvent: {}
+[20.559595] (-) TimerEvent: {}
+[20.660754] (-) TimerEvent: {}
+[20.761934] (-) TimerEvent: {}
+[20.863216] (-) TimerEvent: {}
+[20.964309] (-) TimerEvent: {}
+[21.065334] (-) TimerEvent: {}
+[21.166293] (-) TimerEvent: {}
+[21.267262] (-) TimerEvent: {}
+[21.368195] (-) TimerEvent: {}
+[21.469328] (-) TimerEvent: {}
+[21.507096] (nmea_navsat_driver) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/nmea_navsat_driver', 'build', '--build-base', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build', 'install', '--record', '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver-ros2', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'UMS_MOUNTPOINT': '/mnt/ums', 'GST_V4L2_PREFERRED_FOURCC': 'NV12:YU12:NV16:YUY2', 'LANGUAGE': 'en_US.UTF-8', 'USER': 'orangepi', 'SSH_CLIENT': '192.168.1.232 64379 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'USB_FUNCS': 'adb', 'LD_LIBRARY_PATH': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'BROWSER': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/orangepi', 'OLDPWD': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/nmea_msgs-ros2', 'TERM_PROGRAM_VERSION': '3.3.16', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-1052668b-46b9-4c12-92ca-ad380c9de416.sock', 'GST_INSPECT_NO_COLORS': '1', 'GST_MPP_NO_RGA': '1', 'ROS_PYTHON_VERSION': '3', 'COGL_DRIVER': 'gles2', 'VSCODE_GIT_ASKPASS_MAIN': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GST_V4L2SRC_MAX_RESOLUTION': '3840x2160', 'ROS_DISTRO': 'foxy', 'OVSX_REGISTRY_URL': 'https://open-vsx.org', 'LOGNAME': 'orangepi', 'ALL_PROXY': 'socks5h://192.168.1.232:10810', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GST_GL_API': 'gles2', 'XDG_SESSION_ID': '17', 'GST_VIDEO_CONVERT_PREFERRED_FORMAT': 'NV12:NV16:I420:YUY2', 'GST_V4L2SRC_RK_DEVICES': '_mainpath:_selfpath:_bypass:_scale', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/home/orangepi/.cursor-server/bin/linux-arm64/7f0f522221d0ba220e4edb766bb3c47c08c14ab0/bin/remote-cli:/home/orangepi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GST_GL_PLATFORM': 'egl', 'GST_DEBUG_NO_COLOR': '1', 'GST_V4L2SRC_DEFAULT_DEVICE': '/dev/video-camera0', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9e08247e0b.sock', 'TERM_PROGRAM': 'vscode', 'GST_V4L2_USE_LIBV4L2': '1', 'UMS_SIZE': '256M', 'AMENT_PREFIX_PATH': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/opt/ros/foxy', 'LC_MESSAGES': 'en_US.UTF-8', 'SHELL': '/bin/bash', 'UMS_RO': '0', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'UMS_FSTYPE': 'vfat', 'VSCODE_GIT_IPC_AUTH_TOKEN': '0be1b22bf1a906b02beca2cdbf813216e2b8d13e29bb71c4a0fcf69f00c11fa7', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.1.232 64379 192.168.1.241 22', 'PYTHONPATH': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'UMS_MOUNT': '0', 'COLCON': '1', 'UMS_FILE': '/userdata/ums_shared.img', 'CMAKE_PREFIX_PATH': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs'}, 'shell': False}
+[21.569591] (-) TimerEvent: {}
+[21.670664] (-) TimerEvent: {}
+[21.771823] (-) TimerEvent: {}
+[21.801203] (nmea_navsat_driver) StdoutLine: {'line': b'running egg_info\n'}
+[21.802281] (nmea_navsat_driver) StdoutLine: {'line': b'creating ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info\n'}
+[21.803042] (nmea_navsat_driver) StdoutLine: {'line': b'writing ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/PKG-INFO\n'}
+[21.803395] (nmea_navsat_driver) StdoutLine: {'line': b'writing dependency_links to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/dependency_links.txt\n'}
+[21.803728] (nmea_navsat_driver) StdoutLine: {'line': b'writing entry points to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/entry_points.txt\n'}
+[21.804053] (nmea_navsat_driver) StdoutLine: {'line': b'writing requirements to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/requires.txt\n'}
+[21.804376] (nmea_navsat_driver) StdoutLine: {'line': b'writing top-level names to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/top_level.txt\n'}
+[21.805020] (nmea_navsat_driver) StdoutLine: {'line': b"writing manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'\n"}
+[21.848850] (nmea_navsat_driver) StdoutLine: {'line': b"reading manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'\n"}
+[21.849911] (nmea_navsat_driver) StdoutLine: {'line': b"writing manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'\n"}
+[21.850387] (nmea_navsat_driver) StdoutLine: {'line': b'running build\n'}
+[21.851025] (nmea_navsat_driver) StdoutLine: {'line': b'running build_py\n'}
+[21.851458] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build\n'}
+[21.851818] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib\n'}
+[21.852179] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver\n'}
+[21.852522] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/checksum_utils.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver\n'}
+[21.852864] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/parser.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver\n'}
+[21.853235] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver\n'}
+[21.853567] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver\n'}
+[21.854057] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.854402] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.854735] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/nmea_serial_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.855064] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.855390] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/nmea_socket_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.855797] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/nmea_topic_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.856181] (nmea_navsat_driver) StdoutLine: {'line': b'copying src/libnmea_navsat_driver/nodes/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes\n'}
+[21.856569] (nmea_navsat_driver) StdoutLine: {'line': b'running install\n'}
+[21.856906] (nmea_navsat_driver) StdoutLine: {'line': b'running install_lib\n'}
+[21.857228] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver\n'}
+[21.857553] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/checksum_utils.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver\n'}
+[21.857894] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.858302] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.858632] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_serial_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.859034] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.859383] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_socket_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.859721] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_topic_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.860139] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes\n'}
+[21.860471] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/parser.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver\n'}
+[21.860846] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver\n'}
+[21.861179] (nmea_navsat_driver) StdoutLine: {'line': b'copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver\n'}
+[21.861541] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/checksum_utils.py to checksum_utils.cpython-38.pyc\n'}
+[21.861917] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py to nmea_topic_serial_reader.cpython-38.pyc\n'}
+[21.862276] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_serial_driver.py to nmea_serial_driver.cpython-38.pyc\n'}
+[21.862643] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py to nmea_tcpclient_driver.cpython-38.pyc\n'}
+[21.862984] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_socket_driver.py to nmea_socket_driver.cpython-38.pyc\n'}
+[21.863308] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_topic_driver.py to nmea_topic_driver.cpython-38.pyc\n'}
+[21.863634] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/__init__.py to __init__.cpython-38.pyc\n'}
+[21.863959] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/parser.py to parser.cpython-38.pyc\n'}
+[21.864319] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/driver.py to driver.cpython-38.pyc\n'}
+[21.866060] (nmea_navsat_driver) StdoutLine: {'line': b'byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/__init__.py to __init__.cpython-38.pyc\n'}
+[21.866536] (nmea_navsat_driver) StdoutLine: {'line': b'running install_data\n'}
+[21.866963] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/ament_index\n'}
+[21.867483] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/ament_index/resource_index\n'}
+[21.867813] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/ament_index/resource_index/packages\n'}
+[21.868139] (nmea_navsat_driver) StdoutLine: {'line': b'copying resource/nmea_navsat_driver -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/ament_index/resource_index/packages\n'}
+[21.868467] (nmea_navsat_driver) StdoutLine: {'line': b'copying package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver\n'}
+[21.868860] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/launch\n'}
+[21.869215] (nmea_navsat_driver) StdoutLine: {'line': b'copying launch/nmea_socket_driver.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/launch\n'}
+[21.869540] (nmea_navsat_driver) StdoutLine: {'line': b'copying launch/nmea_serial_driver.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/launch\n'}
+[21.869863] (nmea_navsat_driver) StdoutLine: {'line': b'copying launch/nmea_tcpclient_driver.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/launch\n'}
+[21.870187] (nmea_navsat_driver) StdoutLine: {'line': b'creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config\n'}
+[21.870508] (nmea_navsat_driver) StdoutLine: {'line': b'copying config/nmea_serial_driver.yaml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config\n'}
+[21.870833] (nmea_navsat_driver) StdoutLine: {'line': b'copying config/nmea_tcpclient_driver.yaml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config\n'}
+[21.871224] (nmea_navsat_driver) StdoutLine: {'line': b'copying config/nmea_socket_driver.yaml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config\n'}
+[21.871549] (nmea_navsat_driver) StdoutLine: {'line': b'running install_egg_info\n'}
+[21.871957] (-) TimerEvent: {}
+[21.872387] (nmea_navsat_driver) StdoutLine: {'line': b'Copying ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/nmea_navsat_driver-2.0.1-py3.8.egg-info\n'}
+[21.872746] (nmea_navsat_driver) StdoutLine: {'line': b'running install_scripts\n'}
+[21.900359] (nmea_navsat_driver) StdoutLine: {'line': b'Installing nmea_serial_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver\n'}
+[21.901235] (nmea_navsat_driver) StdoutLine: {'line': b'Installing nmea_socket_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver\n'}
+[21.901737] (nmea_navsat_driver) StdoutLine: {'line': b'Installing nmea_tcpclient_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver\n'}
+[21.902091] (nmea_navsat_driver) StdoutLine: {'line': b'Installing nmea_topic_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver\n'}
+[21.902448] (nmea_navsat_driver) StdoutLine: {'line': b'Installing nmea_topic_serial_reader script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver\n'}
+[21.902775] (nmea_navsat_driver) StdoutLine: {'line': b"writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log'\n"}
+[21.972497] (-) TimerEvent: {}
+[21.982902] (nmea_navsat_driver) CommandEnded: {'returncode': 0}
+[21.994122] (nmea_navsat_driver) JobEnded: {'identifier': 'nmea_navsat_driver', 'rc': 0}
+[21.996907] (-) EventReactorShutdown: {}

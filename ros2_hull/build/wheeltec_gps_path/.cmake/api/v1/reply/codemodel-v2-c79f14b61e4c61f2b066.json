@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "wheeltec_gps_path",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "gps_path::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gps_path-c8316d66ecd71b41094b.json",
+					"name" : "gps_path",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-b3191870b29157261d21.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wheeltec_gps_path_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wheeltec_gps_path_uninstall-aaac4e93c341e0355f74.json",
+					"name" : "wheeltec_gps_path_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path",
+		"source" : "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

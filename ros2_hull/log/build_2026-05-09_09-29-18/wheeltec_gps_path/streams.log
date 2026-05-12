@@ -1,0 +1,24 @@
+[0.043s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[0.240s] [100%] Built target gps_path
+[0.266s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[0.311s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[0.340s] -- Install configuration: ""
+[0.341s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path
+[0.342s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch
+[0.342s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch/gps_path.launch.py
+[0.343s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/package_run_dependencies/wheeltec_gps_path
+[0.344s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/parent_prefix_path/wheeltec_gps_path
+[0.345s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.sh
+[0.346s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.dsv
+[0.347s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.sh
+[0.348s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.dsv
+[0.349s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.bash
+[0.349s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.sh
+[0.350s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.zsh
+[0.351s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.dsv
+[0.351s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv
+[0.351s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/packages/wheeltec_gps_path
+[0.352s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig.cmake
+[0.353s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig-version.cmake
+[0.355s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.xml
+[0.356s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path

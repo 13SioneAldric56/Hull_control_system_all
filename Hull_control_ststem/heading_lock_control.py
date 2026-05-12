@@ -194,7 +194,7 @@ class HeadingLockController:
         max_turn_strength: float = 0.2,
         compass_mode: OutputMode = OutputMode.AUTO_50HZ,
         use_heading_wrap: bool = True,
-        bearing_update_interval: float = 5.0,
+        bearing_update_interval: float = 9999.0,
         arrival_threshold_m: float = 10.0
     ):
         """
@@ -491,6 +491,26 @@ class HeadingLockController:
 
         return error
 
+    def _sync_target_continuous_heading(self, heading: float):
+        """将目标航向同步到当前连续角坐标系，避免跨圈导致错误大偏差。"""
+        if not self.use_heading_wrap or not self._heading_wrap_reader:
+            self._target_continuous_heading = heading
+            return
+
+        current_continuous = self._heading_wrap_reader.get_heading()
+        if current_continuous is None:
+            self._target_continuous_heading = heading
+            return
+
+        wrapped_current = current_continuous % 360
+        delta = heading - wrapped_current
+        while delta > 180:
+            delta -= 360
+        while delta < -180:
+            delta += 360
+
+        self._target_continuous_heading = current_continuous + delta
+
     def _apply_pid_correction(self, error: float):
         """
         使用PID控制器应用差速修正
@@ -561,7 +581,8 @@ class HeadingLockController:
         pid_state: dict,
         status: str,
         elapsed_time: float,
-        continuous_heading: float = None
+        continuous_heading: float = None,
+        gps_state=None
     ) -> str:
         """格式化信息面板"""
         panel_width = 60
@@ -578,6 +599,14 @@ class HeadingLockController:
         if self.use_heading_wrap and continuous_heading is not None:
             wrap_info = f"(连续: {continuous_heading:.1f}°)"
 
+        gps_lines = ""
+        if gps_state is not None:
+            gps_lines = (
+                f"\n║  当前坐标: {gps_state.current_lat:>10.6f}, {gps_state.current_lon:>10.6f}                 ║"
+                f"\n║  目标坐标: {gps_state.target_lat:>10.6f}, {gps_state.target_lon:>10.6f}                 ║"
+                f"\n║  距离目标: {gps_state.distance_to_target:>8.1f}m   方位角: {gps_state.bearing_angle:>6.1f}°                ║"
+            )
+
         panel = f"""
 ╔══════════════════════════════════════════════════════════════════════╗
 ║                         航向角锁定控制系统                              ║
@@ -585,6 +614,7 @@ class HeadingLockController:
 ║  目标航向: {self._target_heading:>6.1f}°                                   运行时间: {uptime}     ║
 ║  当前航向: {current_heading:>6.1f}° {wrap_info:<25}  状态: {status_icon} {status:<12}║
 ║  航向偏差: {error:>+6.1f}°  {error_bar}                            ║
+{gps_lines}
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  PID 控制输出                                                         ║
 ║    ├─ Kp: {pid_state['kp']:>5.2f}  │  P输出: {pid_state['kp']*error:>+7.2f}                     ║
@@ -628,12 +658,12 @@ class HeadingLockController:
             return f"{hours:02d}:{minutes:02d}:{secs:02d}"
         return f"{minutes:02d}:{secs:02d}"
 
-    def _update_display(self, current_heading: float, error: float, elapsed_time: float, continuous_heading: float = None):
+    def _update_display(self, current_heading: float, error: float, elapsed_time: float, continuous_heading: float = None, gps_state=None):
         """更新终端显示（覆盖式刷新）"""
         pid_state = self._pid.get_state()
         status = "直行" if abs(error) < self.deviation_threshold else "修正中"
 
-        panel = self._format_info_panel(current_heading, error, pid_state, status, elapsed_time, continuous_heading)
+        panel = self._format_info_panel(current_heading, error, pid_state, status, elapsed_time, continuous_heading, gps_state)
 
         sys.stdout.write("\033[2J\033[H")
         sys.stdout.write(panel)
@@ -659,7 +689,8 @@ class HeadingLockController:
 
                 # GPS模式下使用GPSNavigationController计算的实时航向误差
                 if self._gps_enabled and self._gps_navigation:
-                    self.update_gps_navigation()
+                    # GPS模式每轮刷新一次导航状态，确保方位角与到达判定实时更新
+                    self.update_gps_navigation(force=True)
                     state = self._gps_navigation._state
                     if state.is_arrived or self._gps_distance <= self.arrival_threshold_m:
                         print(f"\n[到达] 距离目标点约 {self._gps_distance:.1f} 米，已达到阈值 {self.arrival_threshold_m:.1f} 米，停止运行")
@@ -671,8 +702,10 @@ class HeadingLockController:
                             time.sleep(0.05)
                             continue
                         continuous_heading = inner_heading_lock.get_continuous_heading()
-                        # 直接使用GPS计算的航向误差
-                        error = self._gps_navigation._state.heading_error
+                        # 使用本控制器统一误差符号定义: error = current - target
+                        self._target_heading = state.target_heading
+                        self._sync_target_continuous_heading(self._target_heading)
+                        error = self._calculate_heading_error(current_heading, continuous_heading)
                     else:
                         current_heading = None
                         continuous_heading = None
@@ -684,6 +717,7 @@ class HeadingLockController:
                         continue
                     current_heading = data.wrapped_heading
                     continuous_heading = data.continuous_heading
+                    error = self._calculate_heading_error(current_heading, continuous_heading)
                 else:
                     raw_data = self._compass.read()
                     if raw_data is None:
@@ -715,7 +749,8 @@ class HeadingLockController:
                 elapsed = loop_end_time - start_time
 
                 if loop_end_time - last_display_time >= display_interval:
-                    self._update_display(current_heading, error, elapsed, continuous_heading)
+                    gps_state = self._gps_navigation._state if (self._gps_enabled and self._gps_navigation) else None
+                    self._update_display(current_heading, error, elapsed, continuous_heading, gps_state)
                     last_display_time = loop_end_time
 
                 if duration and elapsed >= duration:
@@ -759,6 +794,7 @@ class HeadingLockController:
     def set_target_heading(self, heading: float):
         """手动设置目标航向角"""
         self._target_heading = heading % 360
+        self._sync_target_continuous_heading(self._target_heading)
         self._pid.reset()
         print(f"[设置] 目标航向角已更新: {self._target_heading:.1f}°")
 
@@ -885,11 +921,11 @@ if __name__ == "__main__":
                         help='罗盘串口路径，默认 /dev/ttyS0')
     parser.add_argument('-s', '--speed', type=int, default=75,
                         help='基础速度 (0-100)，默认50')
-    parser.add_argument('-t', '--threshold', type=float, default=20.0,
+    parser.add_argument('-t', '--threshold', type=float, default=10.0,
                         help='偏差死区阈值(度)，默认3度')
     parser.add_argument('--kp', type=float, default=2.0,
                         help='PID比例系数，默认2.0')
-    parser.add_argument('--ki', type=float, default=0.05,
+    parser.add_argument('--ki', type=float, default=1,
                         help='PID积分系数，默认0.1')
     parser.add_argument('--kd', type=float, default=0.8,
                         help='PID微分系数，默认0.5')
@@ -905,9 +941,11 @@ if __name__ == "__main__":
     # GPS 相关参数
     parser.add_argument('--gps', action='store_true', help='启用GPS导航模式')
     parser.add_argument('--gps-port', type=str, default='/dev/ttyS1', help='GPS串口路径')
-    parser.add_argument('--gps-baudrate', type=int, default=38400, help='GPS波特率')
+    parser.add_argument('--gps-baudrate', type=int, default=115200, help='GPS波特率')
     parser.add_argument('--target-lat', type=float, help='目标纬度')
     parser.add_argument('--target-lon', type=float, help='目标经度')
+    parser.add_argument('--arrival-threshold', type=float, default=5.0,
+                        help='到达目标阈值(米)，默认5.0米')
     parser.add_argument('--confirm', action='store_true', default=True,
                         help='确认目标航向角后启动（默认启用）')
 
@@ -945,7 +983,8 @@ if __name__ == "__main__":
             pid_kd=args.kd,
             compass_mode=mode_map[args.mode],
             update_interval=interval_map[args.mode],
-            use_heading_wrap=not args.no_wrap
+            use_heading_wrap=not args.no_wrap,
+            arrival_threshold_m=args.arrival_threshold
         )
 
         # GPS 导航模式
@@ -1007,6 +1046,7 @@ if __name__ == "__main__":
 
             # 启动航向锁定控制（使用GPS计算的目标航向）
             controller._target_heading = state.target_heading
+            controller._sync_target_continuous_heading(controller._target_heading)
             controller._pid.reset()
             controller._is_running = True
             print(f"[启动] 航向角锁定控制已启动，目标航向: {controller._target_heading:.1f}°")

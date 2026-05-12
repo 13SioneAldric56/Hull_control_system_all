@@ -1,0 +1,3 @@
+[console_scripts]
+wgs84_gcj02_converter = gps_wgs84_to_gcj02.fix_converter:main
+

@@ -1,0 +1,3 @@
+[console_scripts]
+wgs84_gcj_bridge_node = wgs84_gcj_bridge.bridge_node:main
+

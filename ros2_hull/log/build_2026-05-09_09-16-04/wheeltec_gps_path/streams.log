@@ -1,0 +1,44 @@
+[0.041s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path -DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path
+[0.593s] -- The C compiler identification is GNU 9.4.0
+[1.197s] -- The CXX compiler identification is GNU 9.4.0
+[1.216s] -- Check for working C compiler: /usr/bin/cc
+[1.493s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.495s] -- Detecting C compiler ABI info
+[1.710s] -- Detecting C compiler ABI info - done
+[1.764s] -- Detecting C compile features
+[1.765s] -- Detecting C compile features - done
+[1.777s] -- Check for working CXX compiler: /usr/bin/c++
+[1.984s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.989s] -- Detecting CXX compiler ABI info
+[2.239s] -- Detecting CXX compiler ABI info - done
+[2.262s] -- Detecting CXX compile features
+[2.262s] -- Detecting CXX compile features - done
+[2.265s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[2.317s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[2.318s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.669s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[2.778s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.787s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.043s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[3.095s] -- Found FastRTPS: /opt/ros/foxy/include  
+[3.236s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.442s] CMake Error at CMakeLists.txt:11 (find_package):
+[3.443s]   By not providing "Findnav2_msgs.cmake" in CMAKE_MODULE_PATH this project
+[3.443s]   has asked CMake to find a package configuration file provided by
+[3.444s]   "nav2_msgs", but CMake did not find one.
+[3.444s] 
+[3.445s]   Could not find a package configuration file provided by "nav2_msgs" with
+[3.445s]   any of the following names:
+[3.446s] 
+[3.446s]     nav2_msgsConfig.cmake
+[3.446s]     nav2_msgs-config.cmake
+[3.447s] 
+[3.447s]   Add the installation prefix of "nav2_msgs" to CMAKE_PREFIX_PATH or set
+[3.447s]   "nav2_msgs_DIR" to a directory containing one of the above files.  If
+[3.448s]   "nav2_msgs" provides a separate development package or SDK, be sure it has
+[3.448s]   been installed.
+[3.449s] 
+[3.449s] 
+[3.449s] -- Configuring incomplete, errors occurred!
+[3.450s] See also "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path/CMakeFiles/CMakeOutput.log".
+[3.467s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path -DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path

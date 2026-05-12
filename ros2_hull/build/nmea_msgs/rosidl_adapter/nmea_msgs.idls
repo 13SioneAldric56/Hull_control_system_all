@@ -1,0 +1,7 @@
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Sentence.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Gpgga.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Gpgsa.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Gpgst.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Gpgsv.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/GpgsvSatellite.idl
+/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs/rosidl_adapter/nmea_msgs:msg/Gprmc.idl

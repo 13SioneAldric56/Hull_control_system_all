@@ -1,0 +1,266 @@
+[0.238s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.238s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f88069e50>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f88069e50>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f88095910>)
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.415s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.415s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extension 'ignore'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extension 'ignore_ament_install'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extensions ['colcon_pkg']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extension 'colcon_pkg'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extensions ['colcon_meta']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extension 'colcon_meta'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extensions ['ros']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_msgs) by extension 'ros'
+[0.439s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nmea_msgs' with type 'ros.ament_cmake' and name 'nmea_msgs'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extension 'ignore'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extension 'ignore_ament_install'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extensions ['colcon_pkg']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extension 'colcon_pkg'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extensions ['colcon_meta']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extension 'colcon_meta'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extensions ['ros']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(src/nmea_navsat_driver) by extension 'ros'
+[0.444s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nmea_navsat_driver' with type 'ros.ament_python' and name 'nmea_navsat_driver'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extensions ['ignore', 'ignore_ament_install']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extension 'ignore'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extension 'ignore_ament_install'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extensions ['colcon_pkg']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extension 'colcon_pkg'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extensions ['colcon_meta']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extension 'colcon_meta'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extensions ['ros']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(src/wheeltec_gps_path) by extension 'ros'
+[0.446s] DEBUG:colcon.colcon_core.package_identification:Package 'src/wheeltec_gps_path' with type 'ros.ament_cmake' and name 'wheeltec_gps_path'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(tar) by extensions ['ignore', 'ignore_ament_install']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(tar) by extension 'ignore'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(tar) ignored
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.446s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.447s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.469s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_target' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'nmea_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.470s] DEBUG:colcon.colcon_core.verb:Building package 'nmea_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs', 'merge_install': False, 'path': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_args' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_target' from command line to 'None'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_clean_cache' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_clean_first' from command line to 'False'
+[0.470s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'cmake_force_configure' from command line to 'False'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'ament_cmake_args' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'catkin_cmake_args' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'wheeltec_gps_path' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.471s] DEBUG:colcon.colcon_core.verb:Building package 'wheeltec_gps_path' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path', 'merge_install': False, 'path': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path', 'symlink_install': False, 'test_result_base': None}
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_args' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_target' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_clean_cache' from command line to 'False'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_clean_first' from command line to 'False'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'cmake_force_configure' from command line to 'False'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'ament_cmake_args' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'catkin_cmake_args' from command line to 'None'
+[0.471s] Level 5:colcon.colcon_core.verb:set package 'nmea_navsat_driver' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.471s] DEBUG:colcon.colcon_core.verb:Building package 'nmea_navsat_driver' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver', 'merge_install': False, 'path': '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver', 'symlink_install': False, 'test_result_base': None}
+[0.471s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.474s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.476s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs' with build type 'ament_cmake'
+[0.477s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs'
+[0.487s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.488s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.488s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.506s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path' with build type 'ament_cmake'
+[0.507s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path'
+[0.507s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.507s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.534s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs -- -j8 -l8
+[0.551s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[0.775s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[0.820s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[0.853s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(wheeltec_gps_path)
+[0.862s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path' for CMake module files
+[0.865s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[0.865s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path' for CMake config files
+[0.866s] Level 1:colcon.colcon_core.shell:create_environment_hook('wheeltec_gps_path', 'cmake_prefix_path')
+[0.866s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.ps1'
+[0.868s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.dsv'
+[0.872s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.sh'
+[0.874s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib'
+[0.874s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/bin'
+[0.875s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/pkgconfig/wheeltec_gps_path.pc'
+[0.877s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/python3.8/site-packages'
+[0.877s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/bin'
+[0.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.ps1'
+[0.882s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv'
+[0.885s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.sh'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.bash'
+[0.888s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.zsh'
+[0.889s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/colcon-core/packages/wheeltec_gps_path)
+[0.892s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(wheeltec_gps_path)
+[0.892s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path' for CMake module files
+[0.893s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path' for CMake config files
+[0.893s] Level 1:colcon.colcon_core.shell:create_environment_hook('wheeltec_gps_path', 'cmake_prefix_path')
+[0.894s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.ps1'
+[0.895s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.dsv'
+[0.896s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/hook/cmake_prefix_path.sh'
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib'
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/bin'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/pkgconfig/wheeltec_gps_path.pc'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/python3.8/site-packages'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/bin'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.ps1'
+[0.903s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv'
+[0.904s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.sh'
+[0.905s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.bash'
+[0.907s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.zsh'
+[0.909s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/colcon-core/packages/wheeltec_gps_path)
+[1.283s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs -- -j8 -l8
+[1.292s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs
+[1.402s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nmea_msgs)
+[1.404s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs' for CMake module files
+[1.404s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs
+[1.407s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs' for CMake config files
+[1.408s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'cmake_prefix_path')
+[1.409s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.ps1'
+[1.411s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.dsv'
+[1.416s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.sh'
+[1.418s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib'
+[1.418s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'ld_library_path_lib')
+[1.419s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.ps1'
+[1.421s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.dsv'
+[1.422s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.sh'
+[1.423s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/bin'
+[1.424s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/pkgconfig/nmea_msgs.pc'
+[1.424s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages'
+[1.424s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'pythonpath')
+[1.424s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.ps1'
+[1.425s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.dsv'
+[1.426s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.sh'
+[1.428s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/bin'
+[1.428s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.ps1'
+[1.429s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.dsv'
+[1.431s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.sh'
+[1.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.bash'
+[1.434s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.zsh'
+[1.435s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/colcon-core/packages/nmea_msgs)
+[1.439s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nmea_msgs)
+[1.441s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs' for CMake module files
+[1.444s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs' for CMake config files
+[1.445s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'cmake_prefix_path')
+[1.446s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.ps1'
+[1.448s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.dsv'
+[1.449s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/cmake_prefix_path.sh'
+[1.451s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib'
+[1.451s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'ld_library_path_lib')
+[1.452s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.ps1'
+[1.454s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.dsv'
+[1.455s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/ld_library_path_lib.sh'
+[1.457s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/bin'
+[1.457s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/pkgconfig/nmea_msgs.pc'
+[1.458s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages'
+[1.459s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_msgs', 'pythonpath')
+[1.459s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.ps1'
+[1.461s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.dsv'
+[1.465s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/hook/pythonpath.sh'
+[1.468s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/bin'
+[1.469s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.ps1'
+[1.473s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.dsv'
+[1.475s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.sh'
+[1.477s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.bash'
+[1.478s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.zsh'
+[1.479s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/colcon-core/packages/nmea_msgs)
+[1.481s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver' with build type 'ament_python'
+[1.481s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_navsat_driver', 'ament_prefix_path')
+[1.482s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/ament_prefix_path.ps1'
+[1.483s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/ament_prefix_path.dsv'
+[1.484s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/ament_prefix_path.sh'
+[1.485s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.485s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.836s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver'
+[1.839s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.839s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.511s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver': CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data
+[2.964s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver' for CMake module files
+[2.967s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver' for CMake config files
+[2.968s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver' returned '0': CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data
+[2.969s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib'
+[2.969s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/bin'
+[2.969s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/pkgconfig/nmea_navsat_driver.pc'
+[2.970s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages'
+[2.970s] Level 1:colcon.colcon_core.shell:create_environment_hook('nmea_navsat_driver', 'pythonpath')
+[2.970s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/pythonpath.ps1'
+[2.971s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/pythonpath.dsv'
+[2.972s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/hook/pythonpath.sh'
+[2.973s] Level 1:colcon.colcon_core.environment:checking '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/bin'
+[2.973s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(nmea_navsat_driver)
+[2.974s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/package.ps1'
+[2.975s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/package.dsv'
+[2.975s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/package.sh'
+[2.976s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/package.bash'
+[2.977s] INFO:colcon.colcon_core.shell:Creating package script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/package.zsh'
+[2.977s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/colcon-core/packages/nmea_navsat_driver)
+[2.978s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.978s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.978s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.978s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.997s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.999s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/local_setup.ps1'
+[3.005s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/_local_setup_util_ps1.py'
+[3.012s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/setup.ps1'
+[3.015s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/local_setup.sh'
+[3.016s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/_local_setup_util_sh.py'
+[3.017s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/setup.sh'
+[3.020s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/local_setup.bash'
+[3.021s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/setup.bash'
+[3.022s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/local_setup.zsh'
+[3.024s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/setup.zsh'

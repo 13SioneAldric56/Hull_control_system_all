@@ -1,0 +1,26 @@
+[1.024s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver': CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data
+[1.295s] running egg_info
+[1.296s] writing ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/PKG-INFO
+[1.297s] writing dependency_links to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/dependency_links.txt
+[1.301s] writing entry points to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/entry_points.txt
+[1.302s] writing requirements to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/requires.txt
+[1.303s] writing top-level names to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/top_level.txt
+[1.356s] reading manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'
+[1.357s] writing manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'
+[1.357s] running build
+[1.358s] running build_py
+[1.358s] running install
+[1.359s] running install_lib
+[1.362s] running install_data
+[1.362s] copying config/nmea_serial_driver.yaml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config
+[1.363s] running install_egg_info
+[1.365s] removing '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/nmea_navsat_driver-2.0.0-py3.8.egg-info' (and everything under it)
+[1.366s] Copying ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/nmea_navsat_driver-2.0.0-py3.8.egg-info
+[1.366s] running install_scripts
+[1.394s] Installing nmea_serial_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.395s] Installing nmea_socket_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.396s] Installing nmea_tcpclient_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.397s] Installing nmea_topic_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.399s] Installing nmea_topic_serial_reader script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.401s] writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log'
+[1.481s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver' returned '0': CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data

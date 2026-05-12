@@ -1,0 +1,340 @@
+[0.044s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs -- -j8 -l8
+[0.213s] [35m[1mScanning dependencies of target nmea_msgs__cpp[0m
+[0.227s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.258s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.540s] [  2%] Built target nmea_msgs__cpp
+[1.563s] [  3%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.587s] [  5%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.608s] [  6%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.651s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_generator_c[0m
+[1.701s] [  7%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsa__functions.c.o[0m
+[1.722s] [  8%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgga__functions.c.o[0m
+[1.724s] [ 10%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgst__functions.c.o[0m
+[1.728s] [ 11%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/sentence__functions.c.o[0m
+[1.741s] [ 12%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsv__functions.c.o[0m
+[1.821s] [ 13%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gpgsv_satellite__functions.c.o[0m
+[1.912s] [ 15%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_generator_c.dir/rosidl_generator_c/nmea_msgs/msg/detail/gprmc__functions.c.o[0m
+[2.041s] [ 16%] [32m[1mLinking C shared library libnmea_msgs__rosidl_generator_c.so[0m
+[2.205s] [ 16%] Built target nmea_msgs__rosidl_generator_c
+[2.245s] [ 17%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.248s] [ 18%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.542s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_cpp[0m
+[2.615s] [ 20%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/sentence__type_support.cpp.o[0m
+[2.621s] [ 21%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgga__type_support.cpp.o[0m
+[2.665s] [ 22%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsa__type_support.cpp.o[0m
+[2.732s] [ 24%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgst__type_support.cpp.o[0m
+[2.773s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_cpp[0m
+[2.834s] [ 25%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/sentence__type_support.cpp.o[0m
+[2.946s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[3.144s] [ 26%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/sentence__type_support.cpp.o[0m
+[3.288s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_c[0m
+[3.324s] [ 27%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/sentence__type_support.cpp.o[0m
+[3.380s] [ 29%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgga__type_support.cpp.o[0m
+[3.393s] [ 30%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgga__type_support.cpp.o[0m
+[3.426s] [ 31%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsv__type_support.cpp.o[0m
+[3.466s] [ 32%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsa__type_support.cpp.o[0m
+[3.542s] [ 34%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgst__type_support.cpp.o[0m
+[3.604s] [ 35%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsv__type_support.cpp.o[0m
+[3.639s] [ 36%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gpgsv_satellite__type_support.cpp.o[0m
+[3.701s] [ 37%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gpgsv_satellite__type_support.cpp.o[0m
+[3.764s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_c[0m
+[3.803s] [ 39%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/nmea_msgs/msg/gprmc__type_support.cpp.o[0m
+[3.817s] [ 40%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsa__type_support.cpp.o[0m
+[3.857s] [ 41%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/sentence__type_support.c.o[0m
+[3.869s] [ 43%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/nmea_msgs/msg/gprmc__type_support.cpp.o[0m
+[3.932s] [ 44%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgga__type_support.c.o[0m
+[3.940s] [ 45%] [32m[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_c.so[0m
+[4.037s] [ 46%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgst__type_support.c.o[0m
+[4.048s] [ 48%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsa__type_support.c.o[0m
+[4.087s] [ 49%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsv_satellite__type_support.c.o[0m
+[4.101s] [ 50%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gpgsv__type_support.c.o[0m
+[4.117s] [ 50%] Built target nmea_msgs__rosidl_typesupport_c
+[4.123s] [ 51%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/nmea_msgs/msg/detail/gprmc__type_support.c.o[0m
+[4.137s] [ 53%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgst__type_support.cpp.o[0m
+[4.166s] [ 54%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsv__type_support.cpp.o[0m
+[4.168s] [ 55%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gpgsv_satellite__type_support.cpp.o[0m
+[4.184s] [ 56%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/nmea_msgs/msg/detail/gprmc__type_support.cpp.o[0m
+[4.246s] [ 58%] [32m[1mLinking C shared library libnmea_msgs__rosidl_typesupport_introspection_c.so[0m
+[4.393s] [ 58%] Built target nmea_msgs__rosidl_typesupport_introspection_c
+[4.436s] [ 59%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgga__type_support.cpp.o[0m
+[4.585s] [ 60%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgst__type_support.cpp.o[0m
+[4.590s] [ 62%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsa__type_support.cpp.o[0m
+[4.684s] [ 63%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsv__type_support.cpp.o[0m
+[4.765s] [ 64%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gpgsv_satellite__type_support.cpp.o[0m
+[4.868s] [ 65%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/nmea_msgs/msg/detail/dds_fastrtps/gprmc__type_support.cpp.o[0m
+[4.903s] [ 67%] [32m[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_cpp.so[0m
+[5.142s] [ 67%] Built target nmea_msgs__rosidl_typesupport_cpp
+[5.643s] [ 68%] [32m[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[5.871s] [ 68%] Built target nmea_msgs__rosidl_typesupport_introspection_cpp
+[6.026s] [ 69%] [32m[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.336s] [ 69%] Built target nmea_msgs__rosidl_typesupport_fastrtps_cpp
+[6.373s] [ 70%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[7.485s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_c[0m
+[7.525s] [ 72%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsv__type_support_c.cpp.o[0m
+[7.534s] [ 73%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsa__type_support_c.cpp.o[0m
+[7.538s] [ 74%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/sentence__type_support_c.cpp.o[0m
+[7.539s] [ 78%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgga__type_support_c.cpp.o[0m
+[7.539s] [ 75%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gprmc__type_support_c.cpp.o[0m
+[7.540s] [ 79%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgsv_satellite__type_support_c.cpp.o[0m
+[7.541s] [ 78%] [32mBuilding CXX object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/nmea_msgs/msg/detail/gpgst__type_support_c.cpp.o[0m
+[8.763s] [ 81%] [32m[1mLinking CXX shared library libnmea_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[8.971s] [ 81%] Built target nmea_msgs__rosidl_typesupport_fastrtps_c
+[9.005s] [35m[1mScanning dependencies of target nmea_msgs[0m
+[9.045s] [ 81%] Built target nmea_msgs
+[9.083s] [35m[1mScanning dependencies of target nmea_msgs__py[0m
+[9.127s] [ 82%] [34m[1mGenerating Python code for ROS interfaces[0m
+[11.742s] [ 82%] Built target nmea_msgs__py
+[11.770s] [35m[1mScanning dependencies of target nmea_msgs__python[0m
+[11.912s] [ 83%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsv_satellite_s.c.o[0m
+[11.921s] [ 87%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_sentence_s.c.o[0m
+[11.921s] [ 87%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsa_s.c.o[0m
+[11.922s] [ 87%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgst_s.c.o[0m
+[11.925s] [ 88%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgga_s.c.o[0m
+[11.930s] [ 89%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gpgsv_s.c.o[0m
+[11.957s] [ 91%] [32mBuilding C object CMakeFiles/nmea_msgs__python.dir/rosidl_generator_py/nmea_msgs/msg/_gprmc_s.c.o[0m
+[12.250s] [ 92%] [32m[1mLinking C shared library rosidl_generator_py/nmea_msgs/libnmea_msgs__python.so[0m
+[12.393s] [ 92%] Built target nmea_msgs__python
+[12.418s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_c__pyext[0m
+[12.427s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[12.429s] [35m[1mScanning dependencies of target nmea_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[12.471s] [ 93%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[12.478s] [ 94%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[12.499s] [ 96%] [32mBuilding C object CMakeFiles/nmea_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/nmea_msgs/_nmea_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[12.657s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so[0m
+[12.675s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so[0m
+[12.732s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so[0m
+[12.853s] [100%] Built target nmea_msgs__rosidl_typesupport_c__pyext
+[12.876s] [100%] Built target nmea_msgs__rosidl_typesupport_introspection_c__pyext
+[12.922s] [100%] Built target nmea_msgs__rosidl_typesupport_fastrtps_c__pyext
+[12.976s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs -- -j8 -l8
+[13.036s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs
+[13.070s] -- Install configuration: ""
+[13.070s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/rosidl_interfaces/nmea_msgs
+[13.071s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.072s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.073s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.073s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__functions.c
+[13.074s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__functions.h
+[13.075s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__functions.h
+[13.075s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__functions.c
+[13.076s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__struct.h
+[13.076s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__functions.c
+[13.077s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__struct.h
+[13.077s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__functions.h
+[13.078s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.h
+[13.078s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__functions.h
+[13.078s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__functions.c
+[13.079s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__struct.h
+[13.079s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__functions.h
+[13.080s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.h
+[13.081s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.h
+[13.081s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__struct.h
+[13.081s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__functions.h
+[13.082s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.h
+[13.082s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__functions.h
+[13.082s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.h
+[13.083s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__functions.c
+[13.083s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.h
+[13.084s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__struct.h
+[13.084s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__functions.c
+[13.085s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__functions.c
+[13.085s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__struct.h
+[13.086s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.h
+[13.086s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__struct.h
+[13.086s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgst.h
+[13.087s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgga.h
+[13.087s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv_satellite.h
+[13.088s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv.h
+[13.088s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsa.h
+[13.089s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/sentence.h
+[13.089s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gprmc.h
+[13.090s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_generator_c__visibility_control.h
+[13.090s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/library_path.sh
+[13.091s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/library_path.dsv
+[13.091s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_generator_c.so
+[13.091s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_generator_c.so" to ""
+[13.092s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.092s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.092s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.093s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_fastrtps_c.h
+[13.093s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_fastrtps_c.h
+[13.094s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_fastrtps_c.h
+[13.094s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_fastrtps_c.h
+[13.094s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_fastrtps_c.h
+[13.095s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_fastrtps_c.h
+[13.095s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_fastrtps_c.h
+[13.096s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[13.096s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_c.so
+[13.097s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[13.097s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.098s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.098s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.099s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_fastrtps_cpp.hpp
+[13.099s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_fastrtps_cpp.hpp
+[13.100s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_fastrtps_cpp.hpp
+[13.100s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_fastrtps_cpp.hpp
+[13.101s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_fastrtps_cpp.hpp
+[13.101s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_fastrtps_cpp.hpp
+[13.102s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/dds_fastrtps
+[13.103s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_fastrtps_cpp.hpp
+[13.104s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[13.104s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so
+[13.105s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[13.105s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.106s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.106s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.106s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.c
+[13.107s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_introspection_c.h
+[13.107s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_introspection_c.h
+[13.107s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.c
+[13.108s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_introspection_c.h
+[13.108s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.c
+[13.109s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_introspection_c.h
+[13.109s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.c
+[13.109s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_introspection_c.h
+[13.110s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.c
+[13.110s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.c
+[13.111s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.c
+[13.111s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_introspection_c.h
+[13.111s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_introspection_c.h
+[13.112s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[13.112s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_c.so
+[13.113s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_c.so" to ""
+[13.113s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_c.so
+[13.113s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_c.so" to ""
+[13.114s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.114s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.115s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgst.hpp
+[13.115s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.115s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__traits.hpp
+[13.116s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.hpp
+[13.116s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__builder.hpp
+[13.116s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.hpp
+[13.117s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__builder.hpp
+[13.117s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__builder.hpp
+[13.117s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.hpp
+[13.118s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__struct.hpp
+[13.118s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__struct.hpp
+[13.119s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__builder.hpp
+[13.119s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__struct.hpp
+[13.119s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__struct.hpp
+[13.120s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.hpp
+[13.120s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__builder.hpp
+[13.120s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__traits.hpp
+[13.121s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__traits.hpp
+[13.121s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__struct.hpp
+[13.122s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__struct.hpp
+[13.122s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.hpp
+[13.122s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__builder.hpp
+[13.123s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__traits.hpp
+[13.123s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__traits.hpp
+[13.123s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__traits.hpp
+[13.124s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.hpp
+[13.124s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__traits.hpp
+[13.125s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__struct.hpp
+[13.125s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.hpp
+[13.125s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__builder.hpp
+[13.126s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gprmc.hpp
+[13.126s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgga.hpp
+[13.126s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv_satellite.hpp
+[13.127s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[13.127s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsv.hpp
+[13.128s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/sentence.hpp
+[13.128s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/gpgsa.hpp
+[13.128s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs
+[13.129s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg
+[13.129s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail
+[13.129s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__type_support.cpp
+[13.130s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__rosidl_typesupport_introspection_cpp.hpp
+[13.130s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__rosidl_typesupport_introspection_cpp.hpp
+[13.131s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__rosidl_typesupport_introspection_cpp.hpp
+[13.131s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__rosidl_typesupport_introspection_cpp.hpp
+[13.131s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__type_support.cpp
+[13.132s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv__rosidl_typesupport_introspection_cpp.hpp
+[13.132s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsa__type_support.cpp
+[13.132s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgsv_satellite__type_support.cpp
+[13.133s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgst__rosidl_typesupport_introspection_cpp.hpp
+[13.133s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gpgga__type_support.cpp
+[13.133s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__rosidl_typesupport_introspection_cpp.hpp
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/gprmc__type_support.cpp
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/include/nmea_msgs/msg/detail/sentence__type_support.cpp
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_cpp.so
+[13.134s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_cpp.so
+[13.134s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__rosidl_typesupport_cpp.so" to ""
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/pythonpath.sh
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/pythonpath.dsv
+[13.134s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/__init__.py
+[13.164s] Compiling '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/__init__.py'...
+[13.177s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg
+[13.178s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_satellite_s.c
+[13.179s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gprmc_s.c
+[13.179s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_sentence.py
+[13.179s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsa.py
+[13.180s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgst_s.c
+[13.180s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgst.py
+[13.181s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_s.c
+[13.181s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv.py
+[13.182s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsa_s.c
+[13.182s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgga.py
+[13.182s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_sentence_s.c
+[13.183s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgga_s.c
+[13.183s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gpgsv_satellite.py
+[13.184s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/_gprmc.py
+[13.184s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/msg/__init__.py
+[13.184s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+[13.185s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""
+[13.185s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+[13.185s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""
+[13.187s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+[13.187s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages/nmea_msgs/nmea_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""
+[13.190s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__python.so
+[13.191s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/libnmea_msgs__python.so" to ""
+[13.191s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Sentence.idl
+[13.192s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgga.idl
+[13.192s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsa.idl
+[13.193s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgst.idl
+[13.193s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsv.idl
+[13.194s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/GpgsvSatellite.idl
+[13.194s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gprmc.idl
+[13.195s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Sentence.msg
+[13.195s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgga.msg
+[13.196s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsa.msg
+[13.196s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgst.msg
+[13.196s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gpgsv.msg
+[13.197s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/GpgsvSatellite.msg
+[13.197s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/msg/Gprmc.msg
+[13.197s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/package_run_dependencies/nmea_msgs
+[13.198s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/parent_prefix_path/nmea_msgs
+[13.198s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/ament_prefix_path.sh
+[13.199s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/ament_prefix_path.dsv
+[13.199s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/path.sh
+[13.199s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/environment/path.dsv
+[13.200s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.bash
+[13.200s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.sh
+[13.201s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.zsh
+[13.201s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/local_setup.dsv
+[13.201s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.dsv
+[13.202s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/ament_index/resource_index/packages/nmea_msgs
+[13.202s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cExport.cmake
+[13.203s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cExport-noconfig.cmake
+[13.203s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cExport.cmake
+[13.204s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[13.204s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cExport.cmake
+[13.205s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[13.205s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_generator_cppExport.cmake
+[13.205s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[13.206s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[13.206s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cppExport.cmake
+[13.206s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[13.207s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake-extras.cmake
+[13.208s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[13.209s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[13.211s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[13.213s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[13.213s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[13.214s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[13.215s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgsConfig.cmake
+[13.216s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/cmake/nmea_msgsConfig-version.cmake
+[13.216s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/share/nmea_msgs/package.xml
+[13.217s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs

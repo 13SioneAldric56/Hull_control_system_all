@@ -1,0 +1,1 @@
+Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_msgs -DCMAKE_INSTALL_PREFIX=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs

@@ -274,9 +274,9 @@ def main():
 
     try:
         # 逐一运行测试
-        test_basic_movement(driver)
+        #test_basic_movement(driver)
         #test_backward(driver)
-        #test_spin_turns(driver)
+        test_spin_turns(driver)
         #test_differential_turns(driver)
         #test_spin_variants(driver)
         #test_custom_turn(driver)

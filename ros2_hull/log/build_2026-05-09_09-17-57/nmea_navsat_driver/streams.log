@@ -1,0 +1,67 @@
+[1.366s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs LD_LIBRARY_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data
+[1.626s] running egg_info
+[1.626s] creating ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info
+[1.627s] writing ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/PKG-INFO
+[1.627s] writing dependency_links to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/dependency_links.txt
+[1.628s] writing entry points to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/entry_points.txt
+[1.628s] writing requirements to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/requires.txt
+[1.628s] writing top-level names to ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/top_level.txt
+[1.634s] writing manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'
+[1.689s] reading manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'
+[1.691s] writing manifest file '../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info/SOURCES.txt'
+[1.692s] running build
+[1.693s] running build_py
+[1.693s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build
+[1.694s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib
+[1.694s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver
+[1.694s] copying src/libnmea_navsat_driver/checksum_utils.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver
+[1.695s] copying src/libnmea_navsat_driver/parser.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver
+[1.695s] copying src/libnmea_navsat_driver/driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver
+[1.695s] copying src/libnmea_navsat_driver/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver
+[1.696s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.696s] copying src/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.697s] copying src/libnmea_navsat_driver/nodes/gps_path.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.697s] copying src/libnmea_navsat_driver/nodes/nmea_serial_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.697s] copying src/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.698s] copying src/libnmea_navsat_driver/nodes/nmea_socket_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.699s] copying src/libnmea_navsat_driver/nodes/nmea_topic_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.699s] copying src/libnmea_navsat_driver/nodes/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes
+[1.699s] running install
+[1.700s] running install_lib
+[1.700s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/checksum_utils.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver
+[1.701s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.701s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/gps_path.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.701s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_serial_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.702s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.702s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_socket_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.703s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/nmea_topic_driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.703s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/nodes/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes
+[1.703s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/parser.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver
+[1.704s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/driver.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver
+[1.704s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build/lib/libnmea_navsat_driver/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver
+[1.704s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/checksum_utils.py to checksum_utils.cpython-38.pyc
+[1.705s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_topic_serial_reader.py to nmea_topic_serial_reader.cpython-38.pyc
+[1.705s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/gps_path.py to gps_path.cpython-38.pyc
+[1.706s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_serial_driver.py to nmea_serial_driver.cpython-38.pyc
+[1.706s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_tcpclient_driver.py to nmea_tcpclient_driver.cpython-38.pyc
+[1.708s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_socket_driver.py to nmea_socket_driver.cpython-38.pyc
+[1.710s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/nmea_topic_driver.py to nmea_topic_driver.cpython-38.pyc
+[1.712s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/nodes/__init__.py to __init__.cpython-38.pyc
+[1.713s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/parser.py to parser.cpython-38.pyc
+[1.717s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/driver.py to driver.cpython-38.pyc
+[1.720s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/libnmea_navsat_driver/__init__.py to __init__.cpython-38.pyc
+[1.722s] running install_data
+[1.722s] copying resource/nmea_navsat_driver -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/ament_index/resource_index/packages
+[1.723s] copying package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver
+[1.724s] copying launch/nmea_serial_driver.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/launch
+[1.724s] copying config/nmea_serial_driver.yaml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/share/nmea_navsat_driver/config
+[1.724s] running install_egg_info
+[1.729s] Copying ../../build/nmea_navsat_driver/nmea_navsat_driver.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages/nmea_navsat_driver-2.0.0-py3.8.egg-info
+[1.730s] running install_scripts
+[1.765s] Installing nmea_serial_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.766s] Installing nmea_socket_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.767s] Installing nmea_tcpclient_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.768s] Installing nmea_topic_driver script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.773s] Installing nmea_topic_serial_reader script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/nmea_navsat_driver
+[1.776s] writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log'
+[1.900s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/nmea_navsat_driver' returned '0': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs LD_LIBRARY_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/nmea_navsat_driver build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/nmea_navsat_driver/install.log --single-version-externally-managed install_data

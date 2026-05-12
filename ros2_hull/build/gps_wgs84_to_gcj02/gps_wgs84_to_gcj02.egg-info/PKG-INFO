@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: gps-wgs84-to-gcj02
+Version: 0.1.0
+Summary: WGS84 to GCJ-02 NavSatFix converter.
+Home-page: UNKNOWN
+Maintainer: wheeltec
+Maintainer-email: wheeltec@todo.todo
+License: BSD-3-Clause
+Description: UNKNOWN
+Platform: UNKNOWN

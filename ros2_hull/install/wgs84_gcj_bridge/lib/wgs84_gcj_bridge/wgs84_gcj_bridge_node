@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'wgs84-gcj-bridge','console_scripts','wgs84_gcj_bridge_node'
+__requires__ = 'wgs84-gcj-bridge'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('wgs84-gcj-bridge', 'console_scripts', 'wgs84_gcj_bridge_node')()
+    )
