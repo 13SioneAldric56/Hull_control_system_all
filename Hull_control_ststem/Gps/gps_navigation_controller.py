@@ -4,8 +4,8 @@ GPS导航控制器模块
 结合GPS定位、电子罗盘与航向角锁定控制，实现自主导航功能
 
 功能特性:
-1. 启动时小车前进2秒，由电子罗盘确定车头方向
-2. 由目标GPS经纬度和当前经纬度计算目标航向角
+1. 车头方向：默认前进若干秒校准；可选 use_forward_heading_calibration=False 静止读取罗盘
+2. 由目标GPS经纬度和当前经纬度计算目标航向角；可选 bearing_recompute_interval 按周期重算方位角
 3. 将目标航向角发送给HeadingLockController进行差速修正
 4. 支持到达判断（距离阈值5m）
 5. 集成GPS数据回调接收
@@ -78,7 +78,9 @@ class GPSNavigationController:
         calibration_duration: float = 2.0,
         calibration_speed: int = 80,
         update_interval: float = 0.1,
-        heading_lock_config: dict = None
+        heading_lock_config: dict = None,
+        use_forward_heading_calibration: bool = True,
+        bearing_recompute_interval: float = 0.0,
     ):
         """
         初始化GPS导航控制器
@@ -94,6 +96,8 @@ class GPSNavigationController:
             calibration_speed: 校准时小车速度 (0-100)
             update_interval: 导航更新间隔(秒)
             heading_lock_config: HeadingLockController配置字典
+            use_forward_heading_calibration: True 时前进若干秒校准车头；False 时以当前罗盘航向为车头，不前进
+            bearing_recompute_interval: 大于0时，按该间隔(秒)重新计算到目标的方位角；0 表示每次更新都重算
         """
         self.target_lat = target_lat
         self.target_lon = target_lon
@@ -104,6 +108,8 @@ class GPSNavigationController:
         self.calibration_duration = calibration_duration
         self.calibration_speed = calibration_speed
         self.update_interval = update_interval
+        self.use_forward_heading_calibration = use_forward_heading_calibration
+        self.bearing_recompute_interval = max(0.0, float(bearing_recompute_interval))
 
         self._heading_lock_config = heading_lock_config or {}
         self._heading_lock_config.setdefault('compass_port', compass_port)
@@ -122,6 +128,8 @@ class GPSNavigationController:
         self._nav_thread: Optional[threading.Thread] = None
 
         self._callbacks: dict = {}
+        self._bearing_cached: Optional[float] = None
+        self._last_bearing_wall_time: float = 0.0
 
         self._state = NavigationState(
             current_lat=0.0,
@@ -185,6 +193,7 @@ class GPSNavigationController:
             config.setdefault('pid_kp', 2.0)
             config.setdefault('pid_ki', 0.1)
             config.setdefault('pid_kd', 0.5)
+            config.setdefault('update_interval', self.update_interval)
 
             self._heading_lock = HeadingLockController(**config)
             print(f"[GPS导航] HeadingLockController已初始化")
@@ -245,6 +254,34 @@ class GPSNavigationController:
 
         return True
 
+    def _calibrate_heading_without_motion(self, settle_time: float = 0.35) -> bool:
+        """
+        不前进，以当前罗盘读数作为车头航向（适用于水面载具等场景）。
+        """
+        print("[GPS导航] 无前进车头校准: 使用当前罗盘航向作为车头方向")
+
+        if not self._heading_lock.start(calibrate=False):
+            print("[GPS导航] HeadingLockController启动失败")
+            return False
+
+        if settle_time > 0:
+            time.sleep(settle_time)
+
+        current_heading = self._heading_lock.get_current_heading()
+        if current_heading is None:
+            print("[GPS导航] 无法读取罗盘数据")
+            self._heading_lock.stop()
+            return False
+
+        self._calibration_heading = current_heading
+        self._state.compass_calibrated = True
+        self._state.current_heading = current_heading
+
+        self._heading_lock._driver.stop()
+        print(f"[GPS导航] 车头方向(无前进): {self._calibration_heading:.1f}°")
+
+        return True
+
     def initialize(self) -> bool:
         """
         初始化导航系统
@@ -253,7 +290,7 @@ class GPSNavigationController:
         1. 初始化GPS读取器
         2. 等待GPS定位成功
         3. 初始化HeadingLockController
-        4. 校准车头方向
+        4. 校准车头方向（可选前进校准或静止读取罗盘）
 
         Returns:
             初始化是否成功
@@ -273,9 +310,14 @@ class GPSNavigationController:
             self._cleanup()
             return False
 
-        if not self._calibrate_heading():
-            self._cleanup()
-            return False
+        if self.use_forward_heading_calibration:
+            if not self._calibrate_heading():
+                self._cleanup()
+                return False
+        else:
+            if not self._calibrate_heading_without_motion():
+                self._cleanup()
+                return False
 
         self._state.is_initialized = True
         self._is_initialized = True
@@ -283,6 +325,8 @@ class GPSNavigationController:
         print(f"[GPS导航] 初始化完成!")
         print(f"  目标位置: ({self.target_lat:.6f}, {self.target_lon:.6f})")
         print(f"  到达阈值: {self.arrival_threshold}米")
+        if self.bearing_recompute_interval > 0:
+            print(f"  方位角重算周期: {self.bearing_recompute_interval}秒")
 
         if 'on_initialized' in self._callbacks:
             self._callbacks['on_initialized']()
@@ -386,13 +430,27 @@ class GPSNavigationController:
 
         self._state.current_heading = self._heading_lock.get_current_heading() or 0
 
-        # 计算方位角
-        bearing = self.calculate_bearing(
-            self._state.current_lat,
-            self._state.current_lon,
-            self.target_lat,
-            self.target_lon
-        )
+        now = time.time()
+        if self.bearing_recompute_interval <= 0:
+            recompute_bearing = True
+        else:
+            recompute_bearing = (
+                self._bearing_cached is None
+                or (now - self._last_bearing_wall_time) >= self.bearing_recompute_interval
+            )
+
+        if recompute_bearing:
+            bearing = self.calculate_bearing(
+                self._state.current_lat,
+                self._state.current_lon,
+                self.target_lat,
+                self.target_lon
+            )
+            self._bearing_cached = bearing
+            self._last_bearing_wall_time = now
+        else:
+            bearing = self._bearing_cached if self._bearing_cached is not None else 0.0
+
         self._state.bearing_angle = bearing
 
         # 航向误差 = 方位角 - 当前航向
@@ -417,18 +475,25 @@ class GPSNavigationController:
 
         航向修正逻辑:
         1. 更新导航状态（计算方位角、误差）
-        2. 使用实时航向误差进行PID控制
+        2. 同步 HeadingLock 目标航向并调用 PID 差速驱动电机
         """
         print("[GPS导航] 导航循环已启动")
 
         while self._is_running and not self._is_arrived:
             self._update_navigation()
 
-            # 使用实时计算的航向误差进行控制
-            if not self._is_arrived:
-                self._heading_lock.set_target_heading(
-                    self._state.current_heading + self._state.heading_error
-                )
+            # 同步目标航向并执行 PID 差速（勿每周期 set_target_heading，否则会重置积分）
+            if not self._is_arrived and self._heading_lock:
+                self._heading_lock.sync_target_heading(self._state.target_heading)
+                current_heading = self._heading_lock.get_current_heading()
+                if current_heading is not None:
+                    continuous_heading = None
+                    if self._heading_lock.use_heading_wrap and self._heading_lock._heading_wrap_reader:
+                        continuous_heading = self._heading_lock.get_continuous_heading()
+                    err = self._heading_lock._calculate_heading_error(
+                        current_heading, continuous_heading
+                    )
+                    self._heading_lock._apply_pid_correction(err)
 
             if 'on_state_update' in self._callbacks:
                 self._callbacks['on_state_update'](self._state)
@@ -482,6 +547,8 @@ class GPSNavigationController:
         self._state.target_lon = lon
         self._is_arrived = False
         self._state.is_arrived = False
+        self._bearing_cached = None
+        self._last_bearing_wall_time = 0.0
         print(f"[GPS导航] 目标已更新: ({lat:.6f}, {lon:.6f})")
 
     def register_callback(self, event: str, callback: Callable):
@@ -508,6 +575,24 @@ class GPSNavigationController:
             if self._current_position and self._current_position.fix_quality > 0:
                 return (self._current_position.latitude, self._current_position.longitude)
         return None
+
+    def is_gps_link_healthy(self) -> bool:
+        """GPS 串口已打开且后台读取线程仍在运行（用于检测掉线、拔线等）。"""
+        reader = self._gps_reader
+        if reader is None:
+            return False
+        conn = getattr(reader, 'serial_conn', None)
+        if conn is None or not conn.is_open:
+            return False
+        th = getattr(reader, 'thread', None)
+        if th is not None and not th.is_alive():
+            return False
+        return True
+
+    def is_navigation_thread_alive(self) -> bool:
+        """导航主循环线程是否仍在运行（navigate() 启动后用于检测异常退出）。"""
+        t = self._nav_thread
+        return t is not None and t.is_alive()
 
     def wait_for_arrival(self, timeout: float = None) -> bool:
         """
@@ -633,6 +718,10 @@ if __name__ == "__main__":
     parser.add_argument('--threshold', type=float, default=5.0, help='到达阈值(米)')
     parser.add_argument('--cal-time', type=float, default=2.0, help='校准时间(秒)')
     parser.add_argument('--duration', type=float, default=None, help='运行时长(秒)')
+    parser.add_argument('--no-forward-cal', action='store_true',
+                        help='禁用前进车头校准，使用当前罗盘航向')
+    parser.add_argument('--bearing-interval', type=float, default=0.0,
+                        help='方位角重算周期(秒)，0表示每次导航周期都重算')
 
     args = parser.parse_args()
 
@@ -643,7 +732,9 @@ if __name__ == "__main__":
         gps_port=args.gps_port,
         gps_baudrate=args.gps_baudrate,
         arrival_threshold=args.threshold,
-        calibration_duration=args.cal_time
+        calibration_duration=args.cal_time,
+        use_forward_heading_calibration=not args.no_forward_cal,
+        bearing_recompute_interval=args.bearing_interval,
     )
 
     controller.run_interactive(duration=args.duration)

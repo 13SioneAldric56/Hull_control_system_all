@@ -1,1 +1,0 @@
-/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wgs84_gcj_bridge/setup.py

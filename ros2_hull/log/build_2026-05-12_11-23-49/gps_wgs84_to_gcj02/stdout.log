@@ -1,0 +1,30 @@
+running egg_info
+writing ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/PKG-INFO
+writing dependency_links to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/dependency_links.txt
+writing entry points to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/entry_points.txt
+writing requirements to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/requires.txt
+writing top-level names to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/top_level.txt
+reading manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'
+writing manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'
+running build
+running build_py
+copying gps_wgs84_to_gcj02/fix_converter.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02
+copying gps_wgs84_to_gcj02/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02
+copying gps_wgs84_to_gcj02/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02
+running install
+running install_lib
+copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/fix_converter.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02
+copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02
+copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build/lib/gps_wgs84_to_gcj02/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02
+byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/fix_converter.py to fix_converter.cpython-38.pyc
+byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/gcj02.py to gcj02.cpython-38.pyc
+byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02/__init__.py to __init__.cpython-38.pyc
+running install_data
+copying resource/gps_wgs84_to_gcj02 -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/ament_index/resource_index/packages
+copying package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/share/gps_wgs84_to_gcj02
+running install_egg_info
+removing '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02-0.1.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02-0.1.0-py3.8.egg-info
+running install_scripts
+Installing wgs84_gcj02_converter script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/gps_wgs84_to_gcj02
+writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log'

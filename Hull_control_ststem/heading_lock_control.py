@@ -791,6 +791,16 @@ class HeadingLockController:
                   f"平均偏差: {self._stats['avg_error']:.1f}° | "
                   f"修正次数: {self._stats['correction_count']}/{self._iteration_count}")
 
+    def sync_target_heading(self, heading: float) -> None:
+        """同步目标航向（不重置 PID），供 GPS 等高频导航循环使用。"""
+        self._target_heading = heading % 360
+        self._sync_target_continuous_heading(self._target_heading)
+
+    def sync_target_heading(self, heading: float) -> None:
+        """同步目标航向（不重置 PID），供 GPS 等高频导航循环使用。"""
+        self._target_heading = heading % 360
+        self._sync_target_continuous_heading(self._target_heading)
+
     def set_target_heading(self, heading: float):
         """手动设置目标航向角"""
         self._target_heading = heading % 360
@@ -919,15 +929,15 @@ if __name__ == "__main__":
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=75,
+    parser.add_argument('-s', '--speed', type=int, default=80,
                         help='基础速度 (0-100)，默认50')
-    parser.add_argument('-t', '--threshold', type=float, default=10.0,
-                        help='偏差死区阈值(度)，默认3度')
+    parser.add_argument('-t', '--threshold', type=float, default=1.0,
+                        help='偏差死区阈值(度)，默认5度')
     parser.add_argument('--kp', type=float, default=2.0,
                         help='PID比例系数，默认2.0')
-    parser.add_argument('--ki', type=float, default=1,
+    parser.add_argument('--ki', type=float, default=10,
                         help='PID积分系数，默认0.1')
-    parser.add_argument('--kd', type=float, default=0.8,
+    parser.add_argument('--kd', type=float, default=200,
                         help='PID微分系数，默认0.5')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
@@ -944,7 +954,7 @@ if __name__ == "__main__":
     parser.add_argument('--gps-baudrate', type=int, default=115200, help='GPS波特率')
     parser.add_argument('--target-lat', type=float, help='目标纬度')
     parser.add_argument('--target-lon', type=float, help='目标经度')
-    parser.add_argument('--arrival-threshold', type=float, default=5.0,
+    parser.add_argument('--arrival-threshold', type=float, default=1.0,
                         help='到达目标阈值(米)，默认5.0米')
     parser.add_argument('--confirm', action='store_true', default=True,
                         help='确认目标航向角后启动（默认启用）')

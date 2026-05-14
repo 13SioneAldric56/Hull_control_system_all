@@ -1,0 +1,21 @@
+[1.983s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/gps_wgs84_to_gcj02': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gps_wgs84_to_gcj02 build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log --single-version-externally-managed install_data
+[2.230s] running egg_info
+[2.232s] writing ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/PKG-INFO
+[2.233s] writing dependency_links to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/dependency_links.txt
+[2.234s] writing entry points to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/entry_points.txt
+[2.235s] writing requirements to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/requires.txt
+[2.235s] writing top-level names to ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/top_level.txt
+[2.382s] reading manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'
+[2.383s] writing manifest file '../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info/SOURCES.txt'
+[2.383s] running build
+[2.383s] running build_py
+[2.383s] running install
+[2.383s] running install_lib
+[2.385s] running install_data
+[2.390s] running install_egg_info
+[2.395s] removing '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02-0.1.0-py3.8.egg-info' (and everything under it)
+[2.617s] Copying ../../build/gps_wgs84_to_gcj02/gps_wgs84_to_gcj02.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages/gps_wgs84_to_gcj02-0.1.0-py3.8.egg-info
+[2.617s] running install_scripts
+[2.658s] Installing wgs84_gcj02_converter script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/gps_wgs84_to_gcj02
+[2.659s] writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log'
+[3.023s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/gps_wgs84_to_gcj02' returned '0': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gps_wgs84_to_gcj02 build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/gps_wgs84_to_gcj02/install.log --single-version-externally-managed install_data

@@ -1,0 +1,56 @@
+[0.033s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/opt/ros/foxy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[0.152s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.216s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.553s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.647s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.658s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.932s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.129s] -- Found nav2_msgs: 0.4.7 (/opt/ros/foxy/share/nav2_msgs/cmake)
+[1.676s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.780s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.785s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.046s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[2.047s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[2.162s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.323s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.326s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.326s] -- Configured cppcheck include dirs: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wheeltec_gps_path/include
+[2.327s] -- Configured cppcheck exclude dirs and/or files: 
+[2.328s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.328s] -- Configured cpplint exclude dirs and/or files: 
+[2.329s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.330s] -- Added test 'lint_cmake' to check CMake code style
+[2.332s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[2.334s] -- Added test 'uncrustify' to check C / C++ code style
+[2.334s] -- Configured uncrustify additional arguments: 
+[2.335s] -- Added test 'xmllint' to check XML markup files
+[2.342s] -- Configuring done
+[2.420s] -- Generating done
+[2.439s] -- Build files have been written to: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[2.543s] [35m[1mScanning dependencies of target gps_path[0m
+[2.629s] [ 50%] [32mBuilding CXX object CMakeFiles/gps_path.dir/src/gps_path.cpp.o[0m
+[13.518s] [100%] [32m[1mLinking CXX executable gps_path[0m
+[14.439s] [100%] Built target gps_path
+[14.490s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/opt/ros/foxy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/cmake --build /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path -- -j8 -l8
+[14.496s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/opt/ros/foxy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path
+[14.532s] -- Install configuration: ""
+[14.533s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path
+[14.536s] -- Set runtime path of "/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/lib/wheeltec_gps_path/gps_path" to ""
+[14.537s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch
+[14.537s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/launch/gps_path.launch.py
+[14.537s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/package_run_dependencies/wheeltec_gps_path
+[14.538s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/parent_prefix_path/wheeltec_gps_path
+[14.538s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.sh
+[14.538s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/ament_prefix_path.dsv
+[14.539s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.sh
+[14.539s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/environment/path.dsv
+[14.540s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.bash
+[14.540s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.sh
+[14.541s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.zsh
+[14.543s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/local_setup.dsv
+[14.544s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.dsv
+[14.545s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/ament_index/resource_index/packages/wheeltec_gps_path
+[14.545s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig.cmake
+[14.545s] -- Up-to-date: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/cmake/wheeltec_gps_pathConfig-version.cmake
+[14.546s] -- Installing: /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path/share/wheeltec_gps_path/package.xml
+[14.547s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path' returned '0': AMENT_PREFIX_PATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wheeltec_gps_path:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs:/opt/ros/foxy CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02:/opt/ros/foxy PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/gps_wgs84_to_gcj02/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_navsat_driver/lib/python3.8/site-packages:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/nmea_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/cmake --install /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wheeltec_gps_path

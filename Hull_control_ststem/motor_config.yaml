@@ -78,7 +78,7 @@ control_mode:
   speed_pid:
     kp: 0.5
     ki: 0.1
-    kd: 0.0
+    kd: 0.1
     limit: 1000  # 输出限幅
 
   # 电流环PID参数 (FOC模式)

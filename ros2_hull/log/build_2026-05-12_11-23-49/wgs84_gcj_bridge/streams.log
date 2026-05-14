@@ -1,0 +1,40 @@
+[1.830s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build
+[2.148s] running develop
+[2.293s] Removing /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84-gcj-bridge.egg-link (link to .)
+[2.423s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge' returned '0': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build
+[2.428s] Invoking command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wgs84_gcj_bridge': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/wgs84_gcj_bridge build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/install.log --single-version-externally-managed install_data --force
+[2.705s] running egg_info
+[2.706s] writing ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/PKG-INFO
+[2.707s] writing dependency_links to ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/dependency_links.txt
+[2.708s] writing entry points to ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/entry_points.txt
+[2.709s] writing requirements to ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/requires.txt
+[2.710s] writing top-level names to ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/top_level.txt
+[2.763s] reading manifest file '../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/SOURCES.txt'
+[2.764s] writing manifest file '../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info/SOURCES.txt'
+[2.765s] running build
+[2.765s] running build_py
+[2.766s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build
+[2.766s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib
+[2.767s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge
+[2.767s] copying wgs84_gcj_bridge/bridge_node.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge
+[2.767s] copying wgs84_gcj_bridge/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge
+[2.768s] copying wgs84_gcj_bridge/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge
+[2.768s] running install
+[2.769s] running install_lib
+[2.769s] creating /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge
+[2.770s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge/bridge_node.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge
+[2.770s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge/gcj02.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge
+[2.771s] copying /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build/lib/wgs84_gcj_bridge/__init__.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge
+[2.771s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge/bridge_node.py to bridge_node.cpython-38.pyc
+[2.773s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge/gcj02.py to gcj02.cpython-38.pyc
+[2.774s] byte-compiling /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge/__init__.py to __init__.cpython-38.pyc
+[2.774s] running install_data
+[2.775s] copying resource/wgs84_gcj_bridge -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/ament_index/resource_index/packages
+[2.775s] copying package.xml -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/wgs84_gcj_bridge
+[2.776s] copying launch/wgs_gcj_bridge.launch.py -> /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/share/wgs84_gcj_bridge/launch
+[2.776s] running install_egg_info
+[2.778s] Copying ../../build/wgs84_gcj_bridge/wgs84_gcj_bridge.egg-info to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages/wgs84_gcj_bridge-0.1.0-py3.8.egg-info
+[2.778s] running install_scripts
+[2.817s] Installing wgs84_gcj_bridge_node script to /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/wgs84_gcj_bridge
+[2.833s] writing list of installed files to '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/install.log'
+[2.889s] Invoked command in '/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/src/wgs84_gcj_bridge' returned '0': PYTHONPATH=/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/orangepi/Desktop/Hull_control_ststem/ros2_hull/install/wgs84_gcj_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/wgs84_gcj_bridge build --build-base /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/build install --record /home/orangepi/Desktop/Hull_control_ststem/ros2_hull/build/wgs84_gcj_bridge/install.log --single-version-externally-managed install_data --force
