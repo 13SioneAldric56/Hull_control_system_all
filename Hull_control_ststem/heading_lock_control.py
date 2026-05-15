@@ -929,15 +929,15 @@ if __name__ == "__main__":
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=80,
-                        help='基础速度 (0-100)，默认50')
-    parser.add_argument('-t', '--threshold', type=float, default=1.0,
+    parser.add_argument('-s', '--speed', type=int, default=70,
+                        help='基础速度 (0-100)，默认80')
+    parser.add_argument('-t', '--threshold', type=float, default=10.0,
                         help='偏差死区阈值(度)，默认5度')
-    parser.add_argument('--kp', type=float, default=2.0,
+    parser.add_argument('--kp', type=float, default=1,
                         help='PID比例系数，默认2.0')
-    parser.add_argument('--ki', type=float, default=10,
+    parser.add_argument('--ki', type=float, default=0,
                         help='PID积分系数，默认0.1')
-    parser.add_argument('--kd', type=float, default=200,
+    parser.add_argument('--kd', type=float, default=0,
                         help='PID微分系数，默认0.5')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
