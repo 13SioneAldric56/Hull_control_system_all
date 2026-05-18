@@ -1,119 +1,129 @@
+#!/usr/bin/env python3
 """
-DDM350B/DDM360B 三维电子罗盘使用示例
+DDM350B 三轴罗盘示例（compass 包）
+
+简单读取一次三轴:
+    python example_ddm350b.py
+
+指定串口 / 连续读取:
+    python example_ddm350b.py -p /dev/ttyS0 -b 115200
+    python example_ddm350b.py --continuous -n 20
 """
 
-from ddm350b import DDM350B, OutputMode, read_compass, close
+from __future__ import annotations
+
+import argparse
+import sys
+import time
+from pathlib import Path
+
+# 保证可导入 Hull_control_ststem/compass
+_ROOT = Path(__file__).resolve().parents[1]
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
+from compass import DDM350B, OutputMode, calibrate, read_compass
+from compass.config import Axis, CompassConfig
 
 
-def example_basic():
-    """基础用法：问答模式读取"""
-    print("=" * 50)
-    print("示例1: 问答模式读取")
-    print("=" * 50)
-    
-    with DDM350B('/dev/ttyS0') as compass:
-        if not compass.is_connected():
-            print("无法连接到罗盘")
-            return
-        
-        # 设置为问答模式
-        compass.set_mode(OutputMode.POLLING)
-        
-        # 读取10次数据
-        for i in range(10):
-            data = compass.read()
-            if data:
-                print(f"[{i+1:2d}] Roll: {data.roll:>+7.2f}°  "
-                      f"Pitch: {data.pitch:>+7.2f}°  "
-                      f"Heading: {data.heading:>6.2f}°")
+def read_once(port: str, baudrate: int, mode: OutputMode) -> bool:
+    """读取并打印当前三轴角度（一次）。"""
+    sample = read_compass(port=port, baudrate=baudrate, mode=mode)
+    if sample is None:
+        print("读取失败，请检查串口与接线")
+        return False
+    print(f"Roll:    {sample.roll:>+8.2f}°")
+    print(f"Pitch:   {sample.pitch:>+8.2f}°")
+    print(f"Heading: {sample.heading:>8.2f}°")
+    return True
+
+
+def read_continuous(
+    port: str,
+    baudrate: int,
+    mode: OutputMode,
+    count: int,
+    interval: float,
+) -> None:
+    cfg = CompassConfig(port=port, baudrate=baudrate, mode=mode, axis=Axis.ALL)
+    compass = DDM350B(cfg)
+    if not compass.connect():
+        print(f"无法连接 {port}")
+        return
+    if mode != OutputMode.POLLING:
+        compass.set_mode(mode)
+
+    print(f"连续读取 ({count} 次, 模式={mode.name})")
+    print("-" * 50)
+    try:
+        for i in range(count):
+            sample = compass.read_full()
+            if sample:
+                print(
+                    f"[{i + 1:3d}] "
+                    f"Roll: {sample.roll:>+7.2f}°  "
+                    f"Pitch: {sample.pitch:>+7.2f}°  "
+                    f"Heading: {sample.heading:>7.2f}°"
+                )
             else:
-                print(f"[{i+1:2d}] 读取失败")
-            compass._buffer.clear()  # 清除缓冲区避免数据堆积
+                print(f"[{i + 1:3d}] 读取失败")
+            if interval > 0:
+                time.sleep(interval)
+    finally:
+        compass.disconnect()
 
 
-def example_continuous():
-    """示例2: 自动输出模式"""
-    print("\n" + "=" * 50)
-    print("示例2: 自动输出模式 (10Hz)")
-    print("=" * 50)
-    
-    compass = DDM350B('/dev/ttyS0', baudrate=115200)
-    if not compass.connect():
-        print("无法连接到罗盘")
+def run_calibration(port: str, baudrate: int, duration: int) -> None:
+    print(f"开始设备校准 ({duration}s)，请旋转罗盘…")
+    ok = calibrate(port=port, baudrate=baudrate, duration=duration)
+    print("校准完成" if ok else "校准失败")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="DDM350B 三轴读取示例")
+    parser.add_argument("-p", "--port", default="/dev/ttyS0", help="串口")
+    parser.add_argument("-b", "--baudrate", type=int, default=115200, help="波特率")
+    parser.add_argument(
+        "-m",
+        "--mode",
+        default="polling",
+        choices=[m.name.lower() for m in OutputMode],
+        help="输出模式",
+    )
+    parser.add_argument(
+        "--continuous",
+        action="store_true",
+        help="连续读取（默认只读一次）",
+    )
+    parser.add_argument("-n", "--count", type=int, default=10, help="连续读取次数")
+    parser.add_argument(
+        "--interval",
+        type=float,
+        default=0.1,
+        help="连续读取间隔(秒)",
+    )
+    parser.add_argument("--calibrate", action="store_true", help="执行设备磁校准")
+    parser.add_argument(
+        "--cal-duration",
+        type=int,
+        default=50,
+        help="校准时长(秒)",
+    )
+    args = parser.parse_args()
+
+    mode = OutputMode[args.mode.upper()]
+
+    if args.calibrate:
+        run_calibration(args.port, args.baudrate, args.cal_duration)
         return
-    
-    # 设置为自动输出10Hz模式
-    compass.set_mode(OutputMode.AUTO_50HZ)
-    
-    # 连续读取5次
-    count = 0
-    for data in compass.read_continuous(interval=0.1):
-        print(f"Roll: {data.roll:>+7.2f}°  "
-              f"Pitch: {data.pitch:>+7.2f}°  "
-              f"Heading: {data.heading:>6.2f}°")
-        count += 1
-        if count >= 99999:
-            break
-    
-    compass.disconnect()
 
-
-def example_quick():
-    """示例3: 快捷函数"""
-    print("\n" + "=" * 50)
-    print("示例3: 快捷函数")
-    print("=" * 50)
-    
-    # 单次读取
-    data = read_compass('/dev/ttyS0', mode=OutputMode.POLLING)
-    if data:
-        print(f"横滚角 (Roll): {data.roll:+.2f}°")
-        print(f"俯仰角 (Pitch): {data.pitch:+.2f}°")
-        print(f"航向角 (Heading): {data.heading:.2f}°")
+    if args.continuous:
+        read_continuous(
+            args.port, args.baudrate, mode, args.count, args.interval
+        )
     else:
-        print("读取失败")
-    
-    close()  # 关闭连接
-
-
-def example_calibration():
-    """示例4: 校准流程"""
-    print("\n" + "=" * 50)
-    print("示例4: 校准流程")
-    print("=" * 50)
-    print("提示: 校准时需要将罗盘水平放置并旋转360°")
-    
-    compass = DDM350B('/dev/ttyS0')
-    if not compass.connect():
-        print("无法连接到罗盘")
-        return
-    
-    input("确保罗盘水平放置后按 Enter 开始校准...")
-    
-    # 开始校准
-    if compass.start_calibration():
-        print("✓ 校准已开始，现在水平旋转罗盘360°...")
-        input("旋转完成后按 Enter 保存校准...")
-        
-        # 保存校准
-        if compass.save_calibration():
-            print("✓ 校准已保存")
-        else:
-            print("✗ 校准保存失败")
-    else:
-        print("✗ 校准开始失败")
-    
-    compass.disconnect()
+        read_once(args.port, args.baudrate, mode)
 
 
 if __name__ == "__main__":
-    print("DDM350B/DDM360B 三维电子罗盘示例程序")
-    print("-" * 50)
-    print("请根据实际串口号修改 /dev/ttyS0")
-    print()
-    
-    # 运行所有示例
-    #example_basic()
-    example_continuous()  # 取消注释以运行连续读取示例
-    # example_quick()       # 取消注释以运行快捷函数示例
-    # example_calibration() # 取消注释以运行校准示例
+    main()

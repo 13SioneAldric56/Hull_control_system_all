@@ -37,7 +37,7 @@ sys.path.insert(0, _root_path)
 
 from Gps.gps import GPSReader, GPSPosition
 from heading_lock_control import HeadingLockController
-from Three_axis_angles.ddm350b import OutputMode
+from compass import OutputMode
 
 
 @dataclass

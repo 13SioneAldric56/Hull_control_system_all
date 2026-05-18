@@ -21,7 +21,7 @@ if _root_path not in sys.path:
     sys.path.insert(0, _root_path)
 
 from Gps.gps_navigation_controller import GPSNavigationController, NavigationState
-from Three_axis_angles.ddm350b import OutputMode
+from compass import OutputMode
 
 # ---------------------------------------------------------------------------
 # 任务默认（可在命令行覆盖到达阈值等；此处便于后期统一改默认值）

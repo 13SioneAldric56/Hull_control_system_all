@@ -34,10 +34,10 @@ sys.path.insert(0, __file__.rsplit('/', 1)[0] if '/' in __file__ else '.')
 
 _root_path = __file__.rsplit('/', 1)[0] if '/' in __file__ else '.'
 
-from Three_axis_angles.compass_kalman import CompassKalmanFilter, FilteredCompassData
-from Three_axis_angles.ddm350b import DDM350B, OutputMode
+from compass import DDM350B, OutputMode
+from compass.config import Axis, CompassConfig
 from control_car.dual_motor_control import create_dual_motor_driver, DifferentialDrive
-from heading_wrap import HeadingWrapReader
+from compass.wrap import HeadingWrapReader
 
 try:
     from Gps.gps import GPSReader, GPSPosition
@@ -400,18 +400,19 @@ class HeadingLockController:
                 print("[罗盘] 航向角回环处理已启用")
                 return True
 
-            self._compass = DDM350B(self.compass_port)
+            self._compass = DDM350B(
+                CompassConfig(
+                    port=self.compass_port,
+                    mode=self.compass_mode,
+                    axis=Axis.ALL,
+                )
+            )
             if not self._compass.connect():
                 print(f"[错误] 无法连接到罗盘 {self.compass_port}")
                 return False
 
-            self._kalman_filter = CompassKalmanFilter(
-                process_noise=0.001,
-                measurement_noise=0.1
-            )
-
-            if not self._compass.set_mode(self.compass_mode):
-                print(f"[警告] 无法设置罗盘模式为 {self.compass_mode.name}，使用默认模式")
+            self._kalman_filter = None  # 航向锁定使用原始罗盘数据，不启用卡尔曼
+            # connect() 已按 CompassConfig.mode 调用 set_mode，无需重复设置
 
             mode_name = self.compass_mode.name if hasattr(self.compass_mode, 'name') else str(self.compass_mode)
             print(f"[罗盘] 已连接到 {self.compass_port}，模式: {mode_name}")
@@ -453,10 +454,9 @@ class HeadingLockController:
             print(f"[校准] 目标航向角已锁定: {self._target_heading:.1f}° (连续: {self._target_continuous_heading:.1f}°)")
         else:
             for i in range(10):
-                raw_data = self._compass.read()
+                raw_data = self._compass.read_full()
                 if raw_data:
-                    filtered = raw_data
-                    samples.append(filtered.heading)
+                    samples.append(raw_data.heading_mag_deg360)
                 time.sleep(0.1)
 
             if len(samples) < 5:
@@ -719,12 +719,11 @@ class HeadingLockController:
                     continuous_heading = data.continuous_heading
                     error = self._calculate_heading_error(current_heading, continuous_heading)
                 else:
-                    raw_data = self._compass.read()
+                    raw_data = self._compass.read_full()
                     if raw_data is None:
                         time.sleep(0.1)
                         continue
-                    filtered = raw_data
-                    current_heading = filtered.heading
+                    current_heading = raw_data.heading_mag_deg360
                     continuous_heading = None
                     # 非GPS模式下，计算航向误差
                     error = self._calculate_heading_error(current_heading, continuous_heading)
@@ -820,10 +819,9 @@ class HeadingLockController:
             if data:
                 return data.wrapped_heading
         elif self._compass:
-            raw_data = self._compass.read()
+            raw_data = self._compass.read_full()
             if raw_data:
-                filtered = raw_data
-                return filtered.heading
+                return raw_data.heading_mag_deg360
         return None
 
     def get_continuous_heading(self) -> float:
