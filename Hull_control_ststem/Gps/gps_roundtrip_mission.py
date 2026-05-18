@@ -34,15 +34,19 @@ DWELL_SEC = 5.0
 BEARING_RECOMPUTE_SEC = 5.0
 
 # ---------------------------------------------------------------------------
-# PID / 航向死区：与 heading_lock_control.HeadingLockController.__init__ 默认一致。
-# 只改本段常量即可作用到本脚本的 heading_lock_config。
+# 电机 / PID：与 heading_lock_control.py __main__ CLI 默认保持一致。
+# 改此处或命令行 --speed / -t / --kp 等与 heading_lock 同步生效。
 # ---------------------------------------------------------------------------
-PID_KP = 0.0005
-PID_KI = 0.02
-PID_KD = 0.5
+BASE_SPEED = 70
 DEVIATION_THRESHOLD_DEG = 5.0
+PID_KP = 0.8
+PID_KI = 0.0
+PID_KD = 1.5
+PID_P_FULL_SCALE_DEG = 25.0
+MAX_TURN_STRENGTH = 0.06
+MIN_TURN_STRENGTH = 0.05
 
-# 与 HeadingLockController 默认 update_interval 一致（影响 PID 的 dt）
+# auto_50hz 控制周期（影响 PID 的 dt）
 HEADING_LOCK_UPDATE_INTERVAL_SEC = 0.02
 
 # 导航线程 on_state_update 打印节流（秒）；0 表示不节流（每个导航周期都打印）
@@ -156,7 +160,14 @@ def run_roundtrip_mission(
     arrival_threshold_m: float = ARRIVAL_THRESHOLD_M,
     dwell_sec: float = DWELL_SEC,
     bearing_recompute_sec: float = BEARING_RECOMPUTE_SEC,
-    base_speed: int = 80,
+    base_speed: int = BASE_SPEED,
+    deviation_threshold_deg: float = DEVIATION_THRESHOLD_DEG,
+    pid_kp: float = PID_KP,
+    pid_ki: float = PID_KI,
+    pid_kd: float = PID_KD,
+    pid_p_full_scale_deg: float = PID_P_FULL_SCALE_DEG,
+    max_turn_strength: float = MAX_TURN_STRENGTH,
+    min_turn_strength: float = MIN_TURN_STRENGTH,
     magnetic_assist: Optional[MagneticAssistProvider] = None,
     telemetry_interval_sec: float = NAV_TELEMETRY_INTERVAL_SEC,
 ) -> None:
@@ -168,13 +179,17 @@ def run_roundtrip_mission(
 
     heading_lock_config = HeadingLockController.build_heading_lock_config(
         base_speed=base_speed,
-        deviation_threshold=DEVIATION_THRESHOLD_DEG,
-        pid_kp=PID_KP,
-        pid_ki=PID_KI,
-        pid_kd=PID_KD,
+        deviation_threshold=deviation_threshold_deg,
+        pid_kp=pid_kp,
+        pid_ki=pid_ki,
+        pid_kd=pid_kd,
+        pid_p_full_scale_deg=pid_p_full_scale_deg,
+        max_turn_strength=max_turn_strength,
+        min_turn_strength=min_turn_strength,
         update_interval=HEADING_LOCK_UPDATE_INTERVAL_SEC,
         compass_mode=OutputMode.AUTO_50HZ,
         use_heading_wrap=True,
+        arrival_threshold_m=arrival_threshold_m,
     )
 
     nav = GPSNavigationController(
@@ -198,6 +213,11 @@ def run_roundtrip_mission(
         print('=' * 60)
         print(f'  到达阈值: {arrival_threshold_m} m')
         print(f'  停泊时长: {dwell_sec} s (自首次到达起连续计时，不重置)')
+        print(
+            f'  电机/PID: speed={base_speed} threshold={deviation_threshold_deg}° '
+            f'Kp={pid_kp} Ki={pid_ki} Kd={pid_kd} '
+            f'pid_scale={pid_p_full_scale_deg}° max_turn={max_turn_strength}'
+        )
         if bearing_recompute_sec > 0:
             print(f'  方位角重算: 每 {bearing_recompute_sec} s')
         else:
@@ -267,11 +287,27 @@ def main() -> None:
     parser.add_argument('--compass-port', type=str, default='/dev/ttyS0', help='罗盘串口')
     parser.add_argument('--gps-port', type=str, default='/dev/ttyS1', help='GPS 串口')
     parser.add_argument('--gps-baudrate', type=int, default=115200, help='GPS 波特率（与 heading_lock GPS 默认一致）')
-    parser.add_argument('--threshold', type=float, default=ARRIVAL_THRESHOLD_M, help='到达阈值(米)')
+    parser.add_argument(
+        '--threshold', '--arrival-threshold',
+        type=float,
+        default=ARRIVAL_THRESHOLD_M,
+        dest='arrival_threshold',
+        help='到达阈值(米)，与 heading_lock --arrival-threshold 一致',
+    )
     parser.add_argument('--dwell', type=float, default=DWELL_SEC, help='到达后停泊秒数')
     parser.add_argument('--bearing-interval', type=float, default=BEARING_RECOMPUTE_SEC,
                         help='方位角重算周期(秒)，0=每导航周期重算（默认，与 heading_lock 内嵌 GPS 一致）')
-    parser.add_argument('--speed', type=int, default=80, help='基础速度 0-100')
+    parser.add_argument('-s', '--speed', type=int, default=BASE_SPEED,
+                        help='基础速度 0-100，与 heading_lock -s 一致')
+    parser.add_argument('-t', '--heading-threshold', type=float, default=DEVIATION_THRESHOLD_DEG,
+                        help='航向偏差死区(度)，与 heading_lock -t 一致')
+    parser.add_argument('--kp', type=float, default=PID_KP, help='PID Kp，与 heading_lock --kp 一致')
+    parser.add_argument('--ki', type=float, default=PID_KI, help='PID Ki')
+    parser.add_argument('--kd', type=float, default=PID_KD, help='PID Kd')
+    parser.add_argument('--pid-scale-deg', type=float, default=PID_P_FULL_SCALE_DEG,
+                        help='P 项满量程航向误差(度)，与 heading_lock --pid-scale-deg 一致')
+    parser.add_argument('--max-turn', type=float, default=MAX_TURN_STRENGTH,
+                        help='最大差速比例 0~1，与 heading_lock --max-turn 一致')
     parser.add_argument(
         '--telemetry-interval',
         type=float,
@@ -287,10 +323,16 @@ def main() -> None:
         compass_port=args.compass_port,
         gps_port=args.gps_port,
         gps_baudrate=args.gps_baudrate,
-        arrival_threshold_m=args.threshold,
+        arrival_threshold_m=args.arrival_threshold,
         dwell_sec=args.dwell,
         bearing_recompute_sec=args.bearing_interval,
         base_speed=args.speed,
+        deviation_threshold_deg=args.heading_threshold,
+        pid_kp=args.kp,
+        pid_ki=args.ki,
+        pid_kd=args.kd,
+        pid_p_full_scale_deg=args.pid_scale_deg,
+        max_turn_strength=args.max_turn,
         magnetic_assist=None,
         telemetry_interval_sec=args.telemetry_interval,
     )
