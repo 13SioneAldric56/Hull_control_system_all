@@ -50,13 +50,13 @@ MOTION_KEYS = frozenset({"w", "s", "a", "d"})
 
 # 某键最后一次在输入流中出现后，超过该时间则认为已松开（需大于按键首次重复的常见延时）
 
-KEY_IDLE_SEC = 0.10
+KEY_IDLE_SEC = 0.01
 
-POLL_SEC = 0.04
+POLL_SEC = 0.01
 
 # 连续判定为「无运动键」达该时间才真正停车，吃掉键重复的短暂空窗
 
-STOP_DEBOUNCE_SEC = 0.16
+STOP_DEBOUNCE_SEC = 0.02
 
 
 

@@ -455,7 +455,7 @@ class HeadingLockController:
             for i in range(10):
                 raw_data = self._compass.read()
                 if raw_data:
-                    filtered = self._kalman_filter.update(raw_data)
+                    filtered = raw_data
                     samples.append(filtered.heading)
                 time.sleep(0.1)
 
@@ -723,7 +723,7 @@ class HeadingLockController:
                     if raw_data is None:
                         time.sleep(0.1)
                         continue
-                    filtered = self._kalman_filter.update(raw_data)
+                    filtered = raw_data
                     current_heading = filtered.heading
                     continuous_heading = None
                     # 非GPS模式下，计算航向误差
@@ -822,7 +822,7 @@ class HeadingLockController:
         elif self._compass:
             raw_data = self._compass.read()
             if raw_data:
-                filtered = self._kalman_filter.update(raw_data)
+                filtered = raw_data
                 return filtered.heading
         return None
 
@@ -933,11 +933,11 @@ if __name__ == "__main__":
                         help='基础速度 (0-100)，默认80')
     parser.add_argument('-t', '--threshold', type=float, default=10.0,
                         help='偏差死区阈值(度)，默认5度')
-    parser.add_argument('--kp', type=float, default=1,
+    parser.add_argument('--kp', type=float, default=200,
                         help='PID比例系数，默认2.0')
     parser.add_argument('--ki', type=float, default=0,
                         help='PID积分系数，默认0.1')
-    parser.add_argument('--kd', type=float, default=0,
+    parser.add_argument('--kd', type=float, default=200,
                         help='PID微分系数，默认0.5')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
