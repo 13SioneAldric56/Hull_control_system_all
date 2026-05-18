@@ -815,7 +815,7 @@ class HeadingLockController:
     def get_current_heading(self) -> float:
         """获取当前航向角 (0-360°)"""
         if self.use_heading_wrap and self._heading_wrap_reader:
-            data = self._heading_wrap_reader.get_full_data()
+            data = self._heading_wrap_reader.update()
             if data:
                 return data.wrapped_heading
         elif self._compass:
@@ -927,7 +927,7 @@ if __name__ == "__main__":
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=70,
+    parser.add_argument('-s', '--speed', type=int, default=80,
                         help='基础速度 (0-100)，默认80')
     parser.add_argument('-t', '--threshold', type=float, default=10.0,
                         help='偏差死区阈值(度)，默认5度')
