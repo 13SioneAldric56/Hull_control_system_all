@@ -22,6 +22,7 @@ if _root_path not in sys.path:
 
 from Gps.gps_navigation_controller import GPSNavigationController, NavigationState
 from compass import OutputMode
+from heading_lock_control import HeadingLockController
 
 # ---------------------------------------------------------------------------
 # 任务默认（可在命令行覆盖到达阈值等；此处便于后期统一改默认值）
@@ -165,18 +166,16 @@ def run_roundtrip_mission(
     """
     assist: MagneticAssistProvider = magnetic_assist or _NoOpMagneticAssist()
 
-    heading_lock_config = {
-        'base_speed': base_speed,
-        'deviation_threshold': DEVIATION_THRESHOLD_DEG,
-        'pid_kp': PID_KP,
-        'pid_ki': PID_KI,
-        'pid_kd': PID_KD,
-        'update_interval': HEADING_LOCK_UPDATE_INTERVAL_SEC,
-        'min_turn_strength': 0.05,
-        'max_turn_strength': 0.2,
-        'compass_mode': OutputMode.AUTO_50HZ,
-        'use_heading_wrap': True,
-    }
+    heading_lock_config = HeadingLockController.build_heading_lock_config(
+        base_speed=base_speed,
+        deviation_threshold=DEVIATION_THRESHOLD_DEG,
+        pid_kp=PID_KP,
+        pid_ki=PID_KI,
+        pid_kd=PID_KD,
+        update_interval=HEADING_LOCK_UPDATE_INTERVAL_SEC,
+        compass_mode=OutputMode.AUTO_50HZ,
+        use_heading_wrap=True,
+    )
 
     nav = GPSNavigationController(
         target_lat=dest_lat,

@@ -190,9 +190,9 @@ class GPSNavigationController:
             config['compass_port'] = self.compass_port
             config.setdefault('base_speed', self.calibration_speed)
             config.setdefault('deviation_threshold', 5.0)
-            config.setdefault('pid_kp', 2.0)
+            config.setdefault('pid_kp', 20)
             config.setdefault('pid_ki', 0.1)
-            config.setdefault('pid_kd', 0.5)
+            config.setdefault('pid_kd', 1000)
             config.setdefault('update_interval', self.update_interval)
 
             self._heading_lock = HeadingLockController(**config)

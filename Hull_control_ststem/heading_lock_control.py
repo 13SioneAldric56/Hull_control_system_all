@@ -65,19 +65,21 @@ class PIDController:
         output_min: float = -1.0,
         output_max: float = 1.0,
         deadband: float = 5,
-        derivative_filter: float = 0.3
+        derivative_filter: float = 0.3,
+        p_full_scale_deg: float = 30.0,
     ):
         """
         初始化PID控制器
 
         Args:
-            kp: 比例系数
+            kp: 比例系数（与 p_full_scale_deg 配合：|error| 达到该角度时 P 项约为 kp）
             ki: 积分系数
             kd: 微分系数
-            output_min: 输出最小值
-            output_max: 输出最大值
+            output_min: 输出最小值（差速修正量下限，通常 -max_turn_strength）
+            output_max: 输出最大值（差速修正量上限，通常 +max_turn_strength）
             deadband: 死区范围（在此范围内的误差不产生输出）
             derivative_filter: 微分滤波系数 (0-1)
+            p_full_scale_deg: P 项满量程对应的航向误差(度)，例如 30 表示约 30° 误差时 P≈kp
         """
         self.kp = kp
         self.ki = ki
@@ -86,6 +88,7 @@ class PIDController:
         self.output_max = output_max
         self.deadband = deadband
         self.derivative_filter = derivative_filter
+        self.p_full_scale_deg = max(1e-6, float(p_full_scale_deg))
 
         self._last_error: float = 0.0
         self._integral: float = 0.0
@@ -128,9 +131,10 @@ class PIDController:
             return 0.0
 
         if abs(error) < self.deadband:
+            self._last_output = 0.0
             return 0.0
 
-        p_term = self.kp * error
+        p_term = self.kp * error / self.p_full_scale_deg
 
         self._integral += error * dt
         self._integral = max(-50, min(50, self._integral))
@@ -148,6 +152,7 @@ class PIDController:
         output = max(self.output_min, min(self.output_max, output))
 
         self._last_error = error
+        self._last_output = output
 
         return output
 
@@ -168,7 +173,9 @@ class PIDController:
             'kd': self.kd,
             'integral': self._integral,
             'last_error': self._last_error,
-            'filtered_derivative': self._filtered_derivative
+            'filtered_derivative': self._filtered_derivative,
+            'last_output': self._last_output,
+            'p_full_scale_deg': self.p_full_scale_deg,
         }
 
 
@@ -192,6 +199,7 @@ class HeadingLockController:
         update_interval: float = 0.02,
         min_turn_strength: float = 0.05,
         max_turn_strength: float = 0.2,
+        pid_p_full_scale_deg: float = 30.0,
         compass_mode: OutputMode = OutputMode.AUTO_50HZ,
         use_heading_wrap: bool = True,
         bearing_update_interval: float = 9999.0,
@@ -212,7 +220,8 @@ class HeadingLockController:
             measurement_noise: 卡尔曼滤波测量噪声
             update_interval: 控制周期(秒)，默认0.02s匹配50Hz输出
             min_turn_strength: 最小转弯强度 (0.0 ~ 1.0)
-            max_turn_strength: 最大转弯强度 (0.0 ~ 1.0)
+            max_turn_strength: 最大转弯强度 (0.0 ~ 1.0)，亦为 PID 输出上限
+            pid_p_full_scale_deg: P 项满量程航向误差(度)，|error| 接近该值时 P 项≈kp
             compass_mode: 罗盘输出模式，默认AUTO_50HZ (50Hz)
             use_heading_wrap: 是否使用航向角回环处理（解决0°/360°边界跳变）
             bearing_update_interval: GPS模式下重算目标方位角周期(秒)
@@ -224,6 +233,7 @@ class HeadingLockController:
         self.update_interval = update_interval
         self.min_turn_strength = min_turn_strength
         self.max_turn_strength = max_turn_strength
+        self.pid_p_full_scale_deg = max(1e-6, float(pid_p_full_scale_deg))
         self.compass_mode = compass_mode
         self.use_heading_wrap = use_heading_wrap
         self.bearing_update_interval = max(0.1, bearing_update_interval)
@@ -233,10 +243,11 @@ class HeadingLockController:
             kp=pid_kp,
             ki=pid_ki,
             kd=pid_kd,
-            output_min=-1.0,
-            output_max=1.0,
+            output_min=-max_turn_strength,
+            output_max=max_turn_strength,
             deadband=deviation_threshold,
-            derivative_filter=0.3
+            derivative_filter=0.3,
+            p_full_scale_deg=self.pid_p_full_scale_deg,
         )
 
         self._heading_wrap_reader = None  # 回环读取器
@@ -251,6 +262,8 @@ class HeadingLockController:
         self._debug: bool = False
         self._last_left_speed: int = 0
         self._last_right_speed: int = 0
+        self._last_pid_output: float = 0.0
+        self._last_turn_correction: float = 0.0
 
         self._stats = {
             'max_error': 0.0,
@@ -266,6 +279,53 @@ class HeadingLockController:
         self._gps_distance: float = float('inf')
         self._calibration_heading: float = 0.0
         self._last_gps_update_time: float = 0.0
+
+    @classmethod
+    def build_heading_lock_config(cls, **overrides) -> dict:
+        """
+        生成 GPSNavigationController.heading_lock_config 参数字典。
+        未传入的项使用 HeadingLockController.__init__ 默认值；传入项覆盖默认值。
+        """
+        defaults = {
+            'compass_port': '/dev/ttyS0',
+            'base_speed': 80,
+            'deviation_threshold': 5.0,
+            'pid_kp': 2.0,
+            'pid_ki': 0.1,
+            'pid_kd': 0.5,
+            'update_interval': 0.02,
+            'min_turn_strength': 0.05,
+            'max_turn_strength': 0.2,
+            'pid_p_full_scale_deg': 30.0,
+            'compass_mode': OutputMode.AUTO_50HZ,
+            'use_heading_wrap': True,
+            'arrival_threshold_m': 10.0,
+            'bearing_update_interval': 9999.0,
+        }
+        defaults.update(overrides)
+        return defaults
+
+    def to_heading_lock_config(self) -> dict:
+        """
+        从当前实例导出 heading_lock_config（含实时 PID 系数）。
+        GPS 模式内外层共用此配置，改构造参数或 set_pid_tuning 后重新初始化 GPS 即可同步。
+        """
+        return self.build_heading_lock_config(
+            compass_port=self.compass_port,
+            base_speed=self.base_speed,
+            deviation_threshold=self.deviation_threshold,
+            pid_kp=self._pid.kp,
+            pid_ki=self._pid.ki,
+            pid_kd=self._pid.kd,
+            update_interval=self.update_interval,
+            min_turn_strength=self.min_turn_strength,
+            max_turn_strength=self.max_turn_strength,
+            pid_p_full_scale_deg=self.pid_p_full_scale_deg,
+            compass_mode=self.compass_mode,
+            use_heading_wrap=self.use_heading_wrap,
+            arrival_threshold_m=self.arrival_threshold_m,
+            bearing_update_interval=self.bearing_update_interval,
+        )
 
     def _init_gps_navigation(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
         """
@@ -283,6 +343,7 @@ class HeadingLockController:
             return False
 
         try:
+            heading_lock_config = self.to_heading_lock_config()
             self._gps_navigation = GPSNavigationController(
                 target_lat=self._target_lat or 0.0,
                 target_lon=self._target_lon or 0.0,
@@ -290,7 +351,15 @@ class HeadingLockController:
                 gps_port=gps_port,
                 gps_baudrate=gps_baudrate,
                 arrival_threshold=self.arrival_threshold_m,
-                calibration_speed=self.base_speed
+                calibration_speed=self.base_speed,
+                update_interval=self.update_interval,
+                heading_lock_config=heading_lock_config,
+            )
+            print(
+                f"[GPS] 内层航向锁 PID: Kp={heading_lock_config['pid_kp']}, "
+                f"Ki={heading_lock_config['pid_ki']}, Kd={heading_lock_config['pid_kd']}, "
+                f"P满量程={heading_lock_config.get('pid_p_full_scale_deg', 30)}°, "
+                f"max_turn={heading_lock_config['max_turn_strength']}"
             )
             print(f"[GPS] GPSNavigationController已初始化")
             return True
@@ -519,24 +588,33 @@ class HeadingLockController:
         - error > 0 (航向偏右) → 需要左转 → 右轮减速
         - error < 0 (航向偏左) → 需要右转 → 左轮减速
 
+        PID 输出已限幅在 [-max_turn_strength, +max_turn_strength]，直接作为差速比例。
+
         Args:
             error: 航向角偏差 (-180° ~ 180°)
         """
+        if self._driver is None:
+            return
+
         pid_output = self._pid.compute(error, self.update_interval)
+        self._last_pid_output = pid_output
 
         if abs(pid_output) < 0.01:
             self._driver.forward(self.base_speed)
             self._last_left_speed = self.base_speed
             self._last_right_speed = self.base_speed
+            self._last_turn_correction = 0.0
             return
 
         left_correction = 0.0
         right_correction = 0.0
 
+        turn = max(self.min_turn_strength, abs(pid_output))
         if error > 0:
-            right_correction = min(abs(pid_output), self.max_turn_strength)
+            right_correction = turn
         else:
-            left_correction = min(abs(pid_output), self.max_turn_strength)
+            left_correction = turn
+        self._last_turn_correction = turn
 
         left_factor = 1.0 - left_correction
         right_factor = 1.0 - right_correction
@@ -589,8 +667,10 @@ class HeadingLockController:
 
         error_bar = self._make_error_bar(error)
 
-        left_speed_display = self._last_left_speed if self._debug else 0
-        right_speed_display = self._last_right_speed if self._debug else 0
+        left_speed_display = self._last_left_speed
+        right_speed_display = self._last_right_speed
+        p_norm = pid_state['kp'] * error / pid_state.get('p_full_scale_deg', 30.0)
+        pid_out = pid_state.get('last_output', self._last_pid_output)
 
         uptime = self._format_uptime(elapsed_time)
         status_icon = "✓" if status == "直行" else "⟲"
@@ -617,12 +697,12 @@ class HeadingLockController:
 {gps_lines}
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  PID 控制输出                                                         ║
-║    ├─ Kp: {pid_state['kp']:>5.2f}  │  P输出: {pid_state['kp']*error:>+7.2f}                     ║
-║    ├─ Ki: {pid_state['ki']:>5.2f}  │  I输出: {pid_state['ki']*pid_state['integral']:>+7.2f}                     ║
-║    └─ Kd: {pid_state['kd']:>5.2f}  │  D输出: {pid_state['kd']*pid_state['filtered_derivative']:>+7.2f}                     ║
+║    ├─ Kp: {pid_state['kp']:>5.2f}  │  P(归一化): {p_norm:>+6.3f}  实际输出: {pid_out:>+5.3f}   ║
+║    ├─ Ki: {pid_state['ki']:>5.2f}  │  I输出: {pid_state['ki']*pid_state['integral']:>+7.3f}                     ║
+║    └─ Kd: {pid_state['kd']:>5.2f}  │  D输出: {pid_state['kd']*pid_state['filtered_derivative']:>+7.3f}  差速: {self._last_turn_correction:>4.2f} ║
 ╠══════════════════════════════════════════════════════════════════════╣
-║  电机控制                                                             ║
-║    ├─ 基础速度: {self.base_speed:>3d}%                                          ║
+║  电机控制 (已施加)                                                    ║
+║    ├─ 基础速度: {self.base_speed:>3d}%  最大差速: {self.max_turn_strength:>4.2f}                    ║
 ║    └─ 左右速度: 左 {left_speed_display:>3d}%  右 {right_speed_display:>3d}%                      ║
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  统计信息                                                             ║
@@ -660,7 +740,10 @@ class HeadingLockController:
 
     def _update_display(self, current_heading: float, error: float, elapsed_time: float, continuous_heading: float = None, gps_state=None):
         """更新终端显示（覆盖式刷新）"""
-        pid_state = self._pid.get_state()
+        pid_source = self._pid
+        if self._gps_enabled and self._gps_navigation and self._gps_navigation._heading_lock:
+            pid_source = self._gps_navigation._heading_lock._pid
+        pid_state = pid_source.get_state()
         status = "直行" if abs(error) < self.deviation_threshold else "修正中"
 
         panel = self._format_info_panel(current_heading, error, pid_state, status, elapsed_time, continuous_heading, gps_state)
@@ -702,10 +785,12 @@ class HeadingLockController:
                             time.sleep(0.05)
                             continue
                         continuous_heading = inner_heading_lock.get_continuous_heading()
-                        # 使用本控制器统一误差符号定义: error = current - target
+                        # 误差与 PID 由内层航向锁计算（与 heading_lock_config 一致）
+                        inner_heading_lock.sync_target_heading(state.target_heading)
                         self._target_heading = state.target_heading
-                        self._sync_target_continuous_heading(self._target_heading)
-                        error = self._calculate_heading_error(current_heading, continuous_heading)
+                        error = inner_heading_lock._calculate_heading_error(
+                            current_heading, continuous_heading
+                        )
                     else:
                         current_heading = None
                         continuous_heading = None
@@ -738,9 +823,12 @@ class HeadingLockController:
 
                 # 在GPS模式下使用内部HeadingLockController的驱动
                 if self._gps_enabled and self._gps_navigation and self._gps_navigation._heading_lock:
-                    self._gps_navigation._heading_lock._apply_pid_correction(error)
-                    self._last_left_speed = self._gps_navigation._heading_lock._last_left_speed
-                    self._last_right_speed = self._gps_navigation._heading_lock._last_right_speed
+                    inner_hl = self._gps_navigation._heading_lock
+                    inner_hl._apply_pid_correction(error)
+                    self._last_left_speed = inner_hl._last_left_speed
+                    self._last_right_speed = inner_hl._last_right_speed
+                    self._last_pid_output = inner_hl._last_pid_output
+                    self._last_turn_correction = inner_hl._last_turn_correction
                 else:
                     self._apply_pid_correction(error)
 
@@ -789,11 +877,6 @@ class HeadingLockController:
             print(f"[统计] 最大偏差: {self._stats['max_error']:.1f}° | "
                   f"平均偏差: {self._stats['avg_error']:.1f}° | "
                   f"修正次数: {self._stats['correction_count']}/{self._iteration_count}")
-
-    def sync_target_heading(self, heading: float) -> None:
-        """同步目标航向（不重置 PID），供 GPS 等高频导航循环使用。"""
-        self._target_heading = heading % 360
-        self._sync_target_continuous_heading(self._target_heading)
 
     def sync_target_heading(self, heading: float) -> None:
         """同步目标航向（不重置 PID），供 GPS 等高频导航循环使用。"""
@@ -923,20 +1006,24 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='航向角锁定自动驾驶控制 (PID + GPS)')
-    parser.add_argument('-d', '--duration', type=float, default=60,
+    parser.add_argument('-d', '--duration', type=float, default=120,
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=80,
+    parser.add_argument('-s', '--speed', type=int, default=70,
                         help='基础速度 (0-100)，默认80')
-    parser.add_argument('-t', '--threshold', type=float, default=10.0,
+    parser.add_argument('-t', '--threshold', type=float, default=5.0,
                         help='偏差死区阈值(度)，默认5度')
-    parser.add_argument('--kp', type=float, default=200,
-                        help='PID比例系数，默认2.0')
+    parser.add_argument('--kp', type=float, default=0.8,
+                        help='PID比例系数；与 --pid-scale-deg 配合，约在该角度误差时 P≈kp')
     parser.add_argument('--ki', type=float, default=0,
                         help='PID积分系数，默认0.1')
-    parser.add_argument('--kd', type=float, default=200,
+    parser.add_argument('--kd', type=float, default=1.5,
                         help='PID微分系数，默认0.5')
+    parser.add_argument('--pid-scale-deg', type=float, default=25,
+                        help='P项满量程航向误差(度)，默认30')
+    parser.add_argument('--max-turn', type=float, default=0.06,
+                        help='最大差速比例 0~1，默认0.2')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
     parser.add_argument('--mode', type=str, default='auto_50hz',
@@ -989,6 +1076,8 @@ if __name__ == "__main__":
             pid_kp=args.kp,
             pid_ki=args.ki,
             pid_kd=args.kd,
+            max_turn_strength=args.max_turn,
+            pid_p_full_scale_deg=args.pid_scale_deg,
             compass_mode=mode_map[args.mode],
             update_interval=interval_map[args.mode],
             use_heading_wrap=not args.no_wrap,
@@ -1022,8 +1111,12 @@ if __name__ == "__main__":
                 print("[错误] GPS导航初始化失败")
                 sys.exit(1)
 
-            # 初始化电机驱动（GPS模式也需要）
-            if not controller._init_motor_driver():
+            # GPS 模式复用内层航向锁的电机驱动，避免双实例争用 GPIO
+            inner_hl = controller._gps_navigation._heading_lock
+            if inner_hl and inner_hl._driver:
+                controller._driver = inner_hl._driver
+                print("[GPS] 已绑定内层电机驱动（与 heading_lock_config 同一实例）")
+            elif not controller._init_motor_driver():
                 print("[错误] 电机驱动初始化失败")
                 controller._gps_navigation.stop()
                 sys.exit(1)
@@ -1058,7 +1151,12 @@ if __name__ == "__main__":
             controller._pid.reset()
             controller._is_running = True
             print(f"[启动] 航向角锁定控制已启动，目标航向: {controller._target_heading:.1f}°")
-            print(f"[PID] Kp={controller._pid.kp}, Ki={controller._pid.ki}, Kd={controller._pid.kd}")
+            inner = controller._gps_navigation._heading_lock
+            pid_src = inner._pid if inner else controller._pid
+            print(
+                f"[PID] Kp={pid_src.kp}, Ki={pid_src.ki}, Kd={pid_src.kd}, "
+                f"P满量程={pid_src.p_full_scale_deg}°, 输出限幅=±{inner.max_turn_strength if inner else controller.max_turn_strength}"
+            )
 
             controller.run_loop(duration=args.duration)
         else:
