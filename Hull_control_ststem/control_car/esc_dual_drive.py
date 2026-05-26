@@ -2,12 +2,20 @@
 双路电调差速驱动（水面推进器正反转，无 H 桥）
 接口与 dual_motor_control.DifferentialDrive 对齐，供键盘遥控复用。
 """
-from esc_pwmchip_control import (
-    PwmchipEscMotor,
-    create_left_esc,
-    create_right_esc,
-    unlock_dual_esc,
-)
+try:
+    from control_car.esc_pwmchip_control import (
+        PwmchipEscMotor,
+        create_left_esc,
+        create_right_esc,
+        unlock_dual_esc,
+    )
+except ImportError:
+    from esc_pwmchip_control import (
+        PwmchipEscMotor,
+        create_left_esc,
+        create_right_esc,
+        unlock_dual_esc,
+    )
 
 
 class EscDifferentialDrive:

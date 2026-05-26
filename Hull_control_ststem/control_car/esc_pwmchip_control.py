@@ -6,19 +6,34 @@
 """
 import time
 
-from dual_motor_control import LEFT_MOTOR, RIGHT_MOTOR
-from esc_motor_control import (
-    PERIOD_US,
-    PULSE_FORWARD_MAX,
-    PULSE_FORWARD_MIN,
-    PULSE_REVERSE_MAX,
-    PULSE_REVERSE_MIN,
-    PULSE_STOP,
-    PWM_RANGE,
-    UNLOCK_HOLD_SEC,
-    pulse_to_duty_percent,
-    pulse_to_ms,
-)
+try:
+    from control_car.dual_motor_control import LEFT_MOTOR, RIGHT_MOTOR
+    from control_car.esc_motor_control import (
+        PERIOD_US,
+        PULSE_FORWARD_MAX,
+        PULSE_FORWARD_MIN,
+        PULSE_REVERSE_MAX,
+        PULSE_REVERSE_MIN,
+        PULSE_STOP,
+        PWM_RANGE,
+        UNLOCK_HOLD_SEC,
+        pulse_to_duty_percent,
+        pulse_to_ms,
+    )
+except ImportError:
+    from dual_motor_control import LEFT_MOTOR, RIGHT_MOTOR
+    from esc_motor_control import (
+        PERIOD_US,
+        PULSE_FORWARD_MAX,
+        PULSE_FORWARD_MIN,
+        PULSE_REVERSE_MAX,
+        PULSE_REVERSE_MIN,
+        PULSE_STOP,
+        PWM_RANGE,
+        UNLOCK_HOLD_SEC,
+        pulse_to_duty_percent,
+        pulse_to_ms,
+    )
 
 PERIOD_NS = PERIOD_US * 1000  # 20_000_000 ns，50Hz
 
