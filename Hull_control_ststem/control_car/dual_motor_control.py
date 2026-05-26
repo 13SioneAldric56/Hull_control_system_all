@@ -7,8 +7,8 @@ import time
 
 # ===================== 左轮 引脚定义 =====================
 LEFT_MOTOR = {
-    "pwm_gpio_num": 54,     # GPIO2_C3  PWM0_M2
-    "pwm_chip": "pwmchip4",
+    "pwm_gpio_num": 50,     # GPIO2_C3  PWM0_M2
+    "pwm_chip": "pwmchip2",
     "pwm_dev": "pwm0",
     "in1": 92,             # GPIO2_D4  前进
     "in2": 52,             # GPIO1_C4  后退
@@ -16,8 +16,8 @@ LEFT_MOTOR = {
 
 # ===================== 右轮 引脚定义 =====================
 RIGHT_MOTOR = {
-    "pwm_gpio_num": 50,     # GPIO1_D2  PWM2_M2
-    "pwm_chip": "pwmchip1",
+    "pwm_gpio_num": 58,     # GPIO1_D2  PWM2_M2
+    "pwm_chip": "pwmchip0",
     "pwm_dev": "pwm0",
     "in1": 49,              # GPIO1_D1  前进
     "in2": 48,              # GPIO1_D0  后退
