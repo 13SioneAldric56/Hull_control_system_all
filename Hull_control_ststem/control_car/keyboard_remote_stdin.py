@@ -478,8 +478,9 @@ def main(argv: Optional[list[str]] = None) -> None:
         signal.signal(signal.SIGINT, prev_sigint)
 
         if drive is not None:
-
             drive.stop()
+            if hasattr(drive, "shutdown"):
+                drive.shutdown()
 
         restore_tty()
 

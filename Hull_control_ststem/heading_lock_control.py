@@ -36,7 +36,8 @@ _root_path = __file__.rsplit('/', 1)[0] if '/' in __file__ else '.'
 
 from compass import DDM350B, OutputMode
 from compass.config import Axis, CompassConfig
-from control_car.dual_motor_control import create_dual_motor_driver, DifferentialDrive
+from control_car.dual_motor_control import create_dual_motor_driver
+from control_car.esc_dual_drive import create_esc_dual_driver
 from compass.wrap import HeadingWrapReader
 
 try:
@@ -203,7 +204,9 @@ class HeadingLockController:
         compass_mode: OutputMode = OutputMode.AUTO_50HZ,
         use_heading_wrap: bool = True,
         bearing_update_interval: float = 9999.0,
-        arrival_threshold_m: float = 10.0
+        arrival_threshold_m: float = 10.0,
+        motor_driver: str = 'hbridge',
+        esc_auto_unlock: bool = True,
     ):
         """
         初始化航向角锁定控制器
@@ -226,7 +229,15 @@ class HeadingLockController:
             use_heading_wrap: 是否使用航向角回环处理（解决0°/360°边界跳变）
             bearing_update_interval: GPS模式下重算目标方位角周期(秒)
             arrival_threshold_m: 到达目标阈值(米)，达到后自动停止
+            motor_driver: 电机驱动类型，'hbridge'（H桥+dual_motor）或 'esc'（pwmchip 电调）
+            esc_auto_unlock: ESC 模式下启动时双路 7.5% 保持 3s 解锁（仅 motor_driver='esc'）
         """
+        motor_driver = (motor_driver or 'hbridge').strip().lower()
+        if motor_driver not in ('hbridge', 'esc'):
+            raise ValueError("motor_driver 须为 'hbridge' 或 'esc'")
+        self.motor_driver = motor_driver
+        self.esc_auto_unlock = bool(esc_auto_unlock)
+
         self.compass_port = compass_port
         self.base_speed = base_speed
         self.deviation_threshold = deviation_threshold
@@ -301,6 +312,8 @@ class HeadingLockController:
             'use_heading_wrap': True,
             'arrival_threshold_m': 10.0,
             'bearing_update_interval': 9999.0,
+            'motor_driver': 'hbridge',
+            'esc_auto_unlock': True,
         }
         defaults.update(overrides)
         return defaults
@@ -325,6 +338,8 @@ class HeadingLockController:
             use_heading_wrap=self.use_heading_wrap,
             arrival_threshold_m=self.arrival_threshold_m,
             bearing_update_interval=self.bearing_update_interval,
+            motor_driver=self.motor_driver,
+            esc_auto_unlock=self.esc_auto_unlock,
         )
 
     def _init_gps_navigation(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
@@ -491,14 +506,41 @@ class HeadingLockController:
             return False
 
     def _init_motor_driver(self) -> bool:
-        """初始化电机驱动"""
+        """初始化电机驱动（H 桥或 ESC，由 motor_driver 选择）"""
+        if self._driver is not None:
+            return True
         try:
-            self._driver = create_dual_motor_driver(self.base_speed)
-            print(f"[电机] 基础速度设置: {self.base_speed}%")
+            if self.motor_driver == 'esc':
+                self._driver = create_esc_dual_driver(
+                    self.base_speed, auto_unlock=self.esc_auto_unlock
+                )
+                print(
+                    f"[电调] pwmchip ESC 已就绪，基础速度 {self.base_speed}%"
+                    + ("（已双路解锁）" if self.esc_auto_unlock else "")
+                )
+            else:
+                self._driver = create_dual_motor_driver(self.base_speed)
+                print(f"[电机] H桥驱动，基础速度 {self.base_speed}%")
             return True
         except Exception as e:
-            print(f"[错误] 电机驱动初始化失败: {e}")
+            print(f"[错误] 电机驱动初始化失败 ({self.motor_driver}): {e}")
+            self._driver = None
             return False
+
+    def _release_motor_driver(self) -> None:
+        """停止并 unexport PWM（H 桥 / ESC 切换前释放通道）"""
+        if not self._driver:
+            return
+        try:
+            self._driver.stop()
+        except OSError as e:
+            print(f"[警告] 驱动 stop 异常: {e}")
+        if hasattr(self._driver, 'shutdown'):
+            try:
+                self._driver.shutdown()
+            except OSError as e:
+                print(f"[警告] 驱动 shutdown 异常: {e}")
+        self._driver = None
 
     def _calibrate_target_heading(self) -> bool:
         """校准目标航向角"""
@@ -637,7 +679,11 @@ class HeadingLockController:
             return False
 
         if not self._init_motor_driver():
-            self._compass.disconnect()
+            if self._heading_wrap_reader:
+                self._heading_wrap_reader.stop()
+                self._heading_wrap_reader = None
+            elif self._compass:
+                self._compass.disconnect()
             return False
 
         if calibrate:
@@ -701,7 +747,7 @@ class HeadingLockController:
 ║    ├─ Ki: {pid_state['ki']:>5.2f}  │  I输出: {pid_state['ki']*pid_state['integral']:>+7.3f}                     ║
 ║    └─ Kd: {pid_state['kd']:>5.2f}  │  D输出: {pid_state['kd']*pid_state['filtered_derivative']:>+7.3f}  差速: {self._last_turn_correction:>4.2f} ║
 ╠══════════════════════════════════════════════════════════════════════╣
-║  电机控制 (已施加)                                                    ║
+║  驱动/电机 (已施加)  类型: {self.motor_driver:<8}                              ║
 ║    ├─ 基础速度: {self.base_speed:>3d}%  最大差速: {self.max_turn_strength:>4.2f}                    ║
 ║    └─ 左右速度: 左 {left_speed_display:>3d}%  右 {right_speed_display:>3d}%                      ║
 ╠══════════════════════════════════════════════════════════════════════╣
@@ -858,8 +904,9 @@ class HeadingLockController:
         """停止控制"""
         self._is_running = False
         if self._driver:
-            self._driver.stop()
-            print("[停止] 电机已停止")
+            label = "电调中位停" if self.motor_driver == 'esc' else "电机已停止"
+            self._release_motor_driver()
+            print(f"[停止] {label}")
         if self._heading_wrap_reader:
             self._heading_wrap_reader.stop()
             self._heading_wrap_reader = None
@@ -1022,7 +1069,7 @@ if __name__ == "__main__":
                         help='PID微分系数，默认0.5')
     parser.add_argument('--pid-scale-deg', type=float, default=25,
                         help='P项满量程航向误差(度)，默认30')
-    parser.add_argument('--max-turn', type=float, default=0.06,
+    parser.add_argument('--max-turn', type=float, default=0.05,
                         help='最大差速比例 0~1，默认0.2')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
@@ -1032,6 +1079,20 @@ if __name__ == "__main__":
                         help='罗盘输出模式，默认auto_50hz')
     parser.add_argument('--no-wrap', action='store_true',
                         help='禁用航向角回环处理（默认启用）')
+
+    motor_group = parser.add_mutually_exclusive_group()
+    motor_group.add_argument(
+        '--esc', action='store_true',
+        help='使用 pwmchip 电调驱动（默认 H 桥 dual_motor）',
+    )
+    motor_group.add_argument(
+        '--hbridge', action='store_true',
+        help='显式使用 H 桥驱动（默认）',
+    )
+    parser.add_argument(
+        '--no-esc-unlock', action='store_true',
+        help='ESC 模式跳过启动时双路 3s 中位解锁',
+    )
 
     # GPS 相关参数
     parser.add_argument('--gps', action='store_true', help='启用GPS导航模式')
@@ -1066,6 +1127,8 @@ if __name__ == "__main__":
         'auto_100hz': 0.01,
     }
 
+    motor_driver = 'esc' if args.esc else 'hbridge'
+
     if args.interactive:
         pid_tuning_helper()
     else:
@@ -1081,7 +1144,9 @@ if __name__ == "__main__":
             compass_mode=mode_map[args.mode],
             update_interval=interval_map[args.mode],
             use_heading_wrap=not args.no_wrap,
-            arrival_threshold_m=args.arrival_threshold
+            arrival_threshold_m=args.arrival_threshold,
+            motor_driver=motor_driver,
+            esc_auto_unlock=not args.no_esc_unlock,
         )
 
         # GPS 导航模式
@@ -1166,4 +1231,7 @@ if __name__ == "__main__":
             else:
                 print("\n初始化失败，请检查:")
                 print("  1. 罗盘是否正确连接到串口")
-                print("  2. 电机驱动GPIO引脚是否配置正确")
+                if motor_driver == 'esc':
+                    print("  2. 电调: sudo、pwmchip0/2 接线、无其他程序占用 PWM")
+                else:
+                    print("  2. H桥: dual_motor_control 中 GPIO/PWM 配置是否正确")

@@ -4,14 +4,31 @@
 """
 import time
 
+try:
+    from control_car.pwm_sysfs import (
+        PWM_PERIOD_HBRIDGE_NS,
+        gpio_unexport,
+        pwm_release,
+        pwm_setup,
+        pwm_set_duty_ns,
+    )
+except ImportError:
+    from pwm_sysfs import (
+        PWM_PERIOD_HBRIDGE_NS,
+        gpio_unexport,
+        pwm_release,
+        pwm_setup,
+        pwm_set_duty_ns,
+    )
+
 
 # ===================== 左轮 引脚定义 =====================
 LEFT_MOTOR = {
     "pwm_gpio_num": 50,     # GPIO2_C3  PWM0_M2
     "pwm_chip": "pwmchip2",
     "pwm_dev": "pwm0",
-    "in1": 92,             # GPIO2_D4  前进
-    "in2": 52,             # GPIO1_C4  后退
+    "in1": 49,             # GPIO2_D4  前进
+    "in2": 48,             # GPIO1_C4  后退
 }
 
 # ===================== 右轮 引脚定义 =====================
@@ -19,11 +36,11 @@ RIGHT_MOTOR = {
     "pwm_gpio_num": 58,     # GPIO1_D2  PWM2_M2
     "pwm_chip": "pwmchip0",
     "pwm_dev": "pwm0",
-    "in1": 49,              # GPIO1_D1  前进
-    "in2": 48,              # GPIO1_D0  后退
+    "in1": 92,              # GPIO1_D1  前进
+    "in2": 52,              # GPIO1_D0  后退
 }
 
-PERIOD_NS = 50000  # 20kHz 周期
+PERIOD_NS = PWM_PERIOD_HBRIDGE_NS  # 20kHz；切换前由 pwm_setup 先 unexport
 
 
 # ===================== GPIO 通用控制函数 =====================
@@ -48,29 +65,30 @@ def gpio_write(pin, level):
 
 
 # ===================== PWM 控制函数 =====================
-def pwm_init(pwm_chip, pwm_dev):
-    """初始化PWM通道"""
-    try:
-        with open(f"/sys/class/pwm/{pwm_chip}/export", "w") as f:
-            dev_num = 0 if "pwm0" in pwm_dev else 1
-            f.write(f"{dev_num}\n")
-        time.sleep(0.2)
-    except OSError:
-        pass
-    with open(f"/sys/class/pwm/{pwm_chip}/{pwm_dev}/period", "w") as f:
-        f.write(f"{PERIOD_NS}")
+def pwm_init(pwm_chip, pwm_dev, gpio_num=None):
+    """初始化 PWM（先 unexport 再按 H 桥 20kHz 写 period）"""
+    pwm_setup(
+        pwm_chip,
+        pwm_dev,
+        PERIOD_NS,
+        duty_ns=0,
+        gpio_num=gpio_num,
+        enable=True,
+    )
+
 
 def pwm_set_duty(pwm_chip, pwm_dev, duty_percent):
     """设置PWM占空比"""
     duty_percent = max(0, min(100, duty_percent))
     duty_ns = int(PERIOD_NS * duty_percent / 100)
-    with open(f"/sys/class/pwm/{pwm_chip}/{pwm_dev}/duty_cycle", "w") as f:
-        f.write(f"{duty_ns}")
+    pwm_set_duty_ns(pwm_chip, pwm_dev, duty_ns, PERIOD_NS)
+
 
 def pwm_enable(pwm_chip, pwm_dev):
     """开启PWM"""
     with open(f"/sys/class/pwm/{pwm_chip}/{pwm_dev}/enable", "w") as f:
         f.write("1")
+
 
 def pwm_disable(pwm_chip, pwm_dev):
     """关闭PWM"""
@@ -85,6 +103,7 @@ class Motor:
     def __init__(self, config):
         self.pwm_chip = config["pwm_chip"]
         self.pwm_dev = config["pwm_dev"]
+        self.pwm_gpio_num = config.get("pwm_gpio_num")
         self.in1 = config["in1"]
         self.in2 = config["in2"]
         self._initialized = False
@@ -97,9 +116,16 @@ class Motor:
         gpio_export(self.in2)
         gpio_set_output(self.in1)
         gpio_set_output(self.in2)
-        pwm_init(self.pwm_chip, self.pwm_dev)
-        pwm_enable(self.pwm_chip, self.pwm_dev)
+        pwm_init(self.pwm_chip, self.pwm_dev, gpio_num=self.pwm_gpio_num)
         self._initialized = True
+
+    def shutdown(self):
+        """释放 PWM（便于切换到 ESC 模式）"""
+        if not self._initialized:
+            return
+        pwm_disable(self.pwm_chip, self.pwm_dev)
+        pwm_release(self.pwm_chip, self.pwm_dev)
+        self._initialized = False
 
     def forward(self, duty=50):
         """正转"""
@@ -348,6 +374,13 @@ class DifferentialDrive:
     def get_turn_profiles(self) -> list:
         """获取所有可用的转弯配置名称"""
         return list(self.TURN_PROFILES.keys())
+
+    def shutdown(self) -> None:
+        """停止并 unexport PWM（便于切换到 ESC 模式）"""
+        self.stop()
+        self.left_motor.shutdown()
+        self.right_motor.shutdown()
+        print("[DifferentialDrive] H桥 PWM 已释放")
 
 
 # ===================== 便捷工厂函数 =====================

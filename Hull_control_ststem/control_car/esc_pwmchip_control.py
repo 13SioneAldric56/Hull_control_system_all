@@ -20,6 +20,7 @@ try:
         pulse_to_duty_percent,
         pulse_to_ms,
     )
+    from control_car.pwm_sysfs import pwm_release, pwm_setup, pwm_set_duty_ns
 except ImportError:
     from dual_motor_control import LEFT_MOTOR, RIGHT_MOTOR
     from esc_motor_control import (
@@ -34,6 +35,7 @@ except ImportError:
         pulse_to_duty_percent,
         pulse_to_ms,
     )
+    from pwm_sysfs import pwm_release, pwm_setup, pwm_set_duty_ns
 
 PERIOD_NS = PERIOD_US * 1000  # 20_000_000 ns，50Hz
 
@@ -41,27 +43,6 @@ PERIOD_NS = PERIOD_US * 1000  # 20_000_000 ns，50Hz
 def pulse_to_duty_ns(pulse_value: int) -> int:
     pulse_value = max(0, min(PWM_RANGE, int(pulse_value)))
     return int(PERIOD_NS * pulse_value / PWM_RANGE)
-
-
-def _pwm_dev_num(pwm_dev: str) -> int:
-    return 0 if "pwm0" in pwm_dev else 1
-
-
-def _pwm_attr(pwm_chip: str, pwm_dev: str, attr: str) -> str:
-    return f"/sys/class/pwm/{pwm_chip}/{pwm_dev}/{attr}"
-
-
-def _pwm_write(pwm_chip: str, pwm_dev: str, attr: str, val: str) -> None:
-    with open(_pwm_attr(pwm_chip, pwm_dev, attr), "w") as f:
-        f.write(val)
-
-
-def gpio_unexport(pin: int) -> None:
-    try:
-        with open("/sys/class/gpio/unexport", "w") as f:
-            f.write(f"{pin}\n")
-    except OSError:
-        pass
 
 
 class PwmchipEscMotor:
@@ -79,44 +60,31 @@ class PwmchipEscMotor:
     def init(self) -> None:
         if self._initialized:
             return
-        gpio_unexport(self.pwm_gpio_num)
-        dev_num = _pwm_dev_num(self.pwm_dev)
-        chip = self.pwm_chip
-        try:
-            with open(f"/sys/class/pwm/{chip}/unexport", "w") as f:
-                f.write(f"{dev_num}\n")
-            time.sleep(0.2)
-        except OSError:
-            pass
-        try:
-            with open(f"/sys/class/pwm/{chip}/export", "w") as f:
-                f.write(f"{dev_num}\n")
-            time.sleep(0.2)
-        except OSError:
-            pass
-
-        _pwm_write(chip, self.pwm_dev, "period", str(PERIOD_NS))
-        self._apply_pulse(PULSE_STOP, log=False)
-        try:
-            _pwm_write(chip, self.pwm_dev, "polarity", "normal")
-        except OSError:
-            pass
-        _pwm_write(chip, self.pwm_dev, "enable", "1")
+        duty_ns = pulse_to_duty_ns(PULSE_STOP)
+        pwm_setup(
+            self.pwm_chip,
+            self.pwm_dev,
+            PERIOD_NS,
+            duty_ns=duty_ns,
+            gpio_num=self.pwm_gpio_num,
+            enable=True,
+        )
         self._initialized = True
         print(
-            f"[{self.label}] {chip}/{self.pwm_dev} GPIO{self.pwm_gpio_num} "
-            f"50Hz 中位={pulse_to_duty_percent(PULSE_STOP):.1f}%"
+            f"[{self.label}] {self.pwm_chip}/{self.pwm_dev} GPIO{self.pwm_gpio_num} "
+            f"50Hz period={PERIOD_NS} 中位={pulse_to_duty_percent(PULSE_STOP):.1f}%"
         )
 
     def _apply_pulse(self, pulse_value: int, log: bool = True) -> None:
         pulse_value = max(0, min(PWM_RANGE, int(pulse_value)))
         self._pulse = pulse_value
-        _pwm_write(
-            self.pwm_chip,
-            self.pwm_dev,
-            "duty_cycle",
-            str(pulse_to_duty_ns(pulse_value)),
-        )
+        if self._initialized:
+            pwm_set_duty_ns(
+                self.pwm_chip,
+                self.pwm_dev,
+                pulse_to_duty_ns(pulse_value),
+                PERIOD_NS,
+            )
         if log:
             print(
                 f"[{self.label}] 档位={pulse_value} "
@@ -161,17 +129,9 @@ class PwmchipEscMotor:
             return
         self.stop()
         time.sleep(0.05)
-        try:
-            _pwm_write(self.pwm_chip, self.pwm_dev, "enable", "0")
-        except OSError:
-            pass
-        try:
-            with open(f"/sys/class/pwm/{self.pwm_chip}/unexport", "w") as f:
-                f.write(f"{_pwm_dev_num(self.pwm_dev)}\n")
-        except OSError:
-            pass
+        pwm_release(self.pwm_chip, self.pwm_dev)
         self._initialized = False
-        print(f"[{self.label}] PWM 已关闭")
+        print(f"[{self.label}] PWM 已关闭 (unexport)")
 
 
 def unlock_dual_esc(
