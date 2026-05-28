@@ -73,8 +73,10 @@ def pwm_setup(
     enable: bool = True,
 ) -> None:
     """
-    完整初始化：释放旧通道 → export → disable → duty=0 → period → duty → enable。
-    用于从 ESC(50Hz) 切到 H 桥(20kHz) 或反向切换。
+    完整初始化：unexport → export → period → duty_cycle → enable。
+
+    Rockchip 等驱动在「新 export」后必须先写 period，再写 duty，最后 enable；
+    在 period 未配置前写 enable=0 会 EINVAL。
     """
     if gpio_num is not None:
         gpio_unexport(gpio_num)
@@ -83,31 +85,39 @@ def pwm_setup(
 
     dev_num = parse_pwm_dev_num(pwm_dev)
     export_path = f"/sys/class/pwm/{pwm_chip}/export"
-    try:
-        with open(export_path, "w") as f:
-            f.write(f"{dev_num}\n")
-    except OSError as e:
-        raise OSError(
-            f"无法 export {pwm_chip} 通道 {dev_num} ({pwm_dev}): {e}"
-        ) from e
-    time.sleep(0.2)
-
     period_path = pwm_attr_path(pwm_chip, pwm_dev, "period")
-    if _pwm_read(period_path) is None:
-        raise FileNotFoundError(
-            f"export 后未找到 {pwm_chip}/{pwm_dev}，请检查 npwm 与 pwm_dev 配置"
-        )
 
-    _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "enable"), "0")
-    _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "duty_cycle"), "0")
+    if _pwm_read(period_path) is None:
+        try:
+            with open(export_path, "w") as f:
+                f.write(f"{dev_num}\n")
+        except OSError as e:
+            raise OSError(
+                f"无法 export {pwm_chip} 通道 {dev_num} ({pwm_dev}): {e}"
+            ) from e
+        time.sleep(0.2)
+        if _pwm_read(period_path) is None:
+            raise FileNotFoundError(
+                f"export 后未找到 {pwm_chip}/{pwm_dev}，请检查 npwm 与 pwm_dev 配置"
+            )
+    else:
+        # 通道已存在（export 未释放干净）：先关输出再改 period
+        _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "enable"), "0", required=False)
+        time.sleep(0.05)
+
+    duty_ns = max(0, min(period_ns, int(duty_ns)))
     _pwm_write(period_path, str(period_ns))
     _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "duty_cycle"), str(duty_ns))
     try:
-        _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "polarity"), "normal", required=False)
+        _pwm_write(
+            pwm_attr_path(pwm_chip, pwm_dev, "polarity"), "normal", required=False
+        )
     except OSError:
         pass
     if enable:
         _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "enable"), "1")
+    else:
+        _pwm_write(pwm_attr_path(pwm_chip, pwm_dev, "enable"), "0", required=False)
 
 
 def pwm_set_duty_ns(
