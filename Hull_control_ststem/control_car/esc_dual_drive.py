@@ -1,17 +1,18 @@
 """
 双路电调差速驱动（水面推进器正反转，无 H 桥）
 接口与 dual_motor_control.DifferentialDrive 对齐，供键盘遥控复用。
+底层为 GPIO 软件 PWM（esc_motor_control）。
 """
 try:
-    from control_car.esc_pwmchip_control import (
-        PwmchipEscMotor,
+    from control_car.esc_motor_control import (
+        EscMotor,
         create_left_esc,
         create_right_esc,
         unlock_dual_esc,
     )
 except ImportError:
-    from esc_pwmchip_control import (
-        PwmchipEscMotor,
+    from esc_motor_control import (
+        EscMotor,
         create_left_esc,
         create_right_esc,
         unlock_dual_esc,
@@ -44,8 +45,8 @@ class EscDifferentialDrive:
 
     def __init__(
         self,
-        left_motor: PwmchipEscMotor,
-        right_motor: PwmchipEscMotor,
+        left_motor: EscMotor,
+        right_motor: EscMotor,
         base_speed: int = 50,
     ):
         self.left_motor = left_motor
@@ -56,9 +57,9 @@ class EscDifferentialDrive:
     def init(self) -> None:
         self.left_motor.init()
         self.right_motor.init()
-        print("[EscDifferentialDrive] 双路 PWM 初始化完成")
+        print("[EscDifferentialDrive] 双路软件 PWM 初始化完成")
 
-    def _apply_side(self, motor: PwmchipEscMotor, factor: float, speed: int) -> None:
+    def _apply_side(self, motor: EscMotor, factor: float, speed: int) -> None:
         wheel_speed = abs(int(speed * factor))
         if factor >= 0:
             motor.forward(wheel_speed)

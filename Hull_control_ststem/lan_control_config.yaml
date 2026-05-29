@@ -1,0 +1,24 @@
+# 船体端局域网控制配置（船在 241 上监听，手机连入）
+
+listen:
+  host: "0.0.0.0"         # 监听地址，0.0.0.0 表示本机所有网卡
+  port: 9000              # 监听端口
+
+report:
+  interval: 0.5           # 状态上报周期(秒)，0.5=2Hz，1.0=1Hz
+
+hardware:
+  compass_port: "/dev/ttyS0"
+  gps_port: "/dev/ttyS1"
+  gps_baudrate: 115200
+
+navigation:
+  arrival_threshold: 1.0
+  base_speed: 50
+  motor_driver: "uart3"     # esc 或 hbridge
+  esc_auto_unlock: true
+  pid_kp: 2.0
+  pid_ki: 0.1
+  pid_kd: 0.5
+  max_turn_strength: 0.2
+  deviation_threshold: 5.0

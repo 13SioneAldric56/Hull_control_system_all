@@ -8,10 +8,10 @@ import signal
 import sys
 import time
 
-GPIO_PIN = 54
+GPIO_PIN = 50
 FREQ_HZ = 50
 PERIOD_US = 1_000_000 // FREQ_HZ      # 20000 us
-PULSE_US = 1500                        # 1.5 ms
+PULSE_US = 1200                        # 1.5 ms
 LOW_US = PERIOD_US - PULSE_US          # 18500 us
 
 _running = True

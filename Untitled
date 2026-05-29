@@ -1,0 +1,66 @@
+# 船控导航客户端（微信小程序）
+
+与 Android 工程 `App/` 使用 **同一套 TCP 行 JSON 协议**，通过 `wx.createTCPSocket` 连接船载服务端（默认 `192.168.1.100:9000`）。
+
+## 协议（与 Android 一致）
+
+**服务端 → 客户端**
+
+```json
+{"type":"state","current":{"lat":22.40442,"lon":113.53488},"target":{"lat":22.40500,"lon":113.53500},"heading":127.5,"running":false}
+```
+
+**客户端 → 服务端**
+
+```json
+{"type":"set_target","target":{"lat":22.40512,"lon":113.53601}}
+{"type":"start"}
+{"type":"stop"}
+```
+
+每条报文 UTF-8 编码，以 `\n` 结尾。
+
+## 环境要求
+
+- [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+- 手机微信较新版本（支持 `createTCPSocket`，建议基础库 **≥ 2.18.0**，工程默认 **3.4.0**）
+- 手机与船载 **同一局域网、同一网段** 最稳妥
+
+## 导入与运行
+
+1. 打开微信开发者工具 → **导入项目**
+2. 目录选择：`c:\Work\Hull_control_ststem\MiniProgram`
+3. 将 `project.config.json` 里的 `appid` 改成你的小程序 AppID（测试可用测试号）
+4. **详情 → 本地设置**：勾选 **不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书**
+5. 编译后可用模拟器看界面；**真机调试**请用手机连与船载相同的 WiFi，填船载板子 IP
+
+## 真机 / 体验版（不发布正式版）
+
+- **真机调试**：开发者工具 → 真机调试 → 扫码，适合联调
+- **体验版**：上传代码 → 小程序后台添加体验成员 → 扫码使用，无需上架
+
+## 功能对照 Android
+
+| 功能 | 说明 |
+|------|------|
+| IP / 端口 | 默认 `192.168.1.100:9000`，本地存储 |
+| 连接 / 断开 | 断线约 **3 秒** 自动重连（未点断开时） |
+| 状态显示 | 当前/目标经纬度、航向、`running` |
+| 发送目标 | `set_target`，坐标保留 5 位小数 |
+| 启动 / 停止 | 二次确认；`running==true` 时仅停止可用 |
+| ACK | Toast 提示 |
+
+## 工程结构
+
+| 路径 | 说明 |
+|------|------|
+| `utils/navProtocol.js` | JSON 编解码（对应 `NavProtocol.kt`） |
+| `utils/coordUtils.js` | 坐标格式化（对应 `CoordUtils.kt`） |
+| `utils/tcpClient.js` | TCP 连接、读行、重连 |
+| `pages/index/` | 主界面 |
+
+## 注意
+
+- 小程序 **无 Android 前台服务**，切到后台后 TCP 可能被系统断开；回到页面后会自动重连（若未手动断开）。
+- 部分 Android 机型在关闭调试时对局域网限制较严，请以真机实测为准。
+- 端口 **9000** 不在微信 TCP 禁止端口列表内；若改端口请查阅[官方连接限制](https://developers.weixin.qq.com/miniprogram/dev/api/network/tcp/wx.createTCPSocket.html)。

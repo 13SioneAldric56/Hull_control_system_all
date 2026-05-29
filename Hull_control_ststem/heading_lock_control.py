@@ -38,6 +38,7 @@ from compass import DDM350B, OutputMode
 from compass.config import Axis, CompassConfig
 from control_car.dual_motor_control import create_dual_motor_driver
 from control_car.esc_dual_drive import create_esc_dual_driver
+from control_car.uart_dual_drive import create_uart_dual_driver
 from compass.wrap import HeadingWrapReader
 
 try:
@@ -207,6 +208,8 @@ class HeadingLockController:
         arrival_threshold_m: float = 10.0,
         motor_driver: str = 'hbridge',
         esc_auto_unlock: bool = True,
+        uart_port: str = '/dev/ttyUSB0',
+        uart_baud: int = 115200,
     ):
         """
         初始化航向角锁定控制器
@@ -229,14 +232,18 @@ class HeadingLockController:
             use_heading_wrap: 是否使用航向角回环处理（解决0°/360°边界跳变）
             bearing_update_interval: GPS模式下重算目标方位角周期(秒)
             arrival_threshold_m: 到达目标阈值(米)，达到后自动停止
-            motor_driver: 电机驱动类型，'hbridge'（H桥+dual_motor）或 'esc'（pwmchip 电调）
+            motor_driver: 电机驱动类型，'hbridge' / 'esc' / 'uart3'（串口 0x06 帧）
             esc_auto_unlock: ESC 模式下启动时双路 7.5% 保持 3s 解锁（仅 motor_driver='esc'）
+            uart_port: UART 电机串口（默认 /dev/ttyUSB0，仅 motor_driver='uart3'）
+            uart_baud: UART 波特率（默认 115200）
         """
         motor_driver = (motor_driver or 'hbridge').strip().lower()
-        if motor_driver not in ('hbridge', 'esc'):
-            raise ValueError("motor_driver 须为 'hbridge' 或 'esc'")
+        if motor_driver not in ('hbridge', 'esc', 'uart3'):
+            raise ValueError("motor_driver 须为 'hbridge'、'esc' 或 'uart3'")
         self.motor_driver = motor_driver
         self.esc_auto_unlock = bool(esc_auto_unlock)
+        self.uart_port = uart_port
+        self.uart_baud = int(uart_baud)
 
         self.compass_port = compass_port
         self.base_speed = base_speed
@@ -314,6 +321,8 @@ class HeadingLockController:
             'bearing_update_interval': 9999.0,
             'motor_driver': 'hbridge',
             'esc_auto_unlock': True,
+            'uart_port': '/dev/ttyUSB0',
+            'uart_baud': 115200,
         }
         defaults.update(overrides)
         return defaults
@@ -340,6 +349,8 @@ class HeadingLockController:
             bearing_update_interval=self.bearing_update_interval,
             motor_driver=self.motor_driver,
             esc_auto_unlock=self.esc_auto_unlock,
+            uart_port=self.uart_port,
+            uart_baud=self.uart_baud,
         )
 
     def _init_gps_navigation(self, gps_port: str = '/dev/ttyS1', gps_baudrate: int = 38400) -> bool:
@@ -506,7 +517,7 @@ class HeadingLockController:
             return False
 
     def _init_motor_driver(self) -> bool:
-        """初始化电机驱动（H 桥或 ESC，由 motor_driver 选择）"""
+        """初始化电机驱动（H 桥 / ESC / UART3，由 motor_driver 选择）"""
         if self._driver is not None:
             return True
         try:
@@ -515,8 +526,18 @@ class HeadingLockController:
                     self.base_speed, auto_unlock=self.esc_auto_unlock
                 )
                 print(
-                    f"[电调] pwmchip ESC 已就绪，基础速度 {self.base_speed}%"
+                    f"[电调] GPIO 软件 PWM ESC 已就绪，基础速度 {self.base_speed}%"
                     + ("（已双路解锁）" if self.esc_auto_unlock else "")
+                )
+            elif self.motor_driver == 'uart3':
+                self._driver = create_uart_dual_driver(
+                    port=self.uart_port,
+                    baud=self.uart_baud,
+                    base_speed=self.base_speed,
+                )
+                print(
+                    f"[UART] {self.uart_port} @ {self.uart_baud}，"
+                    f"基础速度 {self.base_speed}%（0x06 帧）"
                 )
             else:
                 self._driver = create_dual_motor_driver(self.base_speed)
@@ -904,7 +925,12 @@ class HeadingLockController:
         """停止控制"""
         self._is_running = False
         if self._driver:
-            label = "电调中位停" if self.motor_driver == 'esc' else "电机已停止"
+            if self.motor_driver == 'esc':
+                label = "电调中位停"
+            elif self.motor_driver == 'uart3':
+                label = "UART 停止帧已发送"
+            else:
+                label = "电机已停止"
             self._release_motor_driver()
             print(f"[停止] {label}")
         if self._heading_wrap_reader:
@@ -1057,7 +1083,7 @@ if __name__ == "__main__":
                         help='运行时长(秒)，默认20秒')
     parser.add_argument('-p', '--port', type=str, default='/dev/ttyS0',
                         help='罗盘串口路径，默认 /dev/ttyS0')
-    parser.add_argument('-s', '--speed', type=int, default=70,
+    parser.add_argument('-s', '--speed', type=int, default=50,
                         help='基础速度 (0-100)，默认80')
     parser.add_argument('-t', '--threshold', type=float, default=5.0,
                         help='偏差死区阈值(度)，默认5度')
@@ -1069,7 +1095,7 @@ if __name__ == "__main__":
                         help='PID微分系数，默认0.5')
     parser.add_argument('--pid-scale-deg', type=float, default=25,
                         help='P项满量程航向误差(度)，默认30')
-    parser.add_argument('--max-turn', type=float, default=0.05,
+    parser.add_argument('--max-turn', type=float, default=0.5,
                         help='最大差速比例 0~1，默认0.2')
     parser.add_argument('-i', '--interactive', action='store_true',
                         help='启动PID调试模式')
@@ -1083,11 +1109,23 @@ if __name__ == "__main__":
     motor_group = parser.add_mutually_exclusive_group()
     motor_group.add_argument(
         '--esc', action='store_true',
-        help='使用 pwmchip 电调驱动（默认 H 桥 dual_motor）',
+        help='使用 GPIO 软件 PWM 电调驱动（默认 H 桥 dual_motor）',
     )
     motor_group.add_argument(
         '--hbridge', action='store_true',
         help='显式使用 H 桥驱动（默认）',
+    )
+    motor_group.add_argument(
+        '--uart3', action='store_true',
+        help='使用 UART3 串口电机帧（/dev/ttyUSB0，命令码 0x06）',
+    )
+    parser.add_argument(
+        '--uart-port', type=str, default='/dev/ttyUSB0',
+        help='UART 电机串口（仅 --uart3）',
+    )
+    parser.add_argument(
+        '--uart-baud', type=int, default=115200,
+        help='UART 电机波特率（仅 --uart3）',
     )
     parser.add_argument(
         '--no-esc-unlock', action='store_true',
@@ -1127,7 +1165,12 @@ if __name__ == "__main__":
         'auto_100hz': 0.01,
     }
 
-    motor_driver = 'esc' if args.esc else 'hbridge'
+    if args.uart3:
+        motor_driver = 'uart3'
+    elif args.esc:
+        motor_driver = 'esc'
+    else:
+        motor_driver = 'hbridge'
 
     if args.interactive:
         pid_tuning_helper()
@@ -1147,6 +1190,8 @@ if __name__ == "__main__":
             arrival_threshold_m=args.arrival_threshold,
             motor_driver=motor_driver,
             esc_auto_unlock=not args.no_esc_unlock,
+            uart_port=args.uart_port,
+            uart_baud=args.uart_baud,
         )
 
         # GPS 导航模式
@@ -1232,6 +1277,8 @@ if __name__ == "__main__":
                 print("\n初始化失败，请检查:")
                 print("  1. 罗盘是否正确连接到串口")
                 if motor_driver == 'esc':
-                    print("  2. 电调: sudo、pwmchip0/2 接线、无其他程序占用 PWM")
+                    print("  2. 电调: sudo、GPIO50/58 接线、无其他程序占用引脚")
+                elif motor_driver == 'uart3':
+                    print(f"  2. UART: {args.uart_port} 权限、波特率、下位机协议 0x06")
                 else:
                     print("  2. H桥: dual_motor_control 中 GPIO/PWM 配置是否正确")

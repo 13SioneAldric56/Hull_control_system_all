@@ -1,9 +1,10 @@
 """
-SSH / 终端键盘遥控 — 双路电调（GPIO 软件 PWM）
+SSH / 终端键盘遥控 — UART3 双轮（命令码 0x06）
 
-控制逻辑与 keyboard_remote_stdin.py 相同；底层为 esc_dual_drive。
+控制逻辑与 keyboard_remote_stdin.py 相同；速度经串口发出。
+每 50ms 检测一次：若无新的 WASD 输入则发送 0x00 停转帧。
 
-用法: sudo python3 keyboard_remote_esc_stdin.py [--speed N]
+用法: python3 keyboard_remote_uart_stdin.py [--uart-port /dev/ttyUSB0]
 """
 from __future__ import annotations
 
@@ -20,16 +21,16 @@ _car_dir = Path(__file__).resolve().parent
 if str(_car_dir) not in sys.path:
     sys.path.insert(0, str(_car_dir))
 
-from esc_dual_drive import EscDifferentialDrive, create_esc_dual_driver
+from uart_dual_drive import UartDifferentialDrive, create_uart_dual_driver
 
 MOTION_KEYS = frozenset({"w", "s", "a", "d"})
-# 须大于终端按键重复间隔（通常 30~50ms），否则长按会被误判为松手
-KEY_IDLE_SEC = 0.15
-POLL_SEC = 0.01
-STOP_DEBOUNCE_SEC = 0.05
+# 50ms 内无新的 WASD 输入则视为松键；轮询周期同步为 50ms
+KEY_IDLE_SEC = 0.05
+POLL_SEC = 0.05
+STOP_DEBOUNCE_SEC = 0.0
 
 
-def apply_motion(drive: EscDifferentialDrive, active: Set[str]) -> None:
+def apply_motion(drive: UartDifferentialDrive, active: Set[str]) -> None:
     w, s, a, d = "w" in active, "s" in active, "a" in active, "d" in active
 
     if w and s:
@@ -76,19 +77,21 @@ def _compute_sig(active: Set[str]) -> tuple:
 
 
 def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="终端 WASD 双电调遥控 (GPIO 软件 PWM)")
+    p = argparse.ArgumentParser(description="终端 WASD UART3 双轮遥控 (0x06)")
+    p.add_argument("--speed", "-s", type=int, default=50, help="初始速度 0～100")
     p.add_argument(
-        "--speed",
-        "-s",
-        type=int,
-        default=50,
-        metavar="N",
-        help="初始整体速度 0～100，默认 50",
+        "--uart-port", default="/dev/ttyUSB0", help="电机 UART 设备，默认 /dev/ttyUSB0"
+    )
+    p.add_argument("--uart-baud", type=int, default=115200, help="波特率，默认 115200")
+    p.add_argument(
+        "--test-tx",
+        action="store_true",
+        help="仅测试串口发送（停→前进→停），不进入键盘循环",
     )
     p.add_argument(
-        "--no-unlock",
+        "--no-debug-tx",
         action="store_true",
-        help="跳过启动时双路 3s 中位解锁（已解锁过时可加此参数）",
+        help="关闭每次发帧的十六进制日志",
     )
     return p.parse_args(argv)
 
@@ -97,7 +100,7 @@ def main(argv: Optional[list[str]] = None) -> None:
     args = parse_args(argv)
     base_speed = max(0, min(100, args.speed))
 
-    drive: Optional[EscDifferentialDrive] = None
+    drive: Optional[UartDifferentialDrive] = None
     fd = sys.stdin.fileno()
     old_term: Optional[list] = None
 
@@ -125,11 +128,27 @@ def main(argv: Optional[list[str]] = None) -> None:
         print("需要 Unix 终端（termios/tty），当前环境不可用。")
         sys.exit(1)
 
-    print("初始化双路电调软件 PWM，请确保螺旋桨/桨叶已拆除 …")
-    drive = create_esc_dual_driver(
-        base_speed=base_speed, auto_unlock=not args.no_unlock
+    print(f"初始化 UART 电机驱动 {args.uart_port} @ {args.uart_baud} …")
+    drive = create_uart_dual_driver(
+        port=args.uart_port,
+        baud=args.uart_baud,
+        base_speed=base_speed,
+        debug_tx=not args.no_debug_tx,
     )
     drive.base_speed = base_speed
+
+    if args.test_tx:
+        import time as _time
+
+        print("[test-tx] 停 → 前进 50% → 停（各间隔 0.5s）")
+        drive.stop()
+        _time.sleep(0.5)
+        drive.forward()
+        _time.sleep(0.5)
+        drive.stop()
+        drive.shutdown()
+        print("[test-tx] 完成，请用逻辑分析仪/示波器查看 TX 引脚")
+        return
 
     last_seen: dict[str, float] = {}
     prev_sigint = signal.signal(signal.SIGINT, on_signal)
@@ -137,24 +156,17 @@ def main(argv: Optional[list[str]] = None) -> None:
     old_term = termios.tcgetattr(fd)
     tty.setcbreak(fd)
 
-    verbose_diag = os.environ.get("KEYBOARD_REMOTE_DEBUG")
-
     if not sys.stdin.isatty():
         print(
-            "[警告] stdin 不是交互式 TTY，键盘可能无效。请在本地终端前台运行。",
+            "[警告] stdin 不是交互式 TTY，键盘可能无效。",
             file=sys.stderr,
         )
 
     print(
-        "ESC 键盘遥控 | W/S 前进/后退 | A/D 原地转 | W+A/W+D 前进左/右弯\n"
-        "空格/x 中位停 | +/- 调速(5) | [ / ] 调速(10) | 1～9→10～90% | 0→100%\n"
-        f"松手: 键空闲≥{KEY_IDLE_SEC * 1000:.0f}ms 且无运动≥{STOP_DEBOUNCE_SEC * 1000:.0f}ms 才中位停\n"
-        f"base_speed={drive.base_speed}% （--speed / -s 指定）| q 退出"
+        f"UART 键盘遥控 | {args.uart_port} | W/S 前进/后退 | A/D 原地转\n"
+        "空格/x 停 | +/- 调速 | q 退出\n"
+        f"base_speed={drive.base_speed}% | 松键检测={int(KEY_IDLE_SEC * 1000)}ms"
     )
-    if verbose_diag:
-        print(
-            f"[KEYBOARD_REMOTE_DEBUG] stdin isatty={sys.stdin.isatty()} fd={fd}"
-        )
 
     last_cmd: Optional[tuple] = None
     stop_idle_since: Optional[float] = None
